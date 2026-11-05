@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# The research agent (agent/research.ts, Vercel AI SDK on Bun), run from the repo root with its .env.
+root="$(dirname "$(readlink -f "$0")")"
+cd "$root" && exec bun --env-file="$root/.env" "$root/agent/research.ts" "$@"

@@ -1,0 +1,102 @@
+/* Material 3 tokens in the spirit of Google's own products (Search knowledge panels, Gemini, Workspace).
+   Scoped to .g3 so the experiment never leaks into the live site. */
+.g3 {
+  --g-surface: #f8fafd;
+  --g-surface-low: #f0f4f9;
+  --g-container: #ffffff;
+  --g-container-high: #e9eef6;
+  --g-primary: #0b57d0;
+  --g-on-primary: #ffffff;
+  --g-primary-container: #d3e3fd;
+  --g-on-primary-container: #041e49;
+  --g-secondary-container: #c2e7ff;
+  --g-on-secondary-container: #001d35;
+  --g-tertiary-container: #c4eed0;
+  --g-on-tertiary-container: #072711;
+  --g-on-surface: #1f1f1f;
+  --g-on-surface-variant: #444746;
+  --g-outline: #747775;
+  --g-outline-variant: #c4c7c5;
+  --g-shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 1px 3px 1px rgb(0 0 0 / 0.15);
+  background: var(--g-surface);
+  color: var(--g-on-surface);
+  font-family: var(--font-google-sans), var(--font-inter), system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .g3 {
+    --g-surface: #131314;
+    --g-surface-low: #1b1b1c;
+    --g-container: #1e1f20;
+    --g-container-high: #282a2c;
+    --g-primary: #a8c7fa;
+    --g-on-primary: #062e6f;
+    --g-primary-container: #0842a0;
+    --g-on-primary-container: #d3e3fd;
+    --g-secondary-container: #004a77;
+    --g-on-secondary-container: #c2e7ff;
+    --g-tertiary-container: #0f5223;
+    --g-on-tertiary-container: #c4eed0;
+    --g-on-surface: #e3e3e3;
+    --g-on-surface-variant: #c4c7c5;
+    --g-outline: #8e918f;
+    --g-outline-variant: #444746;
+    --g-shadow: 0 1px 2px rgb(0 0 0 / 0.5), 0 2px 6px 2px rgb(0 0 0 / 0.3);
+  }
+}
+:root[data-theme="dark"] .g3 {
+  --g-surface: #131314;
+  --g-surface-low: #1b1b1c;
+  --g-container: #1e1f20;
+  --g-container-high: #282a2c;
+  --g-primary: #a8c7fa;
+  --g-on-primary: #062e6f;
+  --g-primary-container: #0842a0;
+  --g-on-primary-container: #d3e3fd;
+  --g-secondary-container: #004a77;
+  --g-on-secondary-container: #c2e7ff;
+  --g-tertiary-container: #0f5223;
+  --g-on-tertiary-container: #c4eed0;
+  --g-on-surface: #e3e3e3;
+  --g-on-surface-variant: #c4c7c5;
+  --g-outline: #8e918f;
+  --g-outline-variant: #444746;
+  --g-shadow: 0 1px 2px rgb(0 0 0 / 0.5), 0 2px 6px 2px rgb(0 0 0 / 0.3);
+}
+
+.g3 .g-mono {
+  font-family: var(--font-google-sans-code), var(--font-geist-mono), ui-monospace, monospace;
+}
+
+/* Text button / chip state layers, as Material does them: an 8% tint of the content colour. */
+.g3 .g-state {
+  position: relative;
+  isolation: isolate;
+}
+.g3 .g-state::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: currentColor;
+  opacity: 0;
+  transition: opacity 150ms;
+  z-index: -1;
+}
+.g3 .g-state:hover::after {
+  opacity: 0.08;
+}
+.g3 .g-state:active::after {
+  opacity: 0.12;
+}
+.g3 .g-state:focus-visible {
+  outline: 2px solid var(--g-primary);
+  outline-offset: 2px;
+}
+
+.g3 details > summary {
+  list-style: none;
+}
+.g3 details > summary::-webkit-details-marker {
+  display: none;
+}

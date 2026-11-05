@@ -1,0 +1,30 @@
+/* Ideas sheet: scores tinted like conditional formatting (green as the score rises), and the note
+   that these are opinions, not archive records. */
+
+.tw-idea-score {
+  display: inline-flex;
+  justify-content: flex-end;
+  min-width: 34px;
+  padding: 1px 6px;
+  border-radius: var(--t-border-radius-sm);
+  background: color-mix(in srgb, var(--t-color-green) calc(var(--p) * var(--p) * 32%), transparent);
+  color: color-mix(in srgb, var(--t-tag-text-green) calc(var(--p) * 100%), var(--t-font-color-secondary));
+  font-weight: var(--t-font-weight-medium);
+}
+.tw-idea-note {
+  display: flex;
+  align-items: center;
+  gap: var(--t-spacing-2);
+  min-height: 34px;
+  padding: var(--t-spacing-1) var(--t-spacing-3);
+  border-bottom: 1px solid var(--t-border-color-light);
+  background: var(--t-background-secondary);
+  color: var(--t-font-color-tertiary);
+  font-size: var(--t-font-size-sm);
+}
+.tw-idea-pitch {
+  margin: 2px 0 var(--t-spacing-1);
+  color: var(--t-font-color-secondary);
+  font-size: var(--t-font-size-sm);
+  line-height: 1.45;
+}

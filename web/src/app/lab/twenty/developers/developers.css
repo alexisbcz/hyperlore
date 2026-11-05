@@ -1,0 +1,73 @@
+/* API page: endpoint rows and code samples in Twenty's code font. */
+.twd-wrap {
+  padding: var(--t-spacing-4) var(--t-spacing-6) var(--t-spacing-8);
+  max-width: 920px;
+}
+.twd-lede {
+  color: var(--t-font-color-secondary);
+  line-height: 1.55;
+  max-width: 68ch;
+  margin: 0 0 var(--t-spacing-4);
+}
+.twd-endpoints {
+  list-style: none;
+  margin: 0 0 var(--t-spacing-6);
+  padding: 0;
+  border: 1px solid var(--t-border-color-medium);
+  border-radius: var(--t-border-radius-sm);
+}
+.twd-endpoint {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 2px var(--t-spacing-3);
+  padding: var(--t-spacing-3);
+  border-bottom: 1px solid var(--t-border-color-light);
+}
+.twd-endpoint:last-child {
+  border-bottom: 0;
+}
+.twd-path {
+  font-family: var(--t-code-font-family);
+  font-size: var(--t-font-size-md);
+  color: var(--t-font-color-primary);
+  overflow-wrap: anywhere;
+}
+.twd-endpoint p {
+  grid-column: 2;
+  margin: 0;
+  color: var(--t-font-color-secondary);
+  line-height: 1.5;
+}
+.twd-h2 {
+  font-size: var(--t-font-size-lg);
+  font-weight: var(--t-font-weight-semi-bold);
+  margin: 0 0 var(--t-spacing-2);
+}
+.twd-code {
+  margin: 0 0 var(--t-spacing-3);
+  border: 1px solid var(--t-border-color-medium);
+  border-radius: var(--t-border-radius-sm);
+  overflow: hidden;
+}
+.twd-code-head {
+  display: flex;
+  align-items: center;
+  gap: var(--t-spacing-1);
+  height: 30px;
+  padding: 0 var(--t-spacing-3);
+  border-bottom: 1px solid var(--t-border-color-light);
+  background: var(--t-background-secondary);
+  color: var(--t-font-color-tertiary);
+  font-size: var(--t-font-size-sm);
+}
+.twd-code pre {
+  margin: 0;
+  padding: var(--t-spacing-3);
+  overflow-x: auto;
+  font-family: var(--t-code-font-family);
+  font-size: var(--t-font-size-sm);
+  line-height: 1.6;
+  color: var(--t-font-color-primary);
+  background: var(--t-background-primary);
+  white-space: pre;
+}

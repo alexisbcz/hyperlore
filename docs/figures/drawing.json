@@ -1,0 +1,312 @@
+{
+  "dependencies": "node_modules",
+  "modelScripts": [
+    "model.js"
+  ],
+  "drawings": [
+    {
+      "id": "agent",
+      "title": "Anatomy of a research agent",
+      "description": "Concept: a research agent as layers. A model, the shared brief, the skills it works from, and the tools that reach the web.",
+      "parts": [
+        {
+          "id": "model",
+          "name": "Model"
+        },
+        {
+          "id": "brief",
+          "name": "Brief · AGENTS.md"
+        },
+        {
+          "id": "skill-research-company",
+          "name": "Skill · research-company"
+        },
+        {
+          "id": "skill-x-history",
+          "name": "Skill · x-history"
+        },
+        {
+          "id": "skill-hacker-news",
+          "name": "Skill · hacker-news"
+        },
+        {
+          "id": "skill-youtube-transcripts",
+          "name": "Skill · youtube-transcripts"
+        },
+        {
+          "id": "tool-hl",
+          "name": "./hl CLI · the gate"
+        },
+        {
+          "id": "tool-sc",
+          "name": "ScrapeCreators · paid"
+        },
+        {
+          "id": "tool-ctx",
+          "name": "Context.dev · metered"
+        },
+        {
+          "id": "tool-free",
+          "name": "Free APIs · HN, Bluesky, Wayback, yt-dlp"
+        }
+      ],
+      "colors": {
+        "hues": {
+          "model": 260,
+          "brief": 60,
+          "skill-research-company": 150,
+          "skill-x-history": 150,
+          "skill-hacker-news": 150,
+          "skill-youtube-transcripts": 150,
+          "tool-hl": 25,
+          "tool-sc": 300,
+          "tool-ctx": 300,
+          "tool-free": 200
+        },
+        "fills": [
+          "model",
+          "brief",
+          "skill-research-company",
+          "skill-x-history",
+          "skill-hacker-news",
+          "skill-youtube-transcripts",
+          "tool-hl",
+          "tool-sc",
+          "tool-ctx",
+          "tool-free"
+        ]
+      },
+      "parameters": [
+        {
+          "key": "gap",
+          "label": "Layer gap",
+          "min": 10,
+          "max": 50,
+          "default": 36,
+          "step": 1,
+          "unit": "concept units"
+        }
+      ],
+      "concept": true
+    },
+    {
+      "id": "pipeline",
+      "title": "From the web to the website",
+      "description": "Concept: how a fact travels from a primary source, through the raw cache and the ./hl gate, into the archive, the snapshot and the site.",
+      "parts": [
+        {
+          "id": "web",
+          "name": "The web · tweets, videos, threads, archives"
+        },
+        {
+          "id": "raw",
+          "name": "Raw cache · data/raw"
+        },
+        {
+          "id": "gate",
+          "name": "The gate · ./hl refuses unsourced facts"
+        },
+        {
+          "id": "col-sources",
+          "name": "Archive · Sources"
+        },
+        {
+          "id": "col-events",
+          "name": "Archive · Events"
+        },
+        {
+          "id": "col-quotes",
+          "name": "Archive · Quotes"
+        },
+        {
+          "id": "col-entities",
+          "name": "Archive · Entities"
+        },
+        {
+          "id": "col-assets",
+          "name": "Archive · Assets"
+        },
+        {
+          "id": "col-pages",
+          "name": "Archive · Pages"
+        },
+        {
+          "id": "snapshot",
+          "name": "Snapshot · web/data/archive.json"
+        },
+        {
+          "id": "site",
+          "name": "Website · Next.js"
+        }
+      ],
+      "colors": {
+        "hues": {
+          "web": 200,
+          "raw": 60,
+          "gate": 25,
+          "col-sources": 260,
+          "col-events": 260,
+          "col-quotes": 260,
+          "col-entities": 260,
+          "col-assets": 260,
+          "col-pages": 260,
+          "snapshot": 150,
+          "site": 300
+        },
+        "fills": [
+          "web",
+          "raw",
+          "gate",
+          "col-sources",
+          "col-events",
+          "col-quotes",
+          "col-entities",
+          "col-assets",
+          "col-pages",
+          "snapshot",
+          "site"
+        ]
+      },
+      "parameters": [
+        {
+          "key": "gap",
+          "label": "Layer gap",
+          "min": 10,
+          "max": 50,
+          "default": 34,
+          "step": 1,
+          "unit": "concept units"
+        }
+      ],
+      "concept": true
+    },
+    {
+      "id": "fact",
+      "title": "Anatomy of a fact",
+      "description": "Concept: one archived event and the chain of records behind it, down to the original post. A second source merges in when another agent re-adds the same event.",
+      "parts": [
+        {
+          "id": "original",
+          "name": "Original post · the URL"
+        },
+        {
+          "id": "raw",
+          "name": "Raw capture · cached JSON"
+        },
+        {
+          "id": "source",
+          "name": "Source · url, type, author, date"
+        },
+        {
+          "id": "quote",
+          "name": "Quote · the exact words"
+        },
+        {
+          "id": "event",
+          "name": "Event · date, kind, title"
+        },
+        {
+          "id": "second",
+          "name": "Second source · merged on re-add"
+        }
+      ],
+      "colors": {
+        "hues": {
+          "original": 200,
+          "raw": 60,
+          "source": 260,
+          "quote": 25,
+          "event": 150,
+          "second": 260
+        },
+        "fills": [
+          "original",
+          "raw",
+          "source",
+          "quote",
+          "event",
+          "second"
+        ]
+      },
+      "parameters": [
+        {
+          "key": "gap",
+          "label": "Layer gap",
+          "min": 10,
+          "max": 50,
+          "default": 26,
+          "step": 1,
+          "unit": "concept units"
+        }
+      ],
+      "concept": true
+    },
+    {
+      "id": "swarm",
+      "title": "Many agents, one archive",
+      "description": "Concept: agents run in parallel, each from its own skill, and all write through the same ./hl gate into one archive. Paid calls and deletions are logged.",
+      "parts": [
+        {
+          "id": "archive",
+          "name": "Shared archive · DocumentDB"
+        },
+        {
+          "id": "ledger",
+          "name": "Spend ledger · api_calls"
+        },
+        {
+          "id": "deletions",
+          "name": "Deletions · every removal with a reason"
+        },
+        {
+          "id": "gate",
+          "name": "The gate · ./hl"
+        },
+        {
+          "id": "agent-a",
+          "name": "Agent · x-history"
+        },
+        {
+          "id": "agent-b",
+          "name": "Agent · youtube-transcripts"
+        },
+        {
+          "id": "agent-c",
+          "name": "Agent · hacker-news"
+        }
+      ],
+      "colors": {
+        "hues": {
+          "archive": 260,
+          "ledger": 300,
+          "deletions": 300,
+          "gate": 25,
+          "agent-a": 150,
+          "agent-b": 150,
+          "agent-c": 150
+        },
+        "fills": [
+          "archive",
+          "ledger",
+          "deletions",
+          "gate",
+          "agent-a",
+          "agent-b",
+          "agent-c"
+        ]
+      },
+      "parameters": [
+        {
+          "key": "gap",
+          "label": "Layer gap",
+          "min": 10,
+          "max": 50,
+          "default": 28,
+          "step": 1,
+          "unit": "concept units"
+        }
+      ],
+      "concept": true
+    }
+  ]
+}

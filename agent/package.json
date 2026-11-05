@@ -1,0 +1,19 @@
+{
+  "name": "hyperlore-agent",
+  "license": "AGPL-3.0-only",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "research": "bun research.ts"
+  },
+  "packageManager": "bun@1.4.2",
+  "dependencies": {
+    "@ai-sdk/anthropic": "4.0.97",
+    "ai": "7.0.163",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4.4",
+    "typescript": "^7.0.2"
+  }
+}

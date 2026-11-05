@@ -1,0 +1,2328 @@
+[
+ {
+  "id": "swe-bench",
+  "name": "SWE-bench",
+  "kind": "Coding",
+  "producer": "Princeton NLP (Jimenez, Yang and co-authors)",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": 2023,
+  "measures": "Whether an AI system can resolve real GitHub issues with a working patch.",
+  "how": "2,294 task instances crawled from 12 popular Python repositories, scored by the project's own tests.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://www.swebench.com/original.html",
+  "sources": [
+   "https://www.swebench.com/original.html",
+   "https://arxiv.org/abs/2310.06770"
+  ]
+ },
+ {
+  "id": "swe-bench-verified",
+  "name": "SWE-bench Verified",
+  "kind": "Coding",
+  "producer": "SWE-bench team with OpenAI Preparedness",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": 2024,
+  "measures": "Issue resolution on a subset of SWE-bench that engineers confirmed is solvable.",
+  "how": "500 human-validated problems from SWE-bench.",
+  "status": "Superseded",
+  "criticism": "OpenAI stopped reporting it in February 2026, saying its audit of hard problems found flawed tests in at least 59.4% and that scores reflect training exposure; swebench.com still runs it.",
+  "url": "https://www.swebench.com/",
+  "sources": [
+   "https://www.swebench.com/",
+   "https://github.com/SWE-bench/SWE-bench",
+   "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/",
+   "https://arxiv.org/abs/2512.10218"
+  ]
+ },
+ {
+  "id": "swe-bench-multilingual",
+  "name": "SWE-bench Multilingual",
+  "kind": "Coding",
+  "producer": "SWE-bench team",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": null,
+  "measures": "Issue resolution beyond Python.",
+  "how": "300 tasks from 42 repositories in 9 programming languages.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://www.swebench.com/multilingual.html",
+  "sources": [
+   "https://www.swebench.com/multilingual.html"
+  ]
+ },
+ {
+  "id": "swe-bench-multimodal",
+  "name": "SWE-bench Multimodal",
+  "kind": "Coding",
+  "producer": "SWE-bench team",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": null,
+  "measures": "Issue resolution where the issue contains visual elements.",
+  "how": "517 issues with visual elements in the original release.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://www.swebench.com/multimodal.html",
+  "sources": [
+   "https://www.swebench.com/multimodal.html"
+  ]
+ },
+ {
+  "id": "swe-bench-live",
+  "name": "SWE-bench-Live",
+  "kind": "Coding",
+  "producer": "SWE-bench-Live authors",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": null,
+  "measures": "Software engineering on recent tasks rather than a frozen dataset.",
+  "how": "Evaluates AI systems on the latest software engineering tasks, with a public leaderboard.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://swe-bench-live.github.io/",
+  "sources": [
+   "https://swe-bench-live.github.io/",
+   "https://github.com/SWE-bench-Live/SWE-bench-Live"
+  ]
+ },
+ {
+  "id": "swe-bench-pro",
+  "name": "SWE-Bench Pro",
+  "kind": "Coding",
+  "producer": "Scale AI",
+  "producerType": "Company",
+  "producerSlug": null,
+  "year": null,
+  "measures": "Coding on production repositories, as a harder successor to SWE-bench Verified.",
+  "how": "Tasks drawn from production codebases; OpenAI recommends reporting it in place of Verified.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://scale.com/blog/swe-atlas",
+  "sources": [
+   "https://scale.com/blog/swe-atlas",
+   "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/"
+  ]
+ },
+ {
+  "id": "swe-atlas",
+  "name": "SWE Atlas",
+  "kind": "Coding",
+  "producer": "Scale AI",
+  "producerType": "Company",
+  "producerSlug": null,
+  "year": null,
+  "measures": "Investigative and maintenance engineering work by coding agents.",
+  "how": "Net-new tasks written by professional engineers inside the same repositories as SWE-Bench Pro.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://scale.com/blog/swe-atlas",
+  "sources": [
+   "https://scale.com/blog/swe-atlas"
+  ]
+ },
+ {
+  "id": "humaneval",
+  "name": "HumanEval",
+  "kind": "Coding",
+  "producer": "OpenAI",
+  "producerType": "Big lab",
+  "producerSlug": "openai",
+  "year": 2021,
+  "measures": "Whether a model can write a Python function from its docstring.",
+  "how": "164 Python problems checked for functional correctness, introduced with Codex.",
+  "status": "Saturated",
+  "criticism": "Artificial Analysis CEO Micah Hill-Smith said in 2026 that writing the Python functions in HumanEval is now pretty trivial.",
+  "url": "https://github.com/openai/human-eval",
+  "sources": [
+   "https://github.com/openai/human-eval",
+   "https://arxiv.org/abs/2107.03374",
+   "https://huggingface.co/spaces/bigcode/bigcode-models-leaderboard",
+   "https://www.latent.space/p/artificialanalysis"
+  ]
+ },
+ {
+  "id": "mbpp",
+  "name": "MBPP",
+  "kind": "Coding",
+  "producer": "Google Research",
+  "producerType": "Big lab",
+  "producerSlug": "google",
+  "year": 2021,
+  "measures": "Whether a model can write short Python programs from a description.",
+  "how": "Around 1,000 crowd-sourced entry-level problems, each with a solution and 3 automated tests.",
+  "status": null,
+  "criticism": null,
+  "url": "https://github.com/google-research/google-research/tree/master/mbpp",
+  "sources": [
+   "https://github.com/google-research/google-research/tree/master/mbpp",
+   "https://arxiv.org/abs/2108.07732"
+  ]
+ },
+ {
+  "id": "livecodebench",
+  "name": "LiveCodeBench",
+  "kind": "Coding",
+  "producer": "LiveCodeBench authors",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": 2024,
+  "measures": "Code generation on contest problems released after a model's training cutoff.",
+  "how": "Continuously collects new problems and tags them by date to avoid contamination.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://livecodebench.github.io/",
+  "sources": [
+   "https://livecodebench.github.io/",
+   "https://arxiv.org/abs/2403.07974"
+  ]
+ },
+ {
+  "id": "bigcodebench",
+  "name": "BigCodeBench",
+  "kind": "Coding",
+  "producer": "BigCode project",
+  "producerType": "Community",
+  "producerSlug": null,
+  "year": 2024,
+  "measures": "Code generation that needs diverse function calls and complex instructions.",
+  "how": "Published with a Hugging Face leaderboard Space.",
+  "status": null,
+  "criticism": null,
+  "url": "https://huggingface.co/spaces/bigcode/bigcodebench-leaderboard",
+  "sources": [
+   "https://huggingface.co/spaces/bigcode/bigcodebench-leaderboard",
+   "https://arxiv.org/abs/2406.15877"
+  ]
+ },
+ {
+  "id": "aider-polyglot",
+  "name": "Aider polyglot",
+  "kind": "Coding",
+  "producer": "Aider",
+  "producerType": "Community",
+  "producerSlug": null,
+  "year": 2024,
+  "measures": "How well models edit code across many popular languages.",
+  "how": "Harder successor to Aider's code editing benchmark, published with a leaderboard.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://aider.chat/2024/12/21/polyglot.html",
+  "sources": [
+   "https://aider.chat/2024/12/21/polyglot.html",
+   "https://aider.chat/docs/leaderboards/"
+  ]
+ },
+ {
+  "id": "terminal-bench",
+  "name": "Terminal-Bench",
+  "kind": "Coding",
+  "producer": "Laude Institute and Harbor framework team",
+  "producerType": "Non-profit",
+  "producerSlug": null,
+  "year": 2025,
+  "measures": "Whether agents can finish end-to-end tasks in a real terminal.",
+  "how": "About 100 tasks in the beta, run in a terminal sandbox; version 2.0 runs on Harbor, and Artificial Analysis uses 66 tasks of version 4.0.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://www.tbench.ai/",
+  "sources": [
+   "https://www.tbench.ai/",
+   "https://github.com/laude-institute/terminal-bench",
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
+  ]
+ },
+ {
+  "id": "scicode",
+  "name": "SciCode",
+  "kind": "Coding",
+  "producer": "SciCode authors",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": 2024,
+  "measures": "Scientific research coding, with problems curated by scientists.",
+  "how": "Research coding tasks; Artificial Analysis grades them on isolated executors.",
+  "status": null,
+  "criticism": null,
+  "url": "https://arxiv.org/abs/2407.13168",
+  "sources": [
+   "https://arxiv.org/abs/2407.13168",
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
+  ]
+ },
+ {
+  "id": "commit0",
+  "name": "Commit0",
+  "kind": "Coding",
+  "producer": "Commit0 authors",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": 2024,
+  "measures": "Whether agents can write whole libraries from scratch.",
+  "how": "Agents get a specification document and must produce the library.",
+  "status": null,
+  "criticism": null,
+  "url": "https://arxiv.org/abs/2412.01769",
+  "sources": [
+   "https://arxiv.org/abs/2412.01769"
+  ]
+ },
+ {
+  "id": "mirrorcode",
+  "name": "MirrorCode",
+  "kind": "Coding",
+  "producer": "Epoch AI with METR",
+  "producerType": "Non-profit",
+  "producerSlug": "epoch-ai",
+  "year": null,
+  "measures": "Long-horizon coding: reimplementing an entire program without its source.",
+  "how": "25 target programs, matched exactly on end-to-end tests including held-out tests.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://epoch.ai/mirrorcode",
+  "sources": [
+   "https://epoch.ai/mirrorcode",
+   "https://epoch.ai/benchmarks/mirrorcode"
+  ]
+ },
+ {
+  "id": "baxbench",
+  "name": "BaxBench",
+  "kind": "Coding",
+  "producer": "BaxBench authors",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": 2025,
+  "measures": "Whether models generate correct and secure backends.",
+  "how": "Backend generation tasks, per the paper.",
+  "status": null,
+  "criticism": null,
+  "url": "https://arxiv.org/abs/2502.11844",
+  "sources": [
+   "https://arxiv.org/abs/2502.11844"
+  ]
+ },
+ {
+  "id": "mmlu",
+  "name": "MMLU",
+  "kind": "General knowledge",
+  "producer": "Dan Hendrycks and co-authors",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": 2020,
+  "measures": "Broad knowledge and reasoning across 57 subjects.",
+  "how": "Multiple-choice test of 57 tasks, from elementary mathematics to law.",
+  "status": "Saturated",
+  "criticism": "HLE's authors say LLMs now exceed 90%; 'Are We Done with MMLU?' found ground-truth errors, such as 57% of analysed Virology questions.",
+  "url": "https://github.com/hendrycks/test",
+  "sources": [
+   "https://github.com/hendrycks/test",
+   "https://arxiv.org/abs/2009.03300",
+   "https://arxiv.org/abs/2501.14249",
+   "https://arxiv.org/abs/2406.04127"
+  ]
+ },
+ {
+  "id": "mmlu-pro",
+  "name": "MMLU-Pro",
+  "kind": "General knowledge",
+  "producer": "TIGER-Lab",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": 2024,
+  "measures": "A harder, more robust version of MMLU.",
+  "how": "Multi-task multiple-choice benchmark with a Hugging Face leaderboard Space.",
+  "status": null,
+  "criticism": "Artificial Analysis lists it among legacy evaluations outside its current Intelligence Index.",
+  "url": "https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro",
+  "sources": [
+   "https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro",
+   "https://arxiv.org/abs/2406.01574",
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
+  ]
+ },
+ {
+  "id": "gpqa",
+  "name": "GPQA",
+  "kind": "General knowledge",
+  "producer": "Rein and co-authors",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": 2023,
+  "measures": "Graduate-level knowledge in biology, physics and chemistry.",
+  "how": "448 multiple-choice questions written by domain experts.",
+  "status": null,
+  "criticism": "Artificial Analysis lists GPQA Diamond among legacy evaluations outside its current Intelligence Index.",
+  "url": "https://arxiv.org/abs/2311.12022",
+  "sources": [
+   "https://arxiv.org/abs/2311.12022",
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
+  ]
+ },
+ {
+  "id": "simpleqa",
+  "name": "SimpleQA",
+  "kind": "General knowledge",
+  "producer": "OpenAI",
+  "producerType": "Big lab",
+  "producerSlug": "openai",
+  "year": 2024,
+  "measures": "Whether a model answers short fact-seeking questions correctly.",
+  "how": "Short questions built adversarially against models; OpenAI's simple-evals repo keeps a reference implementation.",
+  "status": null,
+  "criticism": null,
+  "url": "https://arxiv.org/abs/2411.04368",
+  "sources": [
+   "https://arxiv.org/abs/2411.04368",
+   "https://github.com/openai/simple-evals"
+  ]
+ },
+ {
+  "id": "truthfulqa",
+  "name": "TruthfulQA",
+  "kind": "General knowledge",
+  "producer": "Lin, Hilton and Evans",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": 2021,
+  "measures": "Whether a model avoids repeating common human falsehoods.",
+  "how": "817 questions across 38 categories.",
+  "status": null,
+  "criticism": null,
+  "url": "https://arxiv.org/abs/2109.07958",
+  "sources": [
+   "https://arxiv.org/abs/2109.07958"
+  ]
+ },
+ {
+  "id": "hle",
+  "name": "Humanity's Last Exam",
+  "kind": "General knowledge",
+  "producer": "Center for AI Safety with Scale AI",
+  "producerType": "Non-profit",
+  "producerSlug": null,
+  "year": 2025,
+  "measures": "Expert-level closed-ended academic questions.",
+  "how": "2,500 questions from nearly 1,000 subject experts across 500+ institutions.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://lastexam.ai/",
+  "sources": [
+   "https://lastexam.ai/",
+   "https://github.com/centerforaisafety/hle",
+   "https://arxiv.org/abs/2501.14249",
+   "https://scale.com/leaderboard"
+  ]
+ },
+ {
+  "id": "supergpqa",
+  "name": "SuperGPQA",
+  "kind": "General knowledge",
+  "producer": "SuperGPQA authors",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": 2025,
+  "measures": "Graduate knowledge across specialist disciplines.",
+  "how": "Covers 285 graduate disciplines.",
+  "status": null,
+  "criticism": null,
+  "url": "https://arxiv.org/abs/2502.14739",
+  "sources": [
+   "https://arxiv.org/abs/2502.14739"
+  ]
+ },
+ {
+  "id": "big-bench",
+  "name": "BIG-bench",
+  "kind": "General knowledge",
+  "producer": "Google and collaborators",
+  "producerType": "Community",
+  "producerSlug": "google",
+  "year": 2022,
+  "measures": "A wide range of language capabilities contributed by many researchers.",
+  "how": "Collaborative benchmark of many tasks (repository lists them).",
+  "status": null,
+  "criticism": null,
+  "url": "https://github.com/google/BIG-bench",
+  "sources": [
+   "https://github.com/google/BIG-bench",
+   "https://arxiv.org/abs/2206.04615"
+  ]
+ },
+ {
+  "id": "swag",
+  "name": "SWAG",
+  "kind": "General knowledge",
+  "producer": "Zellers and co-authors",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": 2018,
+  "measures": "Commonsense inference: choosing the likely next event.",
+  "how": "Large-scale adversarially filtered dataset.",
+  "status": "Superseded",
+  "criticism": null,
+  "url": "https://rowanzellers.com/swag/",
+  "sources": [
+   "https://rowanzellers.com/swag/",
+   "https://arxiv.org/abs/1905.07830"
+  ]
+ },
+ {
+  "id": "hellaswag",
+  "name": "HellaSwag",
+  "kind": "General knowledge",
+  "producer": "Zellers and co-authors",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": 2019,
+  "measures": "Harder commonsense sentence completion.",
+  "how": "Multiple-choice completion, built as a harder sequel to SWAG.",
+  "status": null,
+  "criticism": null,
+  "url": "https://rowanzellers.com/hellaswag/",
+  "sources": [
+   "https://rowanzellers.com/hellaswag/",
+   "https://arxiv.org/abs/1905.07830"
+  ]
+ },
+ {
+  "id": "gsm8k",
+  "name": "GSM8K",
+  "kind": "Math",
+  "producer": "OpenAI",
+  "producerType": "Big lab",
+  "producerSlug": "openai",
+  "year": 2021,
+  "measures": "Multi-step reasoning on grade-school word problems.",
+  "how": "Maths word problems introduced in 'Training Verifiers'.",
+  "status": null,
+  "criticism": null,
+  "url": "https://arxiv.org/abs/2110.14168",
+  "sources": [
+   "https://arxiv.org/abs/2110.14168"
+  ]
+ },
+ {
+  "id": "math-dataset",
+  "name": "MATH",
+  "kind": "Math",
+  "producer": "Hendrycks and co-authors",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": 2021,
+  "measures": "Mathematical problem solving on competition-style problems.",
+  "how": "Competition problems; Artificial Analysis lists MATH-500 as a legacy evaluation.",
+  "status": null,
+  "criticism": "Artificial Analysis lists MATH-500 among legacy evaluations outside its current Intelligence Index.",
+  "url": "https://github.com/hendrycks/math",
+  "sources": [
+   "https://github.com/hendrycks/math",
+   "https://arxiv.org/abs/2103.03874",
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
+  ]
+ },
+ {
+  "id": "aime-2025",
+  "name": "AIME 2025",
+  "kind": "Math",
+  "producer": "Artificial Analysis",
+  "producerType": "Company",
+  "producerSlug": "artificial-analysis",
+  "year": 2025,
+  "measures": "Competition maths from the American Invitational Mathematics Examination.",
+  "how": "The 2025 AIME I and II papers, used as a legacy evaluation.",
+  "status": "Superseded",
+  "criticism": "Artificial Analysis lists it among legacy evaluations outside its current Intelligence Index.",
+  "url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+  "sources": [
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
+  ]
+ },
+ {
+  "id": "frontiermath",
+  "name": "FrontierMath",
+  "kind": "Math",
+  "producer": "Epoch AI",
+  "producerType": "Non-profit",
+  "producerSlug": "epoch-ai",
+  "year": 2024,
+  "measures": "Advanced maths from undergraduate problems to research level.",
+  "how": "Several hundred unpublished problems in Tiers 1-4, with a held-out set.",
+  "status": "Active",
+  "criticism": "OpenAI commissioned and owns 300 questions and saw most solutions; Epoch disclosed OpenAI's role only on 20 December 2024, and TechCrunch reported criticism over the delay.",
+  "url": "https://epoch.ai/frontiermath",
+  "sources": [
+   "https://epoch.ai/frontiermath",
+   "https://arxiv.org/abs/2411.04872",
+   "https://epoch.ai/latest/openai-and-frontiermath",
+   "https://techcrunch.com/2025/01/19/ai-benchmarking-organization-criticized-for-waiting-to-disclose-funding-from-openai"
+  ]
+ },
+ {
+  "id": "frontiermath-open-problems",
+  "name": "FrontierMath: Open Problems",
+  "kind": "Math",
+  "producer": "Epoch AI",
+  "producerType": "Non-profit",
+  "producerSlug": "epoch-ai",
+  "year": null,
+  "measures": "Whether AI can solve significant open research problems.",
+  "how": "Open problems whose solutions are computationally verifiable.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://epoch.ai/frontiermath/open-problems",
+  "sources": [
+   "https://epoch.ai/frontiermath/open-problems",
+   "https://epoch.ai/frontiermath"
+  ]
+ },
+ {
+  "id": "imo-grand-challenge",
+  "name": "IMO Grand Challenge",
+  "kind": "Math",
+  "producer": "IMO Grand Challenge committee",
+  "producerType": "Community",
+  "producerSlug": null,
+  "year": null,
+  "measures": "Whether an AI can earn a gold medal in a formal version of the IMO.",
+  "how": "Formal-to-formal rules; open-source and offline AI (rules marked preliminary, not affiliated with the IMO Foundation).",
+  "status": null,
+  "criticism": null,
+  "url": "https://imo-grand-challenge.github.io/",
+  "sources": [
+   "https://imo-grand-challenge.github.io/"
+  ]
+ },
+ {
+  "id": "aimo-prize",
+  "name": "AIMO Prize",
+  "kind": "Math",
+  "producer": "XTX Markets",
+  "producerType": "Company",
+  "producerSlug": null,
+  "year": 2024,
+  "measures": "AI models solving olympiad-style maths problems.",
+  "how": "Prize series: progress prizes opened in April 2024, October 2024 and November 2025.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://aimoprize.com/",
+  "sources": [
+   "https://aimoprize.com/"
+  ]
+ },
+ {
+  "id": "matharena",
+  "name": "MathArena",
+  "kind": "Math",
+  "producer": "ETH Zurich (Dekoninck and co-authors)",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": 2025,
+  "measures": "Maths reasoning on new competition problems models have not seen.",
+  "how": "Each model runs four times per problem; supported by a grant from Epoch AI.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://matharena.ai/",
+  "sources": [
+   "https://matharena.ai/"
+  ]
+ },
+ {
+  "id": "minif2f",
+  "name": "miniF2F",
+  "kind": "Math",
+  "producer": "Zheng, Han and Polu",
+  "producerType": "Community",
+  "producerSlug": null,
+  "year": 2021,
+  "measures": "Neural theorem proving on formal olympiad-level statements.",
+  "how": "Formal problem statements usable across proof systems.",
+  "status": null,
+  "criticism": null,
+  "url": "https://arxiv.org/abs/2109.00110",
+  "sources": [
+   "https://arxiv.org/abs/2109.00110"
+  ]
+ },
+ {
+  "id": "putnambench",
+  "name": "PutnamBench",
+  "kind": "Math",
+  "producer": "Tsoukalas and co-authors",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": 2024,
+  "measures": "Neural theorem provers on Putnam competition problems.",
+  "how": "1,692 hand-constructed formalisations.",
+  "status": null,
+  "criticism": null,
+  "url": "https://arxiv.org/abs/2407.11214",
+  "sources": [
+   "https://arxiv.org/abs/2407.11214"
+  ]
+ },
+ {
+  "id": "arc-agi-1",
+  "name": "ARC-AGI-1",
+  "kind": "Reasoning",
+  "producer": "ARC Prize Foundation (François Chollet)",
+  "producerType": "Non-profit",
+  "producerSlug": "arc-prize",
+  "year": 2019,
+  "measures": "Fluid intelligence on abstract grid puzzles.",
+  "how": "800 tasks: 400 training and 400 evaluation.",
+  "status": "Superseded",
+  "criticism": "Chollet wrote that passing ARC-AGI does not equate to achieving AGI, after o3's result on the public set.",
+  "url": "https://arcprize.org/arc-agi/1",
+  "sources": [
+   "https://arcprize.org/arc-agi/1",
+   "https://arcprize.org/blog/oai-o3-pub-breakthrough"
+  ]
+ },
+ {
+  "id": "arc-agi-2",
+  "name": "ARC-AGI-2",
+  "kind": "Reasoning",
+  "producer": "ARC Prize Foundation",
+  "producerType": "Non-profit",
+  "producerSlug": "arc-prize",
+  "year": 2025,
+  "measures": "Fluid reasoning that static pattern-matching cannot solve.",
+  "how": "Grid tasks calibrated with humans; a track in ARC Prize 2026.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://arcprize.org/arc-agi/2",
+  "sources": [
+   "https://arcprize.org/arc-agi/2",
+   "https://arcprize.org/blog/announcing-arc-agi-2-and-arc-prize-2025",
+   "https://arcprize.org/competitions/2026"
+  ]
+ },
+ {
+  "id": "arc-agi-3",
+  "name": "ARC-AGI-3",
+  "kind": "Reasoning",
+  "producer": "ARC Prize Foundation",
+  "producerType": "Non-profit",
+  "producerSlug": "arc-prize",
+  "year": 2026,
+  "measures": "Whether agents can explore novel games, infer goals and learn.",
+  "how": "Hundreds of hand-made turn-based environments, scored on efficiency against human baselines.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://arcprize.org/arc-agi/3",
+  "sources": [
+   "https://arcprize.org/arc-agi/3",
+   "https://arcprize.org/blog/arc-agi-3-launch",
+   "https://arxiv.org/abs/2603.24621"
+  ]
+ },
+ {
+  "id": "zebralogic",
+  "name": "ZebraLogic",
+  "kind": "Reasoning",
+  "producer": "Allen Institute for AI",
+  "producerType": "Non-profit",
+  "producerSlug": null,
+  "year": 2025,
+  "measures": "Logical reasoning on logic-grid puzzles at growing complexity.",
+  "how": "Evaluation framework with a Hugging Face leaderboard Space.",
+  "status": null,
+  "criticism": null,
+  "url": "https://huggingface.co/spaces/allenai/ZebraLogic",
+  "sources": [
+   "https://huggingface.co/spaces/allenai/ZebraLogic",
+   "https://arxiv.org/abs/2502.01100"
+  ]
+ },
+ {
+  "id": "enigmaeval",
+  "name": "EnigmaEval",
+  "kind": "Reasoning",
+  "producer": "Scale AI",
+  "producerType": "Company",
+  "producerSlug": null,
+  "year": 2025,
+  "measures": "Long multimodal reasoning on puzzle-hunt challenges.",
+  "how": "Puzzle-solving events turned into a benchmark.",
+  "status": null,
+  "criticism": null,
+  "url": "https://arxiv.org/abs/2502.08859",
+  "sources": [
+   "https://arxiv.org/abs/2502.08859"
+  ]
+ },
+ {
+  "id": "browsecomp",
+  "name": "BrowseComp",
+  "kind": "Agents",
+  "producer": "OpenAI",
+  "producerType": "Big lab",
+  "producerSlug": "openai",
+  "year": 2025,
+  "measures": "Whether an agent can persistently browse to find hard-to-locate facts.",
+  "how": "1,266 questions.",
+  "status": null,
+  "criticism": null,
+  "url": "https://arxiv.org/abs/2504.12516",
+  "sources": [
+   "https://arxiv.org/abs/2504.12516"
+  ]
+ },
+ {
+  "id": "gaia",
+  "name": "GAIA",
+  "kind": "Agents",
+  "producer": "GAIA authors",
+  "producerType": "Community",
+  "producerSlug": null,
+  "year": 2023,
+  "measures": "Real-world assistant questions needing tools, browsing and multimodality.",
+  "how": "More than 450 questions at 3 levels, with a public dev set and private test answers.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+  "sources": [
+   "https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+   "https://arxiv.org/abs/2311.12983"
+  ]
+ },
+ {
+  "id": "vending-bench",
+  "name": "Vending-Bench",
+  "kind": "Agents",
+  "producer": "Andon Labs",
+  "producerType": "Company",
+  "producerSlug": null,
+  "year": 2025,
+  "measures": "Long-term coherence of an agent running a simulated vending business.",
+  "how": "Simulated business with a $500 starting balance, scored on net worth.",
+  "status": "Superseded",
+  "criticism": "Andon Labs says daily sales are simulated from equations that can be gamed.",
+  "url": "https://andonlabs.com/evals/vending-bench",
+  "sources": [
+   "https://andonlabs.com/evals/vending-bench",
+   "https://arxiv.org/abs/2502.15840",
+   "https://andonlabs.com/evals/vending-bench-2"
+  ]
+ },
+ {
+  "id": "vending-bench-2",
+  "name": "Vending-Bench 2",
+  "kind": "Agents",
+  "producer": "Andon Labs",
+  "producerType": "Company",
+  "producerSlug": null,
+  "year": null,
+  "measures": "Running a simulated vending business for a year.",
+  "how": "$500 start, a year of simulated time, a $2 daily fee and bankruptcy.",
+  "status": "Active",
+  "criticism": "Keeps the original's sales equations, which Andon Labs says can be gamed.",
+  "url": "https://andonlabs.com/evals/vending-bench-2",
+  "sources": [
+   "https://andonlabs.com/evals/vending-bench-2"
+  ]
+ },
+ {
+  "id": "gdpval",
+  "name": "GDPval",
+  "kind": "Agents",
+  "producer": "OpenAI",
+  "producerType": "Big lab",
+  "producerSlug": "openai",
+  "year": 2025,
+  "measures": "Model performance on real-world economically valuable tasks.",
+  "how": "Covers the majority of BLS work activities across 44 occupations.",
+  "status": null,
+  "criticism": null,
+  "url": "https://arxiv.org/abs/2510.04374",
+  "sources": [
+   "https://arxiv.org/abs/2510.04374"
+  ]
+ },
+ {
+  "id": "gdpval-aa",
+  "name": "GDPval-AA",
+  "kind": "Agents",
+  "producer": "Artificial Analysis",
+  "producerType": "Company",
+  "producerSlug": "artificial-analysis",
+  "year": null,
+  "measures": "Agentic knowledge-work tasks with file outputs.",
+  "how": "220 tasks, ranked by pairwise judge comparison into Elo.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+  "sources": [
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
+  ]
+ },
+ {
+  "id": "remote-labor-index",
+  "name": "Remote Labor Index",
+  "kind": "Agents",
+  "producer": "Center for AI Safety with Scale AI",
+  "producerType": "Non-profit",
+  "producerSlug": null,
+  "year": 2025,
+  "measures": "How much real freelance remote work agents can complete.",
+  "how": "Real projects with costs and times from human professionals.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://www.remotelabor.ai/",
+  "sources": [
+   "https://www.remotelabor.ai/",
+   "https://arxiv.org/abs/2510.26787"
+  ]
+ },
+ {
+  "id": "metr-time-horizons",
+  "name": "METR time horizons",
+  "kind": "Agents",
+  "producer": "METR",
+  "producerType": "Non-profit",
+  "producerSlug": "metr",
+  "year": 2025,
+  "measures": "The task length at which an agent succeeds at a given reliability.",
+  "how": "Tasks timed against humans, then a logistic curve fit; drawn from RE-Bench, HCAST and novel software tasks.",
+  "status": "Retired",
+  "criticism": "METR says the page is no longer actively updated, and tasks are self-contained and mostly software, ML or cybersecurity, so results don't generalise across domains.",
+  "url": "https://metr.org/time-horizons/",
+  "sources": [
+   "https://metr.org/time-horizons/",
+   "https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/"
+  ]
+ },
+ {
+  "id": "mle-bench",
+  "name": "MLE-bench",
+  "kind": "Agents",
+  "producer": "OpenAI",
+  "producerType": "Big lab",
+  "producerSlug": "openai",
+  "year": 2024,
+  "measures": "How well agents perform machine learning engineering.",
+  "how": "75 Kaggle competitions.",
+  "status": null,
+  "criticism": null,
+  "url": "https://github.com/openai/mle-bench",
+  "sources": [
+   "https://github.com/openai/mle-bench",
+   "https://arxiv.org/abs/2410.07095"
+  ]
+ },
+ {
+  "id": "webarena",
+  "name": "WebArena",
+  "kind": "Agents",
+  "producer": "WebArena authors (Zhou and co-authors)",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": 2023,
+  "measures": "Autonomous agents doing tasks on realistic websites.",
+  "how": "Self-hosted web environment.",
+  "status": null,
+  "criticism": null,
+  "url": "https://github.com/web-arena-x/webarena",
+  "sources": [
+   "https://github.com/web-arena-x/webarena",
+   "https://arxiv.org/abs/2307.13854"
+  ]
+ },
+ {
+  "id": "visualwebarena",
+  "name": "VisualWebArena",
+  "kind": "Agents",
+  "producer": "VisualWebArena authors",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": 2024,
+  "measures": "Multimodal agents on visual web tasks.",
+  "how": "Realistic visual web tasks.",
+  "status": null,
+  "criticism": null,
+  "url": "https://arxiv.org/abs/2401.13649",
+  "sources": [
+   "https://arxiv.org/abs/2401.13649"
+  ]
+ },
+ {
+  "id": "browsergym",
+  "name": "BrowserGym",
+  "kind": "Agents",
+  "producer": "ServiceNow",
+  "producerType": "Company",
+  "producerSlug": null,
+  "year": 2024,
+  "measures": "Web agent evaluation through one unified environment.",
+  "how": "Gym environment unifying web task benchmarks.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://github.com/ServiceNow/BrowserGym",
+  "sources": [
+   "https://github.com/ServiceNow/BrowserGym",
+   "https://arxiv.org/abs/2412.05467"
+  ]
+ },
+ {
+  "id": "mind2web",
+  "name": "Mind2Web",
+  "kind": "Agents",
+  "producer": "Mind2Web authors",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": 2023,
+  "measures": "Generalist agents following instructions on any website.",
+  "how": "Dataset of web tasks.",
+  "status": null,
+  "criticism": null,
+  "url": "https://arxiv.org/abs/2306.06070",
+  "sources": [
+   "https://arxiv.org/abs/2306.06070"
+  ]
+ },
+ {
+  "id": "agentbench",
+  "name": "AgentBench",
+  "kind": "Agents",
+  "producer": "THUDM",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": 2023,
+  "measures": "LLMs acting as agents in interactive environments.",
+  "how": "Interactive environments.",
+  "status": null,
+  "criticism": null,
+  "url": "https://github.com/THUDM/AgentBench",
+  "sources": [
+   "https://github.com/THUDM/AgentBench",
+   "https://arxiv.org/abs/2308.03688"
+  ]
+ },
+ {
+  "id": "appworld",
+  "name": "AppWorld",
+  "kind": "Agents",
+  "producer": "AppWorld authors",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": 2024,
+  "measures": "Interactive coding agents operating many apps.",
+  "how": "Controllable world of apps and people.",
+  "status": null,
+  "criticism": null,
+  "url": "https://arxiv.org/abs/2407.18901",
+  "sources": [
+   "https://arxiv.org/abs/2407.18901"
+  ]
+ },
+ {
+  "id": "bfcl",
+  "name": "Berkeley Function Calling Leaderboard",
+  "kind": "Agents",
+  "producer": "UC Berkeley Gorilla project",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": 2024,
+  "measures": "How well models call functions.",
+  "how": "Published as a Hugging Face Space.",
+  "status": null,
+  "criticism": null,
+  "url": "https://huggingface.co/spaces/gorilla-llm/berkeley-function-calling-leaderboard",
+  "sources": [
+   "https://huggingface.co/spaces/gorilla-llm/berkeley-function-calling-leaderboard"
+  ]
+ },
+ {
+  "id": "galileo-agent-leaderboard",
+  "name": "Agent Leaderboard",
+  "kind": "Agents",
+  "producer": "Galileo",
+  "producerType": "Company",
+  "producerSlug": null,
+  "year": 2025,
+  "measures": "Ranking of LLMs for agentic tasks.",
+  "how": "Published as a Hugging Face Space.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://huggingface.co/spaces/galileo-ai/agent-leaderboard",
+  "sources": [
+   "https://huggingface.co/spaces/galileo-ai/agent-leaderboard"
+  ]
+ },
+ {
+  "id": "dabstep",
+  "name": "DABstep",
+  "kind": "Agents",
+  "producer": "Adyen",
+  "producerType": "Company",
+  "producerSlug": "adyen",
+  "year": 2024,
+  "measures": "Data-agent reasoning.",
+  "how": "Reasoning benchmark leaderboard on a Hugging Face Space.",
+  "status": null,
+  "criticism": null,
+  "url": "https://huggingface.co/spaces/adyen/DABstep",
+  "sources": [
+   "https://huggingface.co/spaces/adyen/DABstep"
+  ]
+ },
+ {
+  "id": "arena-text",
+  "name": "Arena Text (Chatbot Arena)",
+  "kind": "Leaderboard",
+  "producer": "Arena (formerly LMArena, LMSYS)",
+  "producerType": "Company",
+  "producerSlug": "lmarena",
+  "year": 2023,
+  "measures": "Which of two anonymous chatbots people prefer.",
+  "how": "Crowdsourced anonymous randomised battles, ranked from votes (Elo at launch).",
+  "status": "Active",
+  "criticism": "The Leaderboard Illusion (Singh and co-authors, 2025) says undisclosed private testing let a few providers test variants and retract scores, including 27 Meta variants before Llama 4; Arena published a response disputing it.",
+  "url": "https://lmarena.ai/about",
+  "sources": [
+   "https://lmarena.ai/about",
+   "https://lmsys.org/blog/2023-05-03-arena/",
+   "https://arxiv.org/abs/2504.20879",
+   "https://news.lmarena.ai/our-response/"
+  ]
+ },
+ {
+  "id": "arena-vision",
+  "name": "Arena Vision",
+  "kind": "Multimodal",
+  "producer": "Arena (formerly LMArena)",
+  "producerType": "Company",
+  "producerSlug": "lmarena",
+  "year": 2024,
+  "measures": "Human preference on image-input models.",
+  "how": "Human-voted battles; image support was added in June 2024.",
+  "status": "Active",
+  "criticism": "The Leaderboard Illusion (Singh and co-authors, 2025) says undisclosed private testing let a few providers test variants and retract scores, including 27 Meta variants before Llama 4; Arena published a response disputing it.",
+  "url": "https://lmarena.ai/about",
+  "sources": [
+   "https://lmarena.ai/about",
+   "https://en.wikipedia.org/wiki/Arena_(AI_platform)",
+   "https://arxiv.org/abs/2504.20879"
+  ]
+ },
+ {
+  "id": "arena-webdev",
+  "name": "Arena WebDev",
+  "kind": "Coding",
+  "producer": "Arena (formerly LMArena)",
+  "producerType": "Company",
+  "producerSlug": "lmarena",
+  "year": null,
+  "measures": "Human preference on models building web pages.",
+  "how": "Human-voted leaderboard, listed on Arena.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://lmarena.ai/about",
+  "sources": [
+   "https://lmarena.ai/about"
+  ]
+ },
+ {
+  "id": "arena-alignment-index",
+  "name": "Arena Alignment Index",
+  "kind": "Safety",
+  "producer": "Arena",
+  "producerType": "Company",
+  "producerSlug": "lmarena",
+  "year": 2026,
+  "measures": "How well frontier models act in line with human intent.",
+  "how": "27 models across 90,000 real-world agent sessions.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://news.lmarena.ai/",
+  "sources": [
+   "https://news.lmarena.ai/"
+  ]
+ },
+ {
+  "id": "arena-leaderboard-space",
+  "name": "Arena Leaderboard (Space)",
+  "kind": "Leaderboard",
+  "producer": "Arena (formerly LMArena, LMSYS)",
+  "producerType": "Company",
+  "producerSlug": "lmarena",
+  "year": 2023,
+  "measures": "Hugging Face home of the Chatbot Arena leaderboard.",
+  "how": "Static Space; old lmsys and chatbot-arena URLs resolve to it.",
+  "status": null,
+  "criticism": null,
+  "url": "https://huggingface.co/spaces/lmarena-ai/arena-leaderboard",
+  "sources": [
+   "https://huggingface.co/spaces/lmarena-ai/arena-leaderboard"
+  ]
+ },
+ {
+  "id": "aa-intelligence-index",
+  "name": "Artificial Analysis Intelligence Index",
+  "kind": "Leaderboard",
+  "producer": "Artificial Analysis",
+  "producerType": "Company",
+  "producerSlug": "artificial-analysis",
+  "year": null,
+  "measures": "A single score for language model capability across knowledge work, coding, science and general knowledge.",
+  "how": "v5.0 combines 9 evaluations, including Terminal-Bench 4.0 and HLE-Diamond.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+  "sources": [
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
+  ]
+ },
+ {
+  "id": "aa-llm-performance-space",
+  "name": "LLM Performance Leaderboard",
+  "kind": "Hardware and inference",
+  "producer": "Artificial Analysis",
+  "producerType": "Company",
+  "producerSlug": "artificial-analysis",
+  "year": 2024,
+  "measures": "Speed, latency and price of hosted LLM APIs.",
+  "how": "Artificial Analysis measures end-to-end performance as customers experience it.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://huggingface.co/spaces/ArtificialAnalysis/LLM-Performance-Leaderboard",
+  "sources": [
+   "https://huggingface.co/spaces/ArtificialAnalysis/LLM-Performance-Leaderboard",
+   "https://artificialanalysis.ai/methodology"
+  ]
+ },
+ {
+  "id": "aa-image-arena",
+  "name": "Image Arena Leaderboard",
+  "kind": "Vision",
+  "producer": "Artificial Analysis",
+  "producerType": "Company",
+  "producerSlug": "artificial-analysis",
+  "year": 2024,
+  "measures": "Image generation and editing quality.",
+  "how": "Arena-style leaderboard on a Hugging Face Space.",
+  "status": null,
+  "criticism": null,
+  "url": "https://huggingface.co/spaces/ArtificialAnalysis/Text-to-Image-Leaderboard",
+  "sources": [
+   "https://huggingface.co/spaces/ArtificialAnalysis/Text-to-Image-Leaderboard"
+  ]
+ },
+ {
+  "id": "helm",
+  "name": "HELM",
+  "kind": "Leaderboard",
+  "producer": "Stanford CRFM",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": 2022,
+  "measures": "Capabilities, limitations and risks of language models.",
+  "how": "Standardised scenarios and metrics across models.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://crfm.stanford.edu/helm/",
+  "sources": [
+   "https://crfm.stanford.edu/helm/",
+   "https://github.com/stanford-crfm/helm",
+   "https://arxiv.org/abs/2211.09110"
+  ]
+ },
+ {
+  "id": "epoch-capabilities-index",
+  "name": "Epoch Capabilities Index",
+  "kind": "Leaderboard",
+  "producer": "Epoch AI",
+  "producerType": "Non-profit",
+  "producerSlug": "epoch-ai",
+  "year": null,
+  "measures": "A single general capability scale for models.",
+  "how": "Combines scores from many AI benchmarks.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://epoch.ai/benchmarks/eci",
+  "sources": [
+   "https://epoch.ai/benchmarks/eci",
+   "https://epoch.ai/benchmarks"
+  ]
+ },
+ {
+  "id": "seal-leaderboards",
+  "name": "SEAL Leaderboards",
+  "kind": "Leaderboard",
+  "producer": "Scale AI",
+  "producerType": "Company",
+  "producerSlug": null,
+  "year": 2024,
+  "measures": "Frontier, agentic and safety capability of models.",
+  "how": "20+ benchmarks mixing private datasets and open sets; models featured only on first exposure to prompts.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://scale.com/leaderboard",
+  "sources": [
+   "https://scale.com/leaderboard",
+   "https://scale.com/blog/leaderboard"
+  ]
+ },
+ {
+  "id": "wildbench",
+  "name": "WildBench",
+  "kind": "Leaderboard",
+  "producer": "Allen Institute for AI",
+  "producerType": "Non-profit",
+  "producerSlug": null,
+  "year": 2024,
+  "measures": "LLMs on challenging tasks from real users.",
+  "how": "1,024 tasks, automated evaluation.",
+  "status": null,
+  "criticism": null,
+  "url": "https://huggingface.co/spaces/allenai/WildBench",
+  "sources": [
+   "https://huggingface.co/spaces/allenai/WildBench",
+   "https://arxiv.org/abs/2406.04770"
+  ]
+ },
+ {
+  "id": "open-llm-leaderboard",
+  "name": "Open LLM Leaderboard",
+  "kind": "Leaderboard",
+  "producer": "Hugging Face",
+  "producerType": "Company",
+  "producerSlug": "hugging-face",
+  "year": 2023,
+  "measures": "Reproducible scores for open LLMs.",
+  "how": "Automated benchmark runs by the Hugging Face team.",
+  "status": "Retired",
+  "criticism": null,
+  "url": "https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard",
+  "sources": [
+   "https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard",
+   "https://huggingface.co/docs/leaderboards/index"
+  ]
+ },
+ {
+  "id": "find-a-leaderboard",
+  "name": "Find a leaderboard",
+  "kind": "Leaderboard",
+  "producer": "OpenEvals",
+  "producerType": "Community",
+  "producerSlug": null,
+  "year": 2025,
+  "measures": "Index of leaderboards across Hugging Face, with category and tag filters.",
+  "how": "Space was paused on 2 November 2026; Hugging Face's Leaderboards docs cover the same subject.",
+  "status": null,
+  "criticism": null,
+  "url": "https://huggingface.co/spaces/OpenEvals/find-a-leaderboard",
+  "sources": [
+   "https://huggingface.co/spaces/OpenEvals/find-a-leaderboard",
+   "https://huggingface.co/docs/leaderboards/index"
+  ]
+ },
+ {
+  "id": "yet-another-llm-leaderboard",
+  "name": "Yet Another LLM Leaderboard",
+  "kind": "Leaderboard",
+  "producer": "mlabonne",
+  "producerType": "Community",
+  "producerSlug": null,
+  "year": 2024,
+  "measures": "Community ranking of LLMs.",
+  "how": "Hugging Face Space.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://huggingface.co/spaces/mlabonne/Yet_Another_LLM_Leaderboard",
+  "sources": [
+   "https://huggingface.co/spaces/mlabonne/Yet_Another_LLM_Leaderboard"
+  ]
+ },
+ {
+  "id": "low-bit-llm-leaderboard",
+  "name": "Low-bit LLM Leaderboard",
+  "kind": "Leaderboard",
+  "producer": "Intel",
+  "producerType": "Company",
+  "producerSlug": null,
+  "year": 2024,
+  "measures": "Tracks and ranks low-bit open LLMs.",
+  "how": "Hugging Face Space.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://huggingface.co/spaces/Intel/low_bit_open_llm_leaderboard",
+  "sources": [
+   "https://huggingface.co/spaces/Intel/low_bit_open_llm_leaderboard"
+  ]
+ },
+ {
+  "id": "open-arabic-llm-leaderboard",
+  "name": "Open Arabic LLM Leaderboard",
+  "kind": "Leaderboard",
+  "producer": "OALL",
+  "producerType": "Community",
+  "producerSlug": null,
+  "year": 2024,
+  "measures": "Tracks and ranks open Arabic LLMs.",
+  "how": "Hugging Face Space.",
+  "status": null,
+  "criticism": null,
+  "url": "https://huggingface.co/spaces/OALL/Open-Arabic-LLM-Leaderboard",
+  "sources": [
+   "https://huggingface.co/spaces/OALL/Open-Arabic-LLM-Leaderboard"
+  ]
+ },
+ {
+  "id": "open-ko-llm-leaderboard",
+  "name": "Open Ko-LLM Leaderboard",
+  "kind": "Leaderboard",
+  "producer": "Upstage",
+  "producerType": "Company",
+  "producerSlug": null,
+  "year": 2023,
+  "measures": "Tracks open Korean LLMs.",
+  "how": "Hugging Face Space.",
+  "status": null,
+  "criticism": null,
+  "url": "https://huggingface.co/spaces/upstage/open-ko-llm-leaderboard",
+  "sources": [
+   "https://huggingface.co/spaces/upstage/open-ko-llm-leaderboard"
+  ]
+ },
+ {
+  "id": "open-pt-llm-leaderboard",
+  "name": "Open Portuguese LLM Leaderboard",
+  "kind": "Leaderboard",
+  "producer": "eduagarcia",
+  "producerType": "Community",
+  "producerSlug": null,
+  "year": 2024,
+  "measures": "Open LLMs in Portuguese.",
+  "how": "Hugging Face Space, labelled archived.",
+  "status": "Retired",
+  "criticism": null,
+  "url": "https://huggingface.co/spaces/eduagarcia/open_pt_llm_leaderboard",
+  "sources": [
+   "https://huggingface.co/spaces/eduagarcia/open_pt_llm_leaderboard"
+  ]
+ },
+ {
+  "id": "open-japanese-llm-leaderboard",
+  "name": "Open Japanese LLM Leaderboard",
+  "kind": "Leaderboard",
+  "producer": "LLM-jp",
+  "producerType": "Community",
+  "producerSlug": null,
+  "year": 2024,
+  "measures": "Tracks open Japanese LLMs.",
+  "how": "Hugging Face Space.",
+  "status": null,
+  "criticism": null,
+  "url": "https://huggingface.co/spaces/llm-jp/open-japanese-llm-leaderboard",
+  "sources": [
+   "https://huggingface.co/spaces/llm-jp/open-japanese-llm-leaderboard"
+  ]
+ },
+ {
+  "id": "imagenet-ilsvrc",
+  "name": "ImageNet (ILSVRC)",
+  "kind": "Vision",
+  "producer": "Stanford, Princeton and collaborators",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": 2010,
+  "measures": "Object classification and detection across hundreds of categories.",
+  "how": "Annual challenge on millions of images from 2010.",
+  "status": "Retired",
+  "criticism": "Organisers said the 2017 contest would be the last, since the benchmark had been solved.",
+  "url": "https://www.image-net.org/challenges/LSVRC/",
+  "sources": [
+   "https://arxiv.org/abs/1409.0575",
+   "https://en.wikipedia.org/wiki/ImageNet"
+  ]
+ },
+ {
+  "id": "coco",
+  "name": "COCO",
+  "kind": "Vision",
+  "producer": "Lin and co-authors",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": 2014,
+  "measures": "Object recognition within full-scene understanding.",
+  "how": "Dataset of everyday objects in context.",
+  "status": null,
+  "criticism": null,
+  "url": "https://cocodataset.org/",
+  "sources": [
+   "https://cocodataset.org/",
+   "https://arxiv.org/abs/1405.0312"
+  ]
+ },
+ {
+  "id": "cifar-10",
+  "name": "CIFAR-10",
+  "kind": "Vision",
+  "producer": "Alex Krizhevsky (University of Toronto)",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": 2009,
+  "measures": "Image classification on tiny images.",
+  "how": "60,000 32x32 colour images in 10 classes.",
+  "status": null,
+  "criticism": null,
+  "url": "https://www.cs.toronto.edu/~kriz/cifar.html",
+  "sources": [
+   "https://www.cs.toronto.edu/~kriz/cifar.html"
+  ]
+ },
+ {
+  "id": "kitti",
+  "name": "KITTI Vision Benchmark",
+  "kind": "Vision",
+  "producer": "KITTI authors",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": 2012,
+  "measures": "Autonomous driving vision: stereo, flow, odometry, object detection and tracking.",
+  "how": "Real driving data, with 2012 stereo and flow benchmarks.",
+  "status": null,
+  "criticism": null,
+  "url": "https://www.cvlibs.net/datasets/kitti/",
+  "sources": [
+   "https://www.cvlibs.net/datasets/kitti/"
+  ]
+ },
+ {
+  "id": "mmmu",
+  "name": "MMMU",
+  "kind": "Multimodal",
+  "producer": "MMMU authors",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": 2023,
+  "measures": "Multimodal reasoning across disciplines at college level.",
+  "how": "Multi-discipline image-and-text tasks.",
+  "status": null,
+  "criticism": null,
+  "url": "https://mmmu-benchmark.github.io/",
+  "sources": [
+   "https://mmmu-benchmark.github.io/",
+   "https://arxiv.org/abs/2311.16502"
+  ]
+ },
+ {
+  "id": "open-vlm-leaderboard",
+  "name": "Open VLM Leaderboard",
+  "kind": "Multimodal",
+  "producer": "OpenCompass (VLMEvalKit)",
+  "producerType": "Community",
+  "producerSlug": null,
+  "year": 2024,
+  "measures": "Vision-language models across a curated set of benchmarks.",
+  "how": "All results obtained with VLMEvalKit.",
+  "status": null,
+  "criticism": null,
+  "url": "https://huggingface.co/spaces/opencompass/open_vlm_leaderboard",
+  "sources": [
+   "https://huggingface.co/spaces/opencompass/open_vlm_leaderboard"
+  ]
+ },
+ {
+  "id": "vision-arena",
+  "name": "WildVision Arena",
+  "kind": "Multimodal",
+  "producer": "WildVision authors",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": 2024,
+  "measures": "Multimodal LLMs in the wild.",
+  "how": "Arena-style Space.",
+  "status": null,
+  "criticism": null,
+  "url": "https://huggingface.co/spaces/WildVision/vision-arena",
+  "sources": [
+   "https://huggingface.co/spaces/WildVision/vision-arena"
+  ]
+ },
+ {
+  "id": "genai-arena",
+  "name": "GenAI Arena",
+  "kind": "Vision",
+  "producer": "TIGER-Lab",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": 2024,
+  "measures": "Realtime image and video generation by vote.",
+  "how": "Space showed a build error on 2 November 2026.",
+  "status": null,
+  "criticism": null,
+  "url": "https://huggingface.co/spaces/TIGER-Lab/GenAI-Arena",
+  "sources": [
+   "https://huggingface.co/spaces/TIGER-Lab/GenAI-Arena"
+  ]
+ },
+ {
+  "id": "humanitys-sixth-sense",
+  "name": "Humanity's Sixth Sense",
+  "kind": "Multimodal",
+  "producer": "Scale AI with Elorian",
+  "producerType": "Company",
+  "producerSlug": null,
+  "year": null,
+  "measures": "Intuitive visual reasoning across image and video.",
+  "how": "Listed on Scale's leaderboards.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://scale.com/leaderboard",
+  "sources": [
+   "https://scale.com/leaderboard"
+  ]
+ },
+ {
+  "id": "common-voice",
+  "name": "Common Voice",
+  "kind": "Speech",
+  "producer": "Mozilla",
+  "producerType": "Non-profit",
+  "producerSlug": "mozilla",
+  "year": 2017,
+  "measures": "A public voice dataset used to test speech recognition accuracy.",
+  "how": "Crowd-donated voices; repository created in May 2017.",
+  "status": null,
+  "criticism": null,
+  "url": "https://commonvoice.mozilla.org/",
+  "sources": [
+   "https://commonvoice.mozilla.org/",
+   "https://github.com/common-voice/common-voice"
+  ]
+ },
+ {
+  "id": "librispeech",
+  "name": "LibriSpeech",
+  "kind": "Speech",
+  "producer": "OpenSLR corpus authors",
+  "producerType": "Community",
+  "producerSlug": null,
+  "year": null,
+  "measures": "Speech recognition on read English.",
+  "how": "About 1,000 hours of 16kHz read English speech.",
+  "status": null,
+  "criticism": null,
+  "url": "https://www.openslr.org/12",
+  "sources": [
+   "https://www.openslr.org/12"
+  ]
+ },
+ {
+  "id": "open-asr-leaderboard",
+  "name": "Open ASR Leaderboard",
+  "kind": "Speech",
+  "producer": "Hugging Face (hf-audio) with community contributors",
+  "producerType": "Company",
+  "producerSlug": "hugging-face",
+  "year": 2023,
+  "measures": "Open and proprietary speech recognition on accuracy and speed.",
+  "how": "86 systems across 12 datasets, standardised on WER and RTFx, per its paper.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://huggingface.co/spaces/hf-audio/open_asr_leaderboard",
+  "sources": [
+   "https://huggingface.co/spaces/hf-audio/open_asr_leaderboard",
+   "https://arxiv.org/abs/2510.06961"
+  ]
+ },
+ {
+  "id": "open-tts-leaderboard",
+  "name": "Open TTS Leaderboard",
+  "kind": "Speech",
+  "producer": "Hugging Face (hf-audio)",
+  "producerType": "Company",
+  "producerSlug": "hugging-face",
+  "year": 2026,
+  "measures": "Text-to-speech on intelligibility, speed and speaker similarity.",
+  "how": "WER, RTFx and SIM across two multilingual eval sets.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://huggingface.co/spaces/hf-audio/open_tts_leaderboard",
+  "sources": [
+   "https://huggingface.co/spaces/hf-audio/open_tts_leaderboard"
+  ]
+ },
+ {
+  "id": "tts-arena",
+  "name": "TTS Arena",
+  "kind": "Speech",
+  "producer": "TTS-AGI community",
+  "producerType": "Community",
+  "producerSlug": null,
+  "year": 2024,
+  "measures": "Which of two synthesised voices sounds more natural.",
+  "how": "Human voting with hidden model names, ranked by an Elo-like system.",
+  "status": "Superseded",
+  "criticism": null,
+  "url": "https://huggingface.co/spaces/TTS-AGI/TTS-Arena",
+  "sources": [
+   "https://huggingface.co/spaces/TTS-AGI/TTS-Arena",
+   "https://huggingface.co/blog/arena-tts"
+  ]
+ },
+ {
+  "id": "tts-arena-v2",
+  "name": "TTS Arena V2",
+  "kind": "Speech",
+  "producer": "TTS-AGI community",
+  "producerType": "Community",
+  "producerSlug": null,
+  "year": null,
+  "measures": "Human preference between text-to-speech models.",
+  "how": "Successor Space to TTS Arena.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://huggingface.co/spaces/TTS-AGI/TTS-Arena-V2",
+  "sources": [
+   "https://huggingface.co/spaces/TTS-AGI/TTS-Arena-V2"
+  ]
+ },
+ {
+  "id": "tts-spaces-arena",
+  "name": "TTS Spaces Arena",
+  "kind": "Speech",
+  "producer": "Pendrokar",
+  "producerType": "Community",
+  "producerSlug": null,
+  "year": 2024,
+  "measures": "Blind vote on Hugging Face TTS models.",
+  "how": "Human-voted Space.",
+  "status": null,
+  "criticism": null,
+  "url": "https://huggingface.co/spaces/Pendrokar/TTS-Spaces-Arena",
+  "sources": [
+   "https://huggingface.co/spaces/Pendrokar/TTS-Spaces-Arena"
+  ]
+ },
+ {
+  "id": "ailuminate",
+  "name": "AILuminate",
+  "kind": "Safety",
+  "producer": "MLCommons",
+  "producerType": "Non-profit",
+  "producerSlug": "mlcommons",
+  "year": 2025,
+  "measures": "Safety of general chatbot systems.",
+  "how": "AI Risk and Reliability benchmark, v1.0.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://mlcommons.org/ailuminate/",
+  "sources": [
+   "https://mlcommons.org/benchmarks/",
+   "https://arxiv.org/abs/2503.05731"
+  ]
+ },
+ {
+  "id": "harmbench",
+  "name": "HarmBench",
+  "kind": "Safety",
+  "producer": "HarmBench authors",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": 2024,
+  "measures": "Automated red teaming and robust refusal.",
+  "how": "Standardised evaluation framework.",
+  "status": null,
+  "criticism": null,
+  "url": "https://arxiv.org/abs/2402.04249",
+  "sources": [
+   "https://arxiv.org/abs/2402.04249"
+  ]
+ },
+ {
+  "id": "wmdp",
+  "name": "WMDP",
+  "kind": "Safety",
+  "producer": "Li and co-authors",
+  "producerType": "Non-profit",
+  "producerSlug": null,
+  "year": 2024,
+  "measures": "Risk of models aiding biological, cyber and chemical weapons.",
+  "how": "Benchmark paired with an unlearning method.",
+  "status": null,
+  "criticism": null,
+  "url": "https://arxiv.org/abs/2403.03218",
+  "sources": [
+   "https://arxiv.org/abs/2403.03218"
+  ]
+ },
+ {
+  "id": "cybench",
+  "name": "Cybench",
+  "kind": "Safety",
+  "producer": "Cybench authors (Zhang and co-authors)",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": 2024,
+  "measures": "Cybersecurity capability of language model agents.",
+  "how": "Framework for capability and risk evaluation.",
+  "status": null,
+  "criticism": null,
+  "url": "https://arxiv.org/abs/2408.08926",
+  "sources": [
+   "https://arxiv.org/abs/2408.08926"
+  ]
+ },
+ {
+  "id": "distressbench",
+  "name": "DistressBench",
+  "kind": "Safety",
+  "producer": "Scale AI",
+  "producerType": "Company",
+  "producerSlug": null,
+  "year": null,
+  "measures": "Quality of crisis support a model delivers.",
+  "how": "Listed on Scale's leaderboards.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://scale.com/leaderboard",
+  "sources": [
+   "https://scale.com/leaderboard"
+  ]
+ },
+ {
+  "id": "llm-trustworthy-leaderboard",
+  "name": "LLM Safety Leaderboard",
+  "kind": "Safety",
+  "producer": "AI-Secure",
+  "producerType": "Community",
+  "producerSlug": null,
+  "year": 2024,
+  "measures": "Safety of LLMs.",
+  "how": "Hugging Face Space.",
+  "status": null,
+  "criticism": null,
+  "url": "https://huggingface.co/spaces/AI-Secure/llm-trustworthy-leaderboard",
+  "sources": [
+   "https://huggingface.co/spaces/AI-Secure/llm-trustworthy-leaderboard"
+  ]
+ },
+ {
+  "id": "ugi-leaderboard",
+  "name": "UGI Leaderboard",
+  "kind": "Safety",
+  "producer": "DontPlanToEnd",
+  "producerType": "Community",
+  "producerSlug": null,
+  "year": 2024,
+  "measures": "How uncensored models are.",
+  "how": "Community Space, 'Uncensored General Intelligence'.",
+  "status": null,
+  "criticism": null,
+  "url": "https://huggingface.co/spaces/DontPlanToEnd/UGI-Leaderboard",
+  "sources": [
+   "https://huggingface.co/spaces/DontPlanToEnd/UGI-Leaderboard"
+  ]
+ },
+ {
+  "id": "mlperf-training",
+  "name": "MLPerf Training",
+  "kind": "Hardware and inference",
+  "producer": "MLCommons",
+  "producerType": "Non-profit",
+  "producerSlug": "mlcommons",
+  "year": 2018,
+  "measures": "How fast systems train models to a target quality.",
+  "how": "Shared benchmark suite with vendor submissions; first results December 2018.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://mlcommons.org/benchmarks/training/",
+  "sources": [
+   "https://mlcommons.org/about-us/",
+   "https://mlcommons.org/benchmarks/",
+   "https://arxiv.org/abs/1910.01500"
+  ]
+ },
+ {
+  "id": "mlperf-training-hpc",
+  "name": "MLPerf Training: HPC",
+  "kind": "Hardware and inference",
+  "producer": "MLCommons",
+  "producerType": "Non-profit",
+  "producerSlug": "mlcommons",
+  "year": null,
+  "measures": "Training speed on large-scale supercomputers.",
+  "how": "MLCommons benchmark suite.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://mlcommons.org/benchmarks/",
+  "sources": [
+   "https://mlcommons.org/benchmarks/"
+  ]
+ },
+ {
+  "id": "mlperf-inference",
+  "name": "MLPerf Inference",
+  "kind": "Hardware and inference",
+  "producer": "MLCommons",
+  "producerType": "Non-profit",
+  "producerSlug": "mlcommons",
+  "year": 2019,
+  "measures": "How fast systems produce results from a trained model.",
+  "how": "Suite launched June 2019, with datacenter, edge, mobile and tiny divisions.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://mlcommons.org/benchmarks/inference-datacenter/",
+  "sources": [
+   "https://mlcommons.org/about-us/",
+   "https://mlcommons.org/benchmarks/",
+   "https://arxiv.org/abs/1911.02549"
+  ]
+ },
+ {
+  "id": "mlperf-tiny",
+  "name": "MLPerf Inference: Tiny",
+  "kind": "Hardware and inference",
+  "producer": "MLCommons",
+  "producerType": "Non-profit",
+  "producerSlug": "mlcommons",
+  "year": 2019,
+  "measures": "Inference speed on ultra-low-power systems.",
+  "how": "TinyML suite launched October 2019.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://mlcommons.org/benchmarks/",
+  "sources": [
+   "https://mlcommons.org/benchmarks/",
+   "https://mlcommons.org/about-us/"
+  ]
+ },
+ {
+  "id": "mlperf-mobile",
+  "name": "MLPerf Inference: Mobile",
+  "kind": "Hardware and inference",
+  "producer": "MLCommons",
+  "producerType": "Non-profit",
+  "producerSlug": "mlcommons",
+  "year": null,
+  "measures": "Inference on consumer mobile devices.",
+  "how": "MLCommons benchmark suite.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://mlcommons.org/benchmarks/",
+  "sources": [
+   "https://mlcommons.org/benchmarks/"
+  ]
+ },
+ {
+  "id": "mlperf-client",
+  "name": "MLPerf Client",
+  "kind": "Hardware and inference",
+  "producer": "MLCommons",
+  "producerType": "Non-profit",
+  "producerSlug": "mlcommons",
+  "year": null,
+  "measures": "LLMs and AI workloads on personal computers.",
+  "how": "MLCommons benchmark suite.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://mlcommons.org/benchmarks/",
+  "sources": [
+   "https://mlcommons.org/benchmarks/"
+  ]
+ },
+ {
+  "id": "mlperf-storage",
+  "name": "MLPerf Storage",
+  "kind": "Hardware and inference",
+  "producer": "MLCommons",
+  "producerType": "Non-profit",
+  "producerSlug": "mlcommons",
+  "year": null,
+  "measures": "How fast storage supplies training data.",
+  "how": "MLCommons benchmark suite.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://mlcommons.org/benchmarks/",
+  "sources": [
+   "https://mlcommons.org/benchmarks/"
+  ]
+ },
+ {
+  "id": "mlperf-automotive",
+  "name": "MLPerf Automotive",
+  "kind": "Hardware and inference",
+  "producer": "MLCommons",
+  "producerType": "Non-profit",
+  "producerSlug": "mlcommons",
+  "year": null,
+  "measures": "Computers for driver assistance and infotainment.",
+  "how": "MLCommons benchmark suite.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://mlcommons.org/benchmarks/",
+  "sources": [
+   "https://mlcommons.org/benchmarks/"
+  ]
+ },
+ {
+  "id": "mlperf-endpoints",
+  "name": "MLPerf Endpoints",
+  "kind": "Hardware and inference",
+  "producer": "MLCommons",
+  "producerType": "Non-profit",
+  "producerSlug": "mlcommons",
+  "year": null,
+  "measures": "Inference speed of served endpoints.",
+  "how": "MLCommons benchmark suite.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://mlcommons.org/benchmarks/",
+  "sources": [
+   "https://mlcommons.org/benchmarks/"
+  ]
+ },
+ {
+  "id": "algoperf",
+  "name": "AlgoPerf: Training Algorithms",
+  "kind": "Hardware and inference",
+  "producer": "MLCommons",
+  "producerType": "Non-profit",
+  "producerSlug": "mlcommons",
+  "year": null,
+  "measures": "How much faster a training algorithm reaches a target.",
+  "how": "MLCommons benchmark suite.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://mlcommons.org/benchmarks/",
+  "sources": [
+   "https://mlcommons.org/benchmarks/"
+  ]
+ },
+ {
+  "id": "inferencemax",
+  "name": "InferenceMAX / InferenceX",
+  "kind": "Hardware and inference",
+  "producer": "SemiAnalysis",
+  "producerType": "Company",
+  "producerSlug": null,
+  "year": 2025,
+  "measures": "Real inference performance and cost across chips and software.",
+  "how": "Runs nightly on public GitHub Actions; the site now brands it InferenceX.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://inferencex.semianalysis.com/",
+  "sources": [
+   "https://inferencex.semianalysis.com/",
+   "https://newsletter.semianalysis.com/p/inferencemax-open-source-inference",
+   "https://github.com/SemiAnalysisAI/InferenceX"
+  ]
+ },
+ {
+  "id": "llm-perf-leaderboard",
+  "name": "LLM-Perf Leaderboard",
+  "kind": "Hardware and inference",
+  "producer": "Hugging Face (Optimum)",
+  "producerType": "Company",
+  "producerSlug": "hugging-face",
+  "year": 2023,
+  "measures": "Latency, throughput, memory and energy of LLMs.",
+  "how": "Automated runs with Optimum-Benchmark across hardware and backends.",
+  "status": null,
+  "criticism": null,
+  "url": "https://huggingface.co/spaces/optimum/llm-perf-leaderboard",
+  "sources": [
+   "https://huggingface.co/spaces/optimum/llm-perf-leaderboard"
+  ]
+ },
+ {
+  "id": "ai-energy-score",
+  "name": "AI Energy Score",
+  "kind": "Hardware and inference",
+  "producer": "Luccioni, Gamazaychikov and co-authors (Hugging Face and others)",
+  "producerType": "Community",
+  "producerSlug": null,
+  "year": 2024,
+  "measures": "Energy use of AI models per task.",
+  "how": "Tasks include ASR, object detection, classification and reasoning.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://huggingface.co/spaces/AIEnergyScore/Leaderboard",
+  "sources": [
+   "https://huggingface.co/spaces/AIEnergyScore/Leaderboard"
+  ]
+ },
+ {
+  "id": "spec-cpu-2017",
+  "name": "SPEC CPU 2017",
+  "kind": "Hardware and inference",
+  "producer": "SPEC",
+  "producerType": "Non-profit",
+  "producerSlug": null,
+  "year": 2017,
+  "measures": "Compute-intensive CPU performance, the older model for vendor-neutral benchmarks.",
+  "how": "Standardised suite published by a non-profit corporation, with public results.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://www.spec.org/cpu2017/",
+  "sources": [
+   "https://www.spec.org/cpu2017/",
+   "https://www.spec.org/"
+  ]
+ },
+ {
+  "id": "big-code-models-leaderboard",
+  "name": "Big Code Models Leaderboard",
+  "kind": "Coding",
+  "producer": "BigCode project",
+  "producerType": "Community",
+  "producerSlug": null,
+  "year": 2023,
+  "measures": "Code LLMs across programming languages.",
+  "how": "HumanEval plus MultiPL-E, its translation to 18 languages.",
+  "status": null,
+  "criticism": null,
+  "url": "https://huggingface.co/spaces/bigcode/bigcode-models-leaderboard",
+  "sources": [
+   "https://huggingface.co/spaces/bigcode/bigcode-models-leaderboard"
+  ]
+ },
+ {
+  "id": "vectara-hallucination-leaderboard",
+  "name": "LLM Hallucination Leaderboard",
+  "kind": "Search and RAG",
+  "producer": "Vectara",
+  "producerType": "Company",
+  "producerSlug": null,
+  "year": 2023,
+  "measures": "How often an LLM adds hallucinations when summarising a document.",
+  "how": "Over 7,700 articles scored by Vectara's HHEM.",
+  "status": "Active",
+  "criticism": "Scores come from Vectara's own commercial HHEM-2.3 model rather than a neutral judge.",
+  "url": "https://huggingface.co/spaces/vectara/leaderboard",
+  "sources": [
+   "https://huggingface.co/spaces/vectara/leaderboard",
+   "https://github.com/vectara/hallucination-leaderboard"
+  ]
+ },
+ {
+  "id": "financebench",
+  "name": "FinanceBench",
+  "kind": "Search and RAG",
+  "producer": "Patronus AI",
+  "producerType": "Company",
+  "producerSlug": null,
+  "year": 2023,
+  "measures": "Open-book financial question answering.",
+  "how": "10,231 questions about publicly traded companies.",
+  "status": null,
+  "criticism": null,
+  "url": "https://github.com/patronus-ai/financebench",
+  "sources": [
+   "https://github.com/patronus-ai/financebench",
+   "https://arxiv.org/abs/2311.11944"
+  ]
+ },
+ {
+  "id": "halubench",
+  "name": "HaluBench",
+  "kind": "Search and RAG",
+  "producer": "Patronus AI",
+  "producerType": "Company",
+  "producerSlug": null,
+  "year": null,
+  "measures": "Hallucination detection.",
+  "how": "Dataset on Hugging Face.",
+  "status": null,
+  "criticism": null,
+  "url": "https://huggingface.co/datasets/PatronusAI/HaluBench",
+  "sources": [
+   "https://huggingface.co/datasets/PatronusAI/HaluBench"
+  ]
+ },
+ {
+  "id": "enterprise-scenarios-leaderboard",
+  "name": "Enterprise Scenarios Leaderboard",
+  "kind": "Leaderboard",
+  "producer": "Patronus AI",
+  "producerType": "Company",
+  "producerSlug": null,
+  "year": 2023,
+  "measures": "LLMs on enterprise use cases.",
+  "how": "Space showed a build error on 2 November 2026.",
+  "status": null,
+  "criticism": null,
+  "url": "https://huggingface.co/spaces/PatronusAI/enterprise_scenarios_leaderboard",
+  "sources": [
+   "https://huggingface.co/spaces/PatronusAI/enterprise_scenarios_leaderboard"
+  ]
+ },
+ {
+  "id": "crag",
+  "name": "CRAG",
+  "kind": "Search and RAG",
+  "producer": "Meta (Facebook Research)",
+  "producerType": "Big lab",
+  "producerSlug": null,
+  "year": 2024,
+  "measures": "Retrieval-augmented generation on diverse, dynamic questions.",
+  "how": "Comprehensive RAG benchmark.",
+  "status": null,
+  "criticism": null,
+  "url": "https://github.com/facebookresearch/CRAG",
+  "sources": [
+   "https://github.com/facebookresearch/CRAG",
+   "https://arxiv.org/abs/2406.04744"
+  ]
+ },
+ {
+  "id": "ragtruth",
+  "name": "RAGTruth",
+  "kind": "Search and RAG",
+  "producer": "RAGTruth authors",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": 2023,
+  "measures": "Hallucinations in retrieval-augmented language models.",
+  "how": "Annotated hallucination corpus.",
+  "status": null,
+  "criticism": null,
+  "url": "https://arxiv.org/abs/2401.00396",
+  "sources": [
+   "https://arxiv.org/abs/2401.00396"
+  ]
+ },
+ {
+  "id": "halueval-wild",
+  "name": "HaluEval-Wild",
+  "kind": "Search and RAG",
+  "producer": "HaluEval-Wild authors",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": 2024,
+  "measures": "Hallucinations on real-world user queries.",
+  "how": "Queries gathered from the wild.",
+  "status": null,
+  "criticism": null,
+  "url": "https://arxiv.org/abs/2403.04307",
+  "sources": [
+   "https://arxiv.org/abs/2403.04307"
+  ]
+ },
+ {
+  "id": "beir",
+  "name": "BEIR",
+  "kind": "Search and RAG",
+  "producer": "BEIR authors",
+  "producerType": "Community",
+  "producerSlug": null,
+  "year": 2021,
+  "measures": "Zero-shot information retrieval across varied datasets.",
+  "how": "Heterogeneous retrieval benchmark.",
+  "status": null,
+  "criticism": null,
+  "url": "https://arxiv.org/abs/2104.08663",
+  "sources": [
+   "https://arxiv.org/abs/2104.08663"
+  ]
+ },
+ {
+  "id": "ms-marco",
+  "name": "MS MARCO",
+  "kind": "Search and RAG",
+  "producer": "Microsoft",
+  "producerType": "Big lab",
+  "producerSlug": null,
+  "year": null,
+  "measures": "Passage retrieval and question answering.",
+  "how": "Microsoft's public dataset and leaderboard site.",
+  "status": null,
+  "criticism": null,
+  "url": "https://microsoft.github.io/msmarco/",
+  "sources": [
+   "https://microsoft.github.io/msmarco/"
+  ]
+ },
+ {
+  "id": "hotpotqa",
+  "name": "HotpotQA",
+  "kind": "Search and RAG",
+  "producer": "HotpotQA authors",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": null,
+  "measures": "Multi-hop question answering.",
+  "how": "Official site with a leaderboard.",
+  "status": null,
+  "criticism": null,
+  "url": "https://hotpotqa.github.io/",
+  "sources": [
+   "https://hotpotqa.github.io/"
+  ]
+ },
+ {
+  "id": "trec",
+  "name": "TREC",
+  "kind": "Search and RAG",
+  "producer": "NIST",
+  "producerType": "Non-profit",
+  "producerSlug": null,
+  "year": null,
+  "measures": "Text retrieval methods, through a recurring conference.",
+  "how": "Text REtrieval Conference, run by NIST.",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://trec.nist.gov/",
+  "sources": [
+   "https://trec.nist.gov/"
+  ]
+ },
+ {
+  "id": "mteb-leaderboard",
+  "name": "MTEB Leaderboard",
+  "kind": "Search and RAG",
+  "producer": "MTEB community",
+  "producerType": "Community",
+  "producerSlug": null,
+  "year": 2022,
+  "measures": "Embedding models for text, image, audio and video.",
+  "how": "Hugging Face Space (updated 2 November 2026).",
+  "status": "Active",
+  "criticism": null,
+  "url": "https://huggingface.co/spaces/mteb/leaderboard",
+  "sources": [
+   "https://huggingface.co/spaces/mteb/leaderboard"
+  ]
+ },
+ {
+  "id": "fever",
+  "name": "FEVER",
+  "kind": "Search and RAG",
+  "producer": "FEVER authors",
+  "producerType": "University",
+  "producerSlug": null,
+  "year": 2018,
+  "measures": "Fact extraction and verification against textual sources.",
+  "how": "185,445 claims.",
+  "status": null,
+  "criticism": null,
+  "url": "https://arxiv.org/abs/1803.05355",
+  "sources": [
+   "https://arxiv.org/abs/1803.05355"
+  ]
+ },
+ {
+  "id": "reward-bench",
+  "name": "RewardBench",
+  "kind": "Safety",
+  "producer": "Allen Institute for AI",
+  "producerType": "Non-profit",
+  "producerSlug": null,
+  "year": 2024,
+  "measures": "Reward models.",
+  "how": "Hugging Face Space.",
+  "status": null,
+  "criticism": null,
+  "url": "https://huggingface.co/spaces/allenai/reward-bench",
+  "sources": [
+   "https://huggingface.co/spaces/allenai/reward-bench"
+  ]
+ }
+]

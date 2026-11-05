@@ -1,0 +1,303 @@
+/* Compare, in the Twenty design: one series color per compared company (by its position in the URL),
+   lanes and a log-scale chart on one shared time axis, and hover/focus tooltips in pure CSS. */
+
+[data-series="0"] { --series: var(--t-color-blue); }
+[data-series="1"] { --series: var(--t-color-orange); }
+[data-series="2"] { --series: var(--t-color-green); }
+[data-series="3"] { --series: var(--t-color-purple); }
+
+.tw-cmp-key-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.tw-cmp-key {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--series);
+  flex-shrink: 0;
+}
+
+.tw-cmp {
+  display: flex;
+  flex-direction: column;
+  gap: var(--t-spacing-2);
+  padding: var(--t-spacing-2);
+}
+.tw-cmp-section {
+  border: 1px solid var(--t-border-color-medium);
+  border-radius: var(--t-border-radius-md);
+  background: var(--t-background-primary);
+  overflow: hidden;
+}
+.tw-cmp-section .tw-widget-head a {
+  color: var(--t-font-color-tertiary);
+  font-weight: var(--t-font-weight-regular);
+  font-size: var(--t-font-size-sm);
+}
+.tw-cmp-section .tw-widget-head a:hover {
+  color: var(--t-font-color-primary);
+}
+.tw-cmp-body {
+  padding: var(--t-spacing-3);
+}
+.tw-cmp-note {
+  margin-top: var(--t-spacing-2);
+  color: var(--t-font-color-light);
+  font-size: var(--t-font-size-xs);
+}
+.tw-cmp-table {
+  overflow-x: auto;
+}
+.tw-cmp-table .tw-table td {
+  white-space: normal;
+  vertical-align: top;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  height: auto;
+  line-height: 1.4;
+}
+.tw-cmp-table .tw-table th.tw-sticky {
+  color: var(--t-font-color-tertiary);
+  font-weight: var(--t-font-weight-medium);
+  vertical-align: top;
+  padding-top: 7px;
+}
+.tw-cmp-table .tw-table tbody tr:hover td {
+  background: var(--t-background-primary);
+}
+.tw-cmp-sub {
+  display: block;
+  color: var(--t-font-color-tertiary);
+  font-size: var(--t-font-size-xs);
+}
+.tw-cmp-ev + .tw-cmp-ev {
+  margin-top: 6px;
+}
+.tw-cmp-ev a:hover {
+  text-decoration: underline;
+}
+
+/* Funding lanes: one row per company on the shared axis. */
+.tw-lanes {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 6px 12px;
+  align-items: center;
+}
+.tw-lane-name {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  font-weight: var(--t-font-weight-medium);
+}
+.tw-lane-name span:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tw-lane {
+  position: relative;
+  height: 40px;
+  margin: 0 14px;
+}
+.tw-lane::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: var(--t-border-color-strong);
+}
+.tw-grid-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--t-border-color-light);
+}
+.tw-axis {
+  position: relative;
+  height: 16px;
+  margin: 0 14px;
+  color: var(--t-font-color-light);
+  font-size: var(--t-font-size-xxs);
+  font-variant-numeric: tabular-nums;
+}
+.tw-axis span {
+  position: absolute;
+  transform: translateX(-50%);
+}
+
+/* A mark with a tooltip: hover or keyboard focus reveals it. */
+.tw-pt {
+  position: absolute;
+  top: 50%;
+  width: 0;
+  height: 0;
+}
+.tw-pt > a,
+.tw-pt > button {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  outline: none;
+}
+.tw-pt > a:focus-visible,
+.tw-pt > button:focus-visible {
+  box-shadow: 0 0 0 2px var(--t-color-blue);
+}
+.tw-dot {
+  display: block;
+  border-radius: 50%;
+  background: var(--series);
+  opacity: 0.85;
+  box-shadow: 0 0 0 2px var(--t-background-primary);
+  transition: transform 0.12s ease-out;
+}
+.tw-dot[data-hollow] {
+  background: var(--t-background-primary);
+  border: 2px solid var(--series);
+  opacity: 1;
+}
+.tw-pt:hover .tw-dot {
+  transform: scale(1.12);
+}
+.tw-tick {
+  display: block;
+  width: 2px;
+  height: 16px;
+  border-radius: 1px;
+  background: var(--t-font-color-tertiary);
+}
+.tw-tip {
+  display: none;
+  position: absolute;
+  bottom: 14px;
+  z-index: 5;
+  width: max-content;
+  max-width: 260px;
+  padding: 6px 10px;
+  border-radius: var(--t-border-radius-sm);
+  background: var(--t-background-primary);
+  border: 1px solid var(--t-border-color-medium);
+  box-shadow: var(--t-box-shadow-strong);
+  font-size: var(--t-font-size-sm);
+  line-height: 1.4;
+  pointer-events: none;
+}
+.tw-tip[data-side="left"] { left: 0; }
+.tw-tip[data-side="right"] { right: 0; }
+.tw-tip[data-side="center"] { left: 0; transform: translateX(-50%); }
+.tw-pt:hover .tw-tip,
+.tw-pt:focus-within .tw-tip {
+  display: block;
+}
+.tw-tip strong {
+  display: block;
+  font-variant-numeric: tabular-nums;
+}
+.tw-tip span {
+  display: block;
+  color: var(--t-font-color-tertiary);
+}
+
+/* Valuation chart: log scale, one line per company. */
+.tw-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  margin-bottom: var(--t-spacing-3);
+}
+.tw-legend li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.tw-legend .tw-legend-line {
+  width: 16px;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--series);
+}
+.tw-val {
+  position: relative;
+  height: 220px;
+}
+.tw-val-tick {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tw-val-tick span:first-child {
+  width: 48px;
+  text-align: right;
+  transform: translateY(-50%);
+  color: var(--t-font-color-light);
+  font-size: var(--t-font-size-xxs);
+  font-variant-numeric: tabular-nums;
+}
+.tw-val-tick span:last-child {
+  flex: 1;
+  height: 1px;
+  background: var(--t-border-color-light);
+  transform: translateY(-50%);
+}
+.tw-val-plot {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 56px;
+  right: 8px;
+}
+.tw-val-plot svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.tw-val-plot polyline {
+  stroke: var(--series);
+}
+.tw-val-plot .tw-pt {
+  top: auto;
+}
+.tw-val-axis {
+  margin-left: 56px;
+  margin-right: 8px;
+}
+
+.tw-suggest {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--t-spacing-2);
+}
+.tw-founders {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--t-spacing-2);
+}
+.tw-founders > div {
+  border: 1px solid var(--t-border-color-medium);
+  border-radius: var(--t-border-radius-sm);
+  padding: var(--t-spacing-2) var(--t-spacing-3);
+}
+.tw-founders .tw-rel {
+  margin-top: var(--t-spacing-2);
+}
+
+@media (max-width: 640px) {
+  .tw-lanes {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

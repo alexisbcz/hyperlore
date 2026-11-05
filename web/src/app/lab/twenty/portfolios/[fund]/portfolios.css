@@ -1,0 +1,22 @@
+/* Portfolios: the fund switcher (Twenty tab buttons) and the directory's source note. */
+
+.tw-folio-tabs {
+  display: flex;
+  gap: var(--t-spacing-1);
+  padding: 0 var(--t-spacing-2);
+  border-bottom: 1px solid var(--t-border-color-light);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tw-folio-intro {
+  padding: var(--t-spacing-2) var(--t-spacing-3);
+  border-bottom: 1px solid var(--t-border-color-light);
+  background: var(--t-background-secondary);
+  color: var(--t-font-color-tertiary);
+  font-size: var(--t-font-size-sm);
+  line-height: 1.5;
+}
+.tw-folio-intro strong {
+  color: var(--t-font-color-secondary);
+  font-weight: var(--t-font-weight-medium);
+}

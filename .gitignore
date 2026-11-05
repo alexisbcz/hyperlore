@@ -1,0 +1,29 @@
+# Secrets
+.env
+.env.*
+data/cookies.txt
+
+# Raw API/scrape caches: large, third-party, and paid for; kept locally only
+data/raw/
+data/media/
+*.wav
+*.m4a
+*.webm
+*.mp4
+# …except the share videos the site serves (web/scripts/og-videos.mjs)
+!web/public/og/video/*.mp4
+data/.whisper.lock
+
+# Tooling
+__pycache__/
+.venv/
+node_modules/
+
+# Vercel
+.vercel
+
+# Agent worktrees
+.claude/worktrees/
+
+# Research agent run logs (transcripts, reports)
+data/runs/

@@ -1,0 +1,899 @@
+/* Cascade layer order, declared before anything loads: Twenty UI's reset and components sit between
+   Tailwind's base and its utilities (as Twenty's docs prescribe), so after a client-side move from a
+   Twenty page to a classic one, its button reset can't override classic utility classes. */
+@layer theme, base, reset, twenty-ui, components, utilities;
+
+@import "tailwindcss";
+
+/* Dark by default, neon lime as the single action color: glass panels, glossy icon tiles, lit edges.
+   data-theme="light" on <html> is the explicit alternative. --fg-subtle keeps 4.5:1 (WCAG AA) on --bg,
+   --bg-subtle and --bg-hover in both themes. */
+:root {
+  --bg: #0b0c0e;
+  --bg-subtle: #141518;
+  --bg-hover: #1d1e23;
+  --border: #25262c;
+  --border-strong: #383a42;
+  --fg: #f5f5f2;
+  --fg-muted: #b9bbc2;
+  --fg-subtle: #8f919a;
+  --accent: #ccff2a;
+  --chart: #ccff2a;
+  --link: #eceee6;
+  --primary: #ccff2a;
+  --primary-hover: #dcff66;
+  --on-primary: #0b0c0e;
+  /* Categorical series (comparisons), fixed order, validated for CVD separation on each surface. */
+  --series-1: #3987e5;
+  --series-2: #d95926;
+  --series-3: #199e70;
+  --series-4: #c98500;
+  /* The top highlight and drop shadow that make a panel read as a physical object. */
+  --edge: rgb(255 255 255 / 0.06);
+  --lift: 0 24px 60px -28px rgb(0 0 0 / 0.9);
+  --metal: linear-gradient(180deg, #ffffff 25%, #9fa1a8 100%);
+  --sticky-top: 5rem;
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  --bg: #f6f6f3;
+  --bg-subtle: #eeeeea;
+  --bg-hover: #e6e6e1;
+  --border: #dedfd9;
+  --border-strong: #c5c6bf;
+  --fg: #111214;
+  --fg-muted: #3c3e44;
+  --fg-subtle: #5f6168;
+  --accent: #566b00;
+  --chart: #6f8a00;
+  --link: #2c3500;
+  --primary: #ccff2a;
+  --primary-hover: #bff000;
+  --on-primary: #0b0c0e;
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --series-3: #1baf7a;
+  --series-4: #eda100;
+  --edge: rgb(255 255 255 / 0.8);
+  --lift: 0 20px 44px -28px rgb(0 0 0 / 0.3);
+  --metal: linear-gradient(180deg, #111214 40%, #5f6168 100%);
+  color-scheme: light;
+}
+
+/* Without a sticky header on desktop, sticky columns sit near the top of the viewport. */
+@media (width >= 64rem) {
+  :root {
+    --sticky-top: 1.5rem;
+  }
+}
+
+@custom-variant dark {
+  &:where(:root:not([data-theme="light"]), :root:not([data-theme="light"]) *) {
+    @slot;
+  }
+}
+
+@theme {
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1.125rem;
+  --radius-2xl: 1.5rem;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-subtle: var(--bg-subtle);
+  --color-bg-hover: var(--bg-hover);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-subtle: var(--fg-subtle);
+  --color-accent: var(--accent);
+  --color-link: var(--link);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-on-primary: var(--on-primary);
+  --color-chart: var(--chart);
+  --color-series-1: var(--series-1);
+  --color-series-2: var(--series-2);
+  --color-series-3: var(--series-3);
+  --color-series-4: var(--series-4);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-inter-tight);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+}
+
+/* Ambient light from above the page, fixed so it doesn't scroll away. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(60rem 28rem at 58% -12rem, color-mix(in srgb, var(--primary) 7%, transparent), transparent),
+    radial-gradient(40rem 24rem at 100% 0, rgb(70 110 255 / 0.05), transparent);
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  scrollbar-color: var(--border-strong) transparent;
+}
+
+@layer base {
+  a,
+  button,
+  summary {
+    touch-action: manipulation;
+  }
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+/* A raised card gives under the finger. */
+a.pad:active {
+  transform: scale(0.99);
+}
+
+/* Fingers need bigger targets than the compact marks. */
+@media (pointer: coarse) {
+  .chip {
+    min-height: 2rem;
+    padding-inline: 0.5rem;
+  }
+  .cite-src {
+    width: 2rem;
+    height: 2rem;
+  }
+  .cite-sup > a::after {
+    content: "";
+    position: absolute;
+    inset: -0.5rem;
+  }
+  .ev-quotes > summary {
+    padding-block: 0.5rem;
+  }
+  .ev-fix {
+    display: inline-block;
+    padding-block: 0.5rem;
+  }
+  .tbl tbody td:first-child a {
+    margin-block: -0.375rem;
+    padding-block: 0.375rem;
+  }
+}
+
+/* Film grain, so the dark surfaces read as material rather than flat color. Desktop only. */
+@media (hover: hover) and (pointer: fine) {
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 70;
+    pointer-events: none;
+    opacity: 0.045;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+@keyframes tape {
+  to {
+    transform: translateX(-100%);
+  }
+}
+@keyframes grow {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+.read-progress {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tape {
+    overflow-x: auto;
+  }
+  .tape-run {
+    animation: none;
+  }
+  .tape-run + .tape-run {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    /* How far down the page you are. */
+    .read-progress {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 40;
+      height: 2px;
+      transform-origin: left;
+      background: var(--primary);
+      animation: grow linear both;
+      animation-timeline: scroll(root);
+    }
+  }
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+a.bg-primary,
+button.bg-primary {
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.65),
+    inset 0 -2px 0 rgb(0 0 0 / 0.16);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+html {
+  scroll-padding-top: 1.5rem;
+}
+/* Below lg the sticky top bar covers the first rows. */
+@media (width < 64rem) {
+  html {
+    scroll-padding-top: 5rem;
+  }
+}
+
+/* A modal <dialog> (the phone filter sheet) doesn't stop the page behind it from scrolling. */
+html:has(dialog[open]:modal) {
+  overflow: hidden;
+}
+
+/* Long-form overview text. */
+.prose-lore h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-wrap: balance;
+}
+.prose-lore p {
+  margin-top: 0.875rem;
+  line-height: 1.75;
+  color: var(--fg-muted);
+  text-wrap: pretty;
+}
+.prose-lore blockquote {
+  margin: 1.25rem 0;
+  border-left: 2px solid var(--border-strong);
+  padding-left: 1rem;
+  color: var(--fg);
+}
+.prose-lore ul {
+  margin-top: 0.875rem;
+  list-style: disc;
+  padding-left: 1.25rem;
+  color: var(--fg-muted);
+  line-height: 1.75;
+}
+.prose-lore strong {
+  color: var(--fg);
+  font-weight: 600;
+}
+/* The block that opens an overview or story sits on the section rhythm, not on a heading's top margin. */
+.prose-lore > :first-child {
+  margin-top: 0;
+}
+/* Data tables: one box and one set of cells for every table on the site (markdown tables in
+   overviews, stories and chat replies; the company and investor directories; comparisons).
+   <TableScroll> (components/table-scroll.tsx) renders the box and sets data-overflow / data-start /
+   data-end. A table wider than its column scrolls inside the box, never the page, with a fade on the
+   edge that has more columns past it. In a components layer so a table's own utilities still win. */
+@layer components {
+  .tbl {
+    position: relative;
+    max-width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    background: var(--bg);
+  }
+  .tbl-scroll {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    border-radius: calc(0.5rem - 1px);
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-strong) transparent;
+  }
+  .tbl-scroll:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  .tbl::before,
+  .tbl::after {
+    content: "";
+    position: absolute;
+    inset-block: 0;
+    z-index: 3;
+    width: 2.5rem;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 150ms ease-out;
+  }
+  .tbl::before {
+    left: 0;
+    border-radius: calc(0.5rem - 1px) 0 0 calc(0.5rem - 1px);
+    background: linear-gradient(to right, var(--bg) 15%, transparent);
+  }
+  .tbl::after {
+    right: 0;
+    border-radius: 0 calc(0.5rem - 1px) calc(0.5rem - 1px) 0;
+    background: linear-gradient(to left, var(--bg) 15%, transparent);
+  }
+  .tbl[data-end]::after,
+  .tbl[data-start]:not(:has(.tbl-pin))::before {
+    opacity: 1;
+  }
+
+  .tbl table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    text-align: left;
+    font-variant-numeric: tabular-nums;
+  }
+  .tbl th,
+  .tbl td {
+    padding: 0.625rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    overflow-wrap: break-word;
+  }
+  .tbl td {
+    color: var(--fg-muted);
+  }
+  .tbl thead th,
+  .tbl thead td {
+    padding-block: 0.5rem;
+    background: var(--bg-subtle);
+    color: var(--fg-subtle);
+    font-size: 0.75rem;
+    font-weight: 500;
+    white-space: nowrap;
+    vertical-align: bottom;
+  }
+  .tbl tbody > tr:last-child > * {
+    border-bottom: 0;
+  }
+  /* Amounts and counts: right-aligned, digits lined up, never broken across lines. */
+  .tbl .num {
+    text-align: right;
+    white-space: nowrap;
+  }
+  /* A pinned first column: stays put while the rest scrolls under it, with a shadow once it has. */
+  .tbl .tbl-pin {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    background: var(--bg);
+    transition: box-shadow 150ms ease-out;
+  }
+  .tbl thead .tbl-pin {
+    background: var(--bg-subtle);
+  }
+  .tbl[data-start] .tbl-pin {
+    box-shadow:
+      inset -1px 0 var(--border),
+      6px 0 8px -6px rgb(0 0 0 / 0.16);
+  }
+  @variant dark {
+    .tbl[data-start] .tbl-pin {
+      box-shadow:
+        inset -1px 0 var(--border-strong),
+        6px 0 8px -6px rgb(0 0 0 / 0.7);
+    }
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .tbl-hover tbody > tr:hover > * {
+      background: var(--bg-subtle);
+    }
+  }
+
+  /* Markdown tables (overviews, stories, chat replies). */
+  .prose-table {
+    margin-top: 1rem;
+  }
+  .prose-table td {
+    min-width: 6rem;
+  }
+  .prose-table td:first-child {
+    color: var(--fg);
+  }
+  .prose-table thead th {
+    color: var(--fg-muted);
+  }
+  /* .tbl-cards: in a narrow column the table becomes one card per row. The first cell is the card's
+     title, every other cell a label (its data-label, the column header) and its value (.tbl-v). The
+     table needs explicit ARIA roles: restyled rows and cells lose their implicit ones. */
+  .tbl-cards {
+    container-type: inline-size;
+  }
+  @container (max-width: 34rem) {
+    .tbl-cards table,
+    .tbl-cards tbody,
+    .tbl-cards tr {
+      display: block;
+    }
+    .tbl-cards thead {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+    .tbl-cards tbody > tr {
+      display: grid;
+      grid-template-columns: minmax(5rem, 36%) minmax(0, 1fr);
+      column-gap: 0.75rem;
+      row-gap: 0.375rem;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .tbl-cards tbody > tr:last-child {
+      border-bottom: 0;
+    }
+    .tbl-cards tbody > tr > * {
+      display: grid;
+      grid-column: 1 / -1;
+      grid-template-columns: subgrid;
+      align-items: baseline;
+      min-width: 0;
+      padding: 0;
+      border: 0;
+      text-align: left !important;
+      white-space: normal;
+    }
+    .tbl-cards tbody > tr > *::before {
+      content: attr(data-label);
+      color: var(--fg-subtle);
+      font-size: 0.75rem;
+      line-height: 1.25rem;
+    }
+    .tbl-cards tbody > tr > :first-child {
+      display: block;
+      margin-bottom: 0.125rem;
+      color: var(--fg);
+      font-weight: 500;
+    }
+    .tbl-cards tbody > tr > :first-child::before {
+      content: none;
+    }
+    .tbl-cards tbody > tr > :has(> .tbl-v:empty) {
+      display: none;
+    }
+  }
+}
+
+/* Markup repeated tens or hundreds of times per page (timeline events, source chips, citation marks,
+   company marks, the company sidebar, funding rows). Its utilities live here once: written inline they
+   were most of a company page's HTML, and again in its RSC payload. */
+@layer components {
+  /* A physical panel: raised off the page, lit along its top edge. */
+  .pad {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--fg) 4%, var(--bg-subtle)), var(--bg-subtle));
+    border: 1px solid var(--border);
+    box-shadow:
+      inset 0 1px 0 var(--edge),
+      var(--lift);
+  }
+
+  /* The surface catches the pointer's light (components/aura.tsx sets --mx and --my). */
+  .pad {
+    position: relative;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .pad::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      opacity: 0;
+      background: radial-gradient(22rem circle at var(--mx, 50%) var(--my, 0), color-mix(in srgb, var(--primary) 7%, rgb(255 255 255 / 0.05)), transparent 70%);
+      transition: opacity 300ms ease-out;
+    }
+    .pad:hover::before {
+      opacity: 1;
+    }
+  }
+  .pad:has(textarea:focus) {
+    border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+    box-shadow:
+      inset 0 1px 0 var(--edge),
+      0 0 0 3px color-mix(in srgb, var(--accent) 12%, transparent),
+      0 0 40px -10px color-mix(in srgb, var(--accent) 35%, transparent),
+      var(--lift);
+  }
+
+  .flag {
+    display: inline-block;
+    width: 1.2em;
+    height: 0.9em;
+    vertical-align: -0.08em;
+    border-radius: 2px;
+    object-fit: cover;
+    box-shadow:
+      0 0 0 1px rgb(0 0 0 / 0.25),
+      inset 0 0 0 1px rgb(255 255 255 / 0.1);
+  }
+  .flag-lg {
+    flex-shrink: 0;
+    width: 2rem;
+    height: 1.5rem;
+    border-radius: 4px;
+    box-shadow:
+      0 0 0 1px rgb(255 255 255 / 0.12),
+      0 4px 10px -4px rgb(0 0 0 / 0.7);
+  }
+
+  /* The funding tape: two identical runs, so moving by one run loops without a seam. */
+  .tape {
+    display: flex;
+    overflow: hidden;
+    border-block: 1px solid var(--border);
+    mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  }
+  .tape-run {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 0.75rem 1.25rem;
+    animation: tape 70s linear infinite;
+  }
+  .tape:hover .tape-run,
+  .tape:focus-within .tape-run {
+    animation-play-state: paused;
+  }
+
+  /* Glossy app-icon tile: set --hue, or --sat: 0 for graphite. */
+  .gloss {
+    position: relative;
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    overflow: hidden;
+    border-radius: 30%;
+    color: #fff;
+    background:
+      radial-gradient(120% 80% at 30% 0%, hsl(var(--hue, 220) calc(var(--sat, 90) * 1%) 80%), transparent 62%),
+      linear-gradient(160deg, hsl(var(--hue, 220) calc(var(--sat, 90) * 1%) 58%), hsl(var(--hue, 220) calc(var(--sat, 90) * 1%) 30%));
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.6),
+      inset 0 -1px 1px rgb(0 0 0 / 0.35),
+      0 1px 2px rgb(0 0 0 / 0.5),
+      0 6px 12px -6px hsl(var(--hue, 220) calc(var(--sat, 90) * 1%) 40% / 0.7);
+  }
+  .gloss > svg {
+    width: 58%;
+    height: 58%;
+    filter: drop-shadow(0 1px 1px rgb(0 0 0 / 0.45));
+  }
+  .gloss-lg {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  /* The big action key: a lit cap with a darker lip that presses in. */
+  .btn-lime {
+    background: linear-gradient(180deg, #e2ff70, #ccff2a 45%, #bdf011);
+    color: #0b0c0e;
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.75),
+      inset 0 -4px 0 #93bd00,
+      0 6px 14px -8px rgb(0 0 0 / 0.45);
+    transition:
+      transform 120ms ease-out,
+      box-shadow 120ms ease-out,
+      filter 120ms ease-out;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .btn-lime:hover:not(:disabled) {
+      filter: brightness(1.06);
+    }
+  }
+  .btn-lime:active:not(:disabled) {
+    transform: translateY(2px);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.75),
+      inset 0 -2px 0 #93bd00;
+  }
+
+  .display {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    background: var(--metal);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Sidebar and dock. */
+  /* Collapsible sidebar: <html data-sidebar="collapsed"> slides it off-canvas (desktop only). */
+  .sidebar-rail {
+    display: none;
+  }
+  @media (width >= 64rem) {
+    .app-sidebar,
+    .app-content {
+      transition-duration: 200ms;
+      transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .app-sidebar {
+      transition-property: transform, visibility;
+    }
+    .app-content {
+      padding-left: 15rem;
+      transition-property: padding-left;
+    }
+    :root[data-sidebar="collapsed"] .app-sidebar {
+      transform: translateX(-100%);
+      visibility: hidden;
+    }
+    :root[data-sidebar="collapsed"] .app-content {
+      padding-left: 0;
+    }
+    /* A 16px hit area centred on the sidebar's border; a line lights up on hover. */
+    .sidebar-rail {
+      display: block;
+      position: fixed;
+      inset-block: 0;
+      left: 15rem;
+      z-index: 31;
+      width: 1rem;
+      transform: translateX(-50%);
+      cursor: w-resize;
+      transition: left 200ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .sidebar-rail::after {
+      content: "";
+      position: absolute;
+      inset-block: 0;
+      left: 50%;
+      width: 2px;
+      transform: translateX(-50%);
+      background: var(--border-strong);
+      opacity: 0;
+      transition: opacity 150ms;
+    }
+    .sidebar-rail:hover::after {
+      opacity: 1;
+    }
+    :root[data-sidebar="collapsed"] .sidebar-rail {
+      left: 0;
+      transform: none;
+      width: 0.75rem;
+      cursor: e-resize;
+    }
+    :root[data-sidebar="collapsed"] .sidebar-rail::after {
+      left: 0;
+      transform: none;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .app-sidebar,
+    .app-content,
+    .sidebar-rail {
+      transition-duration: 0s !important;
+    }
+  }
+  .side-link {
+    @apply flex h-10 items-center gap-2.5 rounded-lg px-1.5 text-sm font-medium text-fg-muted transition-colors hover:bg-bg-hover hover:text-fg focus-visible:outline-2 focus-visible:outline-accent;
+  }
+  .side-link {
+    position: relative;
+  }
+  .side-link[aria-current="page"] {
+    @apply bg-bg-hover text-fg;
+    box-shadow: inset 0 1px 0 var(--edge);
+  }
+  .side-link[aria-current="page"]::before {
+    content: "";
+    position: absolute;
+    left: -0.75rem;
+    top: 25%;
+    bottom: 25%;
+    width: 3px;
+    border-radius: 0 3px 3px 0;
+    background: var(--primary);
+  }
+  .dock {
+    background: color-mix(in srgb, var(--bg-subtle) 78%, transparent);
+    border: 1px solid var(--border);
+    box-shadow:
+      inset 0 1px 0 var(--edge),
+      0 16px 40px -12px rgb(0 0 0 / 0.7);
+    backdrop-filter: blur(20px) saturate(1.6);
+  }
+
+  /* The home reel: cards fan out from the centre; --x, --s and --o are set per card from its offset. */
+  .reel {
+    position: relative;
+    height: clamp(13rem, 40vw, 19rem);
+    perspective: 1400px;
+  }
+  .reel-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: min(30rem, 76%);
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 1.125rem;
+    background: #141518;
+    transform: translate(calc(-50% + var(--x)), -50%) scale(var(--s));
+    opacity: var(--o);
+    filter: brightness(var(--dim));
+    box-shadow:
+      0 0 0 1px rgb(255 255 255 / 0.14),
+      inset 0 1px 0 rgb(255 255 255 / 0.2),
+      0 30px 60px -20px rgb(0 0 0 / 0.85);
+    transition:
+      transform 520ms cubic-bezier(0.65, 0, 0.35, 1),
+      opacity 520ms cubic-bezier(0.65, 0, 0.35, 1),
+      filter 520ms cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reel-card {
+      transition: none;
+    }
+  }
+
+  .ev {
+    @apply relative scroll-mt-24 pb-8 pl-6;
+  }
+  .ev:hover .ev-dot {
+    @apply bg-accent;
+  }
+  .ev:last-child {
+    @apply pb-0;
+  }
+  .ev-dot {
+    @apply absolute left-0 top-1.5 size-2 rounded-full border-2 border-bg bg-fg-subtle ring-1 ring-border-strong;
+  }
+  .ev-meta {
+    @apply flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-fg-subtle;
+  }
+  .ev-meta time {
+    @apply font-mono tabular-nums text-fg-muted;
+  }
+  .ev-title {
+    @apply mt-1 text-balance text-[15px] font-medium leading-snug text-fg;
+  }
+  .ev-summary {
+    @apply mt-1 max-w-2xl text-pretty text-sm leading-relaxed text-fg-muted;
+  }
+  .ev-quotes {
+    @apply mt-2 max-w-2xl;
+  }
+  .ev-quotes > summary {
+    @apply w-fit cursor-pointer list-none text-xs text-fg-subtle hover:text-fg;
+  }
+  .ev-quotes[open] .ev-show,
+  .ev-quotes:not([open]) .ev-hide {
+    display: none;
+  }
+  .ev-quotes ul {
+    @apply mt-2 flex flex-col gap-2 border-l border-border-strong pl-3;
+  }
+  .ev-quotes li {
+    @apply text-sm text-fg-muted;
+  }
+  .ev-quotes q {
+    @apply text-pretty [overflow-wrap:anywhere];
+  }
+  .ev-quotes li > a {
+    @apply text-xs text-accent hover:underline;
+  }
+  .ev-sources {
+    @apply mt-2 flex flex-wrap items-center gap-1.5;
+  }
+  /* "Suggest a correction": shown on hover or focus, always on touch screens. */
+  .ev-fix {
+    @apply ml-1 text-xs text-fg-subtle opacity-0 transition-opacity hover:text-fg focus-visible:opacity-100;
+  }
+  .ev:hover .ev-fix {
+    @apply opacity-100;
+  }
+  @media (hover: none) {
+    .ev-fix {
+      @apply opacity-100;
+    }
+  }
+
+  .chip {
+    @apply inline-flex max-w-full items-center gap-1.5 rounded-md border border-border px-1.5 py-0.5 text-xs text-fg-subtle transition-colors hover:border-border-strong hover:text-fg;
+  }
+  .chip > svg {
+    @apply size-3 text-fg-muted;
+  }
+
+  /* Citation marks: the numbered superscript in prose, the source glyph beside a fact. */
+  .cite-sup {
+    @apply relative inline-block align-super text-[0.7em] leading-none;
+  }
+  .cite-sup > a {
+    @apply rounded px-0.5 font-mono font-medium text-accent hover:underline focus-visible:outline-2 focus-visible:outline-accent;
+  }
+  .cite-src {
+    @apply inline-flex size-5 items-center justify-center rounded text-fg-subtle transition-colors hover:bg-bg-hover hover:text-accent focus-visible:outline-2 focus-visible:outline-accent;
+  }
+
+  /* CompanyMark: a logo tile, or the company's initial. */
+  .mark {
+    @apply flex shrink-0 items-center justify-center overflow-hidden border border-border;
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.14),
+      0 4px 10px -6px rgb(0 0 0 / 0.6);
+  }
+  .mark > img {
+    @apply size-[78%] object-contain;
+  }
+  .mark-initial {
+    @apply flex size-full items-center justify-center bg-bg-subtle text-sm font-semibold text-fg-muted;
+  }
+
+  /* The company sidebar on company pages. */
+  .nav-co {
+    @apply flex items-center gap-2.5 rounded-md px-2 py-1.5 text-sm text-fg-muted transition-colors hover:bg-bg-hover hover:text-fg;
+  }
+  .nav-co[aria-current="page"] {
+    @apply bg-bg-hover font-medium text-fg;
+  }
+
+  .link-u {
+    @apply text-link underline decoration-accent/45 underline-offset-2 hover:decoration-accent;
+  }
+
+  /* A company's funding rows: stacked in a narrow column, columns once the container allows. */
+  .fund-row {
+    @apply grid grid-cols-[minmax(0,1fr)_auto] gap-x-3 gap-y-1.5 [grid-template-areas:'date_amount'_'round_valuation'_'investors_sources'] @2xl:grid-cols-[6.5rem_minmax(0,8rem)_5.5rem_5.5rem_minmax(0,1fr)_5.5rem] @2xl:items-start @2xl:[grid-template-areas:'date_round_amount_valuation_investors_sources'];
+  }
+  /* The /rounds feed's rows: a stacked card on phones, columns once the results column is wide enough. */
+  .round-row {
+    @apply grid grid-cols-[minmax(0,1fr)_auto] gap-x-3 gap-y-1 [grid-template-areas:'company_amount'_'date_valuation'_'round_round'_'investors_sources'] @3xl:grid-cols-[5.75rem_minmax(0,10rem)_minmax(0,8rem)_5rem_5rem_minmax(12rem,1fr)_5.5rem] @3xl:items-start @3xl:[grid-template-areas:'date_company_round_amount_valuation_investors_sources'];
+  }
+
+  /* Reference lists under overviews and stories. */
+  .refs > li {
+    @apply flex scroll-mt-24 gap-3 rounded-md target:bg-bg-hover;
+  }
+  .refs-n {
+    @apply w-7 shrink-0 text-right font-mono text-xs tabular-nums leading-5 text-fg-subtle;
+  }
+  .refs-meta {
+    @apply flex items-center gap-1.5 text-xs text-fg-subtle;
+  }
+}

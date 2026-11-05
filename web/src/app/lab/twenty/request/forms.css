@@ -1,0 +1,64 @@
+/* Request and correction pages: a form column and a side column, in the record-page grid. */
+.twf-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  flex: 1;
+  min-height: 0;
+}
+.twf-main {
+  padding: var(--t-spacing-6);
+  overflow-y: auto;
+}
+.twf-side {
+  border-left: 1px solid var(--t-border-color-light);
+  overflow-y: auto;
+}
+.twf-title {
+  font-size: var(--t-font-size-xl);
+  font-weight: var(--t-font-weight-semi-bold);
+  line-height: 1.2;
+  margin: 0 0 var(--t-spacing-2);
+}
+.twf-lede {
+  color: var(--t-font-color-secondary);
+  line-height: 1.55;
+  max-width: 62ch;
+  margin: 0 0 var(--t-spacing-6);
+}
+.twf-form {
+  display: grid;
+  gap: var(--t-spacing-4);
+  max-width: 520px;
+}
+.twf-field {
+  display: grid;
+  gap: var(--t-spacing-1);
+}
+.twf-optional {
+  color: var(--t-font-color-light);
+  font-weight: var(--t-font-weight-regular);
+}
+.twf-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--t-spacing-3);
+}
+.twf-event {
+  max-width: 720px;
+  margin: 0 0 var(--t-spacing-6);
+  border: 1px solid var(--t-border-color-medium);
+  border-radius: var(--t-border-radius-sm);
+}
+.twf-event .tw-timeline {
+  padding: var(--t-spacing-3);
+}
+@media (max-width: 860px) {
+  .twf-layout {
+    display: block;
+    overflow-y: auto;
+  }
+  .twf-side {
+    border-left: 0;
+    border-top: 1px solid var(--t-border-color-light);
+  }
+}

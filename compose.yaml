@@ -1,0 +1,12 @@
+services:
+  documentdb:
+    image: ghcr.io/documentdb/documentdb/documentdb-local:latest
+    container_name: hyperlore-documentdb
+    command: ["--username", "hyperlore", "--password", "hyperlore"]
+    ports:
+      - "127.0.0.1:10260:10260"
+    volumes:
+      - documentdb-data:/home/documentdb/postgresql/data
+    restart: unless-stopped
+volumes:
+  documentdb-data:

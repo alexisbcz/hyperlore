@@ -1,0 +1,129 @@
+/* Archive statistics in the Twenty design. Tooltips reuse compare.css's .tw-pt / .tw-tip. */
+
+.tw-stat-kpi a {
+  display: block;
+  height: 100%;
+}
+.tw-stat-kpi a:hover {
+  background: var(--t-background-secondary);
+}
+
+.tw-stat-chart {
+  padding: var(--t-spacing-6) var(--t-spacing-3) var(--t-spacing-2);
+}
+.tw-stat-plot {
+  position: relative;
+  height: 180px;
+  margin-left: 36px;
+}
+.tw-stat-grid {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+}
+.tw-stat-grid span:first-child {
+  position: absolute;
+  left: -36px;
+  width: 28px;
+  text-align: right;
+  transform: translateY(50%);
+  color: var(--t-font-color-light);
+  font-size: var(--t-font-size-xxs);
+}
+.tw-stat-grid span:last-child {
+  flex: 1;
+  height: 1px;
+  background: var(--t-border-color-light);
+}
+.tw-stat-bars {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+}
+.tw-stat-bar.tw-pt {
+  position: relative;
+  top: auto;
+  flex: 1;
+  height: 100%;
+  width: auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.tw-stat-bar > a {
+  position: static;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+}
+.tw-stat-fill {
+  display: block;
+  width: 100%;
+  max-width: 22px;
+  border-radius: 2px 2px 0 0;
+  background: var(--t-color-blue);
+  opacity: 0.85;
+}
+.tw-stat-bar:hover .tw-stat-fill {
+  opacity: 1;
+}
+.tw-stat-label {
+  position: absolute;
+  transform: translateY(-4px);
+  color: var(--t-font-color-secondary);
+  font-size: var(--t-font-size-xxs);
+  pointer-events: none;
+}
+.tw-stat-bar .tw-tip {
+  bottom: 100%;
+}
+.tw-stat-axis {
+  display: flex;
+  gap: 2px;
+  margin: 6px 0 0 36px;
+}
+.tw-stat-axis span {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+  color: var(--t-font-color-light);
+  font-size: var(--t-font-size-xxs);
+  font-variant-numeric: tabular-nums;
+}
+
+.tw-stat-stages {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: var(--t-spacing-4);
+}
+.tw-stat-stages .tw-list-row {
+  border-bottom: 1px solid var(--t-border-color-light);
+}
+.tw-stat-meter {
+  display: block;
+  width: 120px;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--t-background-tertiary);
+  overflow: hidden;
+}
+.tw-stat-meter span {
+  display: block;
+  height: 100%;
+  border-radius: 3px;
+}
+@media (max-width: 700px) {
+  .tw-stat-stages {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .tw-stat-meter {
+    width: 60px;
+  }
+}

@@ -1,0 +1,1809 @@
+[
+  {
+    "id": "lost-deal-radar",
+    "name": "Lost Deal Radar",
+    "category": "GTM",
+    "pitch": "Reads closed-lost deals and their call transcripts, then alerts the rep when the stated reason for losing has actually changed.",
+    "wedge": "Sell a one-time audit of the last 24 months of closed-lost deals in HubSpot plus Gong, sorted by reason. Why now: call transcripts finally make the real loss reason machine-readable, where the CRM dropdown never did.",
+    "customer": "VP Sales at a 50-500 person B2B SaaS company",
+    "models": [
+      "Claude Sonnet 5.5",
+      "GPT-6 Luna"
+    ],
+    "saas": [
+      "Gong API",
+      "HubSpot API",
+      "Exa",
+      "Apollo API",
+      "Nylas"
+    ],
+    "stackNotes": "GPT-6 Luna classifies every transcript cheaply, Claude Sonnet 5.5 writes one loss-reason record per deal, and Exa and Apollo watch for matching signals such as a competitor price change or a new champion.",
+    "pricing": "Flat audit fee, then a monthly subscription per seat with a bonus on revived pipeline",
+    "competitors": [
+      "Enneto",
+      "Meytchi",
+      "UserGems",
+      "Common Room"
+    ],
+    "precedent": {
+      "name": null,
+      "url": null
+    },
+    "moat": "Weak at first. The asset is a per-customer map of loss reasons to outcomes, and that takes a year to compound.",
+    "risk": "Gong, Salesloft or HubSpot ship it as a feature, since they already hold the transcripts and the CRM data.",
+    "mvpWeeks": 5,
+    "scores": {
+      "demand": 4,
+      "feasibility": 5,
+      "moat": 2,
+      "fundability": 3
+    },
+    "sources": [
+      "https://enneto.pages.dev/",
+      "https://www.g2.com/products/meytchi-ai/discuss",
+      "https://help.gong.io/docs/what-the-gong-api-provides",
+      "https://developers.hubspot.com/docs/api-reference/overview",
+      "https://docs.apollo.io/",
+      "https://developers.openai.com/api/docs/pricing",
+      "https://platform.claude.com/docs/en/about-claude/models/overview"
+    ]
+  },
+  {
+    "id": "piggyback-scout",
+    "name": "Piggyback Scout",
+    "category": "GTM",
+    "pitch": "Tells small IT and SaaS resellers which cooperative purchasing contracts a given school district or city can already buy through, so the deal skips a full RFP.",
+    "wedge": "A lookup that takes a target agency and a product and returns the co-op vehicles it can use, with contract documents attached. Why now: venture money has gone to signal detection before the RFP, while the question of how the buyer can legally buy is still answered by hand.",
+    "customer": "Public-sector sales lead at a reseller or SaaS vendor with under 200 staff",
+    "models": [
+      "Claude Sonnet 5.5",
+      "Gemini Embedding 2"
+    ],
+    "saas": [
+      "Firecrawl",
+      "Exa",
+      "Reducto",
+      "HubSpot API",
+      "Supabase"
+    ],
+    "stackNotes": "Firecrawl and Exa collect co-op contract pages and agency board minutes, Reducto parses the PDFs, and Claude Sonnet 5.5 pulls out eligibility clauses into a searchable table.",
+    "pricing": "Annual per-seat subscription",
+    "competitors": [
+      "Pursuit",
+      "Starbridge",
+      "GovSpend",
+      "GovWin IQ",
+      "Sweetspot"
+    ],
+    "precedent": {
+      "name": "Starbridge",
+      "url": "https://www.govtech.com/biz/sled-procurement-firm-starbridge-raises-10m-in-seed-funding"
+    },
+    "moat": "A hand-checked map of contracts to eligible agencies. Useful, but a funded rival could rebuild it.",
+    "risk": "Pursuit or Starbridge adds it as a tab. This market already has well-funded leaders, so only the narrow vehicle angle is open.",
+    "mvpWeeks": 6,
+    "scores": {
+      "demand": 3,
+      "feasibility": 4,
+      "moat": 2,
+      "fundability": 3
+    },
+    "sources": [
+      "https://www.govtech.com/biz/sled-procurement-firm-starbridge-raises-10m-in-seed-funding",
+      "https://tamradar.com/funding-rounds/pursuit-series-a-22m",
+      "https://samsearch.co/gov-explore/sled/enterprise-artificial-intelligence-platforms-services-and-integrated-delivery/BAT-Sourcewell-RFP_061726",
+      "https://www.pursuit.us/",
+      "https://www.sweetspot.so/"
+    ]
+  },
+  {
+    "id": "restock-rep",
+    "name": "Restock Rep",
+    "category": "GTM",
+    "pitch": "Texts and emails independent retailers when they are probably due to reorder, and turns the reply into a purchase order for the brand.",
+    "wedge": "One reorder campaign for an emerging food or beverage brand with 200 to 2,000 independent doors and no field team. Why now: seed money is reaching CPG wholesale automation, but it targets the order desk, not the outreach that creates the order.",
+    "customer": "Head of sales at an emerging CPG brand",
+    "models": [
+      "Gemini 3.8 Flash",
+      "Claude Haiku 5.5"
+    ],
+    "saas": [
+      "Twilio",
+      "Nylas",
+      "QuickBooks Online API",
+      "Stripe"
+    ],
+    "stackNotes": "Claude Haiku 5.5 reads replies from Twilio SMS and Nylas email, Gemini 3.8 Flash handles photos of shelves and paper order sheets, and confirmed orders post to QuickBooks.",
+    "pricing": "Monthly fee per active door, or a small percentage of recovered reorders",
+    "competitors": [
+      "Faire",
+      "Jampack AI",
+      "Corvera",
+      "Eileen"
+    ],
+    "precedent": {
+      "name": "Jampack AI",
+      "url": "https://www.bevnet.com/pr/2026/02/24/jampack-ai-raises-32m-seed-round-to-automate-wholesale-operations-for-cpg-brands"
+    },
+    "moat": "Reorder timing per store improves with order history, but that history mostly belongs to the brand.",
+    "risk": "Retailers ignore the messages, or texting without clean consent creates TCPA exposure.",
+    "mvpWeeks": 5,
+    "scores": {
+      "demand": 3,
+      "feasibility": 5,
+      "moat": 2,
+      "fundability": 2
+    },
+    "sources": [
+      "https://www.bevnet.com/pr/2026/02/24/jampack-ai-raises-32m-seed-round-to-automate-wholesale-operations-for-cpg-brands",
+      "https://dealroom.co/news/133601-corvera-raises-4-2m-to-build-ai-agents-for-consumer-brands/",
+      "https://www.faire.com/",
+      "https://ai.google.dev/gemini-api/docs/pricing",
+      "https://platform.claude.com/docs/en/about-claude/models/overview"
+    ]
+  },
+  {
+    "id": "sandbox-seeder",
+    "name": "Sandbox Seeder",
+    "category": "GTM",
+    "pitch": "Fills a B2B product's demo environment with realistic data shaped like the specific prospect before each sales call.",
+    "wedge": "A CLI plus API for one product category, such as HR or finance tools, where a generic demo account visibly loses deals. Why now: agents can now write valid seed data against a real schema instead of cloned screenshots.",
+    "customer": "Head of solutions engineering at a Series B to D SaaS company",
+    "models": [
+      "Claude Sonnet 5.5"
+    ],
+    "saas": [
+      "Exa",
+      "Firecrawl",
+      "E2B",
+      "Supabase",
+      "HubSpot API"
+    ],
+    "stackNotes": "Exa and Firecrawl profile the prospect, then Claude Sonnet 5.5 writes seed scripts that run in an E2B sandbox against the customer's own API until the checks pass.",
+    "pricing": "Annual platform fee by number of demos",
+    "competitors": [
+      "Reprise",
+      "Demostack",
+      "Walnut",
+      "Consensus Live"
+    ],
+    "precedent": {
+      "name": "Demostack",
+      "url": "https://www.demostack.com/"
+    },
+    "moat": "Per-customer schema knowledge creates some switching cost. The core technique does not stay secret.",
+    "risk": "Demo platforms add AI data generation, and they already own the budget line. The category is crowded.",
+    "mvpWeeks": 6,
+    "scores": {
+      "demand": 3,
+      "feasibility": 4,
+      "moat": 2,
+      "fundability": 2
+    },
+    "sources": [
+      "https://www.reprise.com/",
+      "https://www.demostack.com/",
+      "https://www.walnut.io/",
+      "https://goconsensus.com/saleo-login",
+      "https://e2b.dev/"
+    ]
+  },
+  {
+    "id": "vigil-desk",
+    "name": "Vigil Desk",
+    "category": "Vertical AI",
+    "pitch": "Turns a funeral director's first family call into the death certificate worksheet, obituary draft, authorizations and benefit paperwork.",
+    "wedge": "An arrangement conference recorder for independent funeral homes that fills the case file and drafts the obituary. Why now: speech-to-text now costs under a dollar per hour (Deepgram lists Nova-3 at $0.0077 per minute), so recording every conference is cheap.",
+    "customer": "Owner of an independent funeral home",
+    "models": [
+      "Deepgram Nova-3",
+      "Claude Sonnet 5.5"
+    ],
+    "saas": [
+      "Docusign",
+      "Stripe",
+      "Browserbase",
+      "Twilio"
+    ],
+    "stackNotes": "Nova-3 transcribes the conference, Claude Sonnet 5.5 fills structured case fields and writes the obituary, and Docusign collects authorizations. Browserbase covers state vital-records portals where no API exists.",
+    "pricing": "Per-case fee or a flat monthly fee per location",
+    "competitors": [
+      "Passare",
+      "Gather",
+      "Kindred",
+      "1Director"
+    ],
+    "precedent": {
+      "name": "Gather",
+      "url": "https://gather.app/"
+    },
+    "moat": "State-by-state forms and portal automation take real effort to build. Trust among funeral directors spreads slowly but sticks.",
+    "risk": "Passare or Gather bundles an AI note taker into software homes already pay for, and owners decline to run two systems.",
+    "mvpWeeks": 6,
+    "scores": {
+      "demand": 3,
+      "feasibility": 4,
+      "moat": 3,
+      "fundability": 3
+    },
+    "sources": [
+      "https://www.passare.com/",
+      "https://gather.app/",
+      "https://kindredfuneral.io/",
+      "https://www.1director.com/",
+      "https://deepgram.com/pricing",
+      "https://www.browserbase.com/pricing"
+    ]
+  },
+  {
+    "id": "resale-clerk",
+    "name": "Resale Clerk",
+    "category": "Vertical AI",
+    "pitch": "Drafts HOA resale certificates and estoppel letters from the association's ledger, governing documents and minutes for small management firms.",
+    "wedge": "A desk tool for community managers with under 50 associations, working from the PDFs they already hold. Why now: RealPage is automating this for its own platform base, which leaves independents on Word templates.",
+    "customer": "Owner of a small community association management firm",
+    "models": [
+      "Claude Sonnet 5.5"
+    ],
+    "saas": [
+      "Reducto",
+      "Stripe",
+      "Docusign",
+      "Buildium API"
+    ],
+    "stackNotes": "Reducto parses budgets, CC&Rs and minutes, Claude Sonnet 5.5 fills the state-specific form with a citation for each answer, and the manager signs off in Docusign.",
+    "pricing": "Per-certificate fee, passed through to the seller where state law allows",
+    "competitors": [
+      "RealPage HomeWiseDocs",
+      "CondoCerts",
+      "Vantaca",
+      "Rexera",
+      "CommunityPay"
+    ],
+    "precedent": {
+      "name": "Rexera",
+      "url": "https://rexera.com/"
+    },
+    "moat": "Thin: state forms and a review record. Being fast and paid per document is the only real edge.",
+    "risk": "Certificate fees are often capped or held by incumbents, so a wrong statement creates liability that a small tool cannot absorb.",
+    "mvpWeeks": 5,
+    "scores": {
+      "demand": 3,
+      "feasibility": 5,
+      "moat": 2,
+      "fundability": 2
+    },
+    "sources": [
+      "https://www.realpage.com/community-associations/resale-documentation/",
+      "https://www.communitypay.us/blog/resale-certificates-why-the-industry-is-still-manual/",
+      "https://rexera.com/",
+      "https://www.vantaca.com/",
+      "https://www.reducto.ai/pricing"
+    ]
+  },
+  {
+    "id": "dwell-ledger",
+    "name": "Dwell Ledger",
+    "category": "Vertical AI",
+    "pitch": "Finds detention and layover time small trucking carriers earned, proves it from GPS data, and sends the invoice to the broker.",
+    "wedge": "Connect a Samsara or Motive account and receive a report of unbilled detention from the last 90 days. Why now: telematics APIs supply a timestamped record that replaces the paper receipt brokers dispute.",
+    "customer": "Owner or back-office lead at a 10-200 truck carrier",
+    "models": [
+      "Claude Haiku 5.5",
+      "Gemini 3.1 Flash-Lite"
+    ],
+    "saas": [
+      "Samsara API",
+      "Motive API",
+      "Reducto",
+      "Nylas",
+      "QuickBooks Online API"
+    ],
+    "stackNotes": "Reducto reads rate confirmations for the detention terms, telematics geofences give arrival and departure times, and Claude Haiku 5.5 assembles the claim email through Nylas.",
+    "pricing": "Percentage of detention collected, with no fee if nothing is collected",
+    "competitors": [
+      "Loop",
+      "Bobtail",
+      "DataTruck"
+    ],
+    "precedent": {
+      "name": "Loop",
+      "url": "https://www.loop.com/"
+    },
+    "moat": "A record of which brokers pay which claims, which improves the odds on every later claim.",
+    "risk": "Carriers fear losing freight by billing a broker, so found money stays uncollected. That is a behavior problem software may not fix.",
+    "mvpWeeks": 6,
+    "scores": {
+      "demand": 4,
+      "feasibility": 4,
+      "moat": 3,
+      "fundability": 3
+    },
+    "sources": [
+      "https://www.freightwaves.com/news/the-war-on-detention",
+      "https://www.bobtail.com/blog/detention-fraud-in-trucking-small-carriers",
+      "https://carrieratlas.com/loop-launches-logistics-data-platform-after-95m-series-c",
+      "https://developers.samsara.com/reference/overview",
+      "https://developer.gomotive.com/"
+    ]
+  },
+  {
+    "id": "ad-gapfinder",
+    "name": "AD Gapfinder",
+    "category": "Vertical AI",
+    "pitch": "Reads scanned piston and turboprop logbooks and reports which airworthiness directives have no compliance entry, ahead of an aircraft purchase.",
+    "wedge": "A fixed-price report on one tail number, delivered in 24 hours, before a pre-buy inspection. Why now: Mistral OCR 4 returns confidence scores and page positions, so low-confidence handwriting can go to a human. Accuracy on old logbooks is unproven and would be the first thing to test.",
+    "customer": "Aircraft buyer, broker or pre-buy mechanic in general aviation",
+    "models": [
+      "Mistral OCR 4",
+      "Claude Opus 5.5"
+    ],
+    "saas": [
+      "FAA DRS",
+      "Reducto",
+      "Stripe"
+    ],
+    "stackNotes": "Mistral OCR 4 transcribes handwritten pages, FAA DRS supplies the applicable directives by make and model, and Claude Opus 5.5 matches entries to directives with a page reference for each finding. An A&P mechanic reviews the report.",
+    "pricing": "Fixed fee per aircraft, with a monthly plan for brokers",
+    "competitors": [
+      "Bluetail",
+      "Veryon",
+      "MyTailLog",
+      "LogVault"
+    ],
+    "precedent": {
+      "name": "Bluetail",
+      "url": "https://bluetail.aero/"
+    },
+    "moat": "A labeled set of handwritten logbook pages matched to directives, plus mechanic reviewers. Hard to copy quickly, though the market is small.",
+    "risk": "A missed directive creates liability, and the market may be too small to support venture returns unless it moves into fleets.",
+    "mvpWeeks": 6,
+    "scores": {
+      "demand": 4,
+      "feasibility": 4,
+      "moat": 3,
+      "fundability": 3
+    },
+    "sources": [
+      "https://bluetail.aero/about-us/newsroom/how-ai-is-changing-aircraft-records/",
+      "https://drs.faa.gov/",
+      "https://docs.mistral.ai/studio/document-processing/basic_ocr",
+      "https://mistral.ai/news/ocr-4/",
+      "https://alternativeto.net/software/mytaillog/about/",
+      "https://aeradex.com/articles/how-to-find-airworthiness-directives-your-aircraft"
+    ]
+  },
+  {
+    "id": "sunset-harness",
+    "name": "Sunset Harness",
+    "category": "Devtools",
+    "pitch": "Watches model retirement dates across vendors and opens a pull request with eval results for the replacement model before the old one shuts down.",
+    "wedge": "A GitHub App that scans a repo for pinned model IDs and runs the team's existing evals on the successor model. Why now: vendors publish dated retirements for model snapshots, and Promptfoo, a popular neutral test tool, agreed to sell to OpenAI.",
+    "customer": "Staff engineer owning LLM features at an AI-native software company",
+    "models": [
+      "Claude Sonnet 5.5",
+      "GPT-6 Luna"
+    ],
+    "saas": [
+      "GitHub Apps",
+      "Langfuse",
+      "Vercel AI Gateway",
+      "E2B"
+    ],
+    "stackNotes": "The app finds model IDs in code, Vercel AI Gateway replays recorded traces from Langfuse on candidate models, and Claude Sonnet 5.5 explains regressions in the PR.",
+    "pricing": "Usage-based on eval runs, with a free tier for open source",
+    "competitors": [
+      "Braintrust",
+      "Langfuse",
+      "LangSmith",
+      "Promptfoo"
+    ],
+    "precedent": {
+      "name": "Promptfoo",
+      "url": "https://siliconangle.com/2026/03/09/openai-acquire-promptfoo-expand-ai-application-testing-capabilities/"
+    },
+    "moat": "Little. The neutral stance is the pitch, and a curated cross-vendor retirement dataset helps a bit.",
+    "risk": "Eval platforms add a migration button, so this becomes a feature rather than a company.",
+    "mvpWeeks": 4,
+    "scores": {
+      "demand": 3,
+      "feasibility": 5,
+      "moat": 2,
+      "fundability": 2
+    },
+    "sources": [
+      "https://platform.claude.com/docs/en/about-claude/models/overview",
+      "https://ai.google.dev/gemini-api/docs/pricing",
+      "https://siliconangle.com/2026/03/09/openai-acquire-promptfoo-expand-ai-application-testing-capabilities/",
+      "https://langfuse.com/",
+      "https://www.braintrust.dev/"
+    ]
+  },
+  {
+    "id": "pr-meter",
+    "name": "PR Meter",
+    "category": "Devtools",
+    "pitch": "Shows engineering and finance the dollar cost of AI coding tokens for every merged pull request, by team and by repo.",
+    "wedge": "A read-only GitHub App plus gateway logs that produce a monthly cost-per-merged-PR report for the CTO. Why now: GitHub Copilot moved all plans to token-based AI Credits on 1 June 2026, so coding AI is now a variable bill.",
+    "customer": "VP Engineering or FinOps lead at a 100-2,000 engineer company",
+    "models": [
+      "GPT-6 Luna",
+      "Claude Haiku 5.5"
+    ],
+    "saas": [
+      "GitHub Apps",
+      "LiteLLM",
+      "Helicone",
+      "Supabase"
+    ],
+    "stackNotes": "LiteLLM or Helicone log token spend with a branch tag, a GitHub App joins branch to PR, and a cheap model labels each PR by work type so the cost can be compared.",
+    "pricing": "Per-developer monthly subscription",
+    "competitors": [
+      "Harness",
+      "git-ai",
+      "Faros AI",
+      "Larridin",
+      "Finout"
+    ],
+    "precedent": {
+      "name": "Harness",
+      "url": "https://www.computerweekly.com/blog/CW-Developer-Network/Harness-tightens-up-AI-ROI-spend-with-new-tools"
+    },
+    "moat": "Historical benchmarks across customers, if it gets there first. Otherwise a dashboard anyone can copy.",
+    "risk": "Vendors add native per-PR attribution, or budgets get capped at the seat level and the question loses urgency.",
+    "mvpWeeks": 4,
+    "scores": {
+      "demand": 4,
+      "feasibility": 5,
+      "moat": 2,
+      "fundability": 3
+    },
+    "sources": [
+      "https://github.blog/changelog/2026-06-01-updates-to-github-copilot-billing-and-plans/",
+      "https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/",
+      "https://www.computerweekly.com/blog/CW-Developer-Network/Harness-tightens-up-AI-ROI-spend-with-new-tools",
+      "https://usegitai.com/measure-ai-roi",
+      "https://www.faros.ai/blog/how-to-track-ai-coding-costs-across-teams"
+    ]
+  },
+  {
+    "id": "acr-forge",
+    "name": "ACR Forge",
+    "category": "Devtools",
+    "pitch": "Generates a defensible Accessibility Conformance Report for a SaaS product from real test runs, and opens pull requests to fix what fails.",
+    "wedge": "A first VPAT-format report for edtech and govtech vendors selling to public buyers. Why now: the ADA Title II rule keeps WCAG 2.1 AA, with the deadline for entities of 50,000+ people moved to 26 April 2027, so public buyers have a reason to ask vendors for evidence during this budget cycle.",
+    "customer": "Head of product at an edtech or govtech SaaS vendor",
+    "models": [
+      "Claude Opus 5.5",
+      "Gemini 3.8 Flash"
+    ],
+    "saas": [
+      "Deque axe",
+      "Browserbase",
+      "GitHub Apps",
+      "E2B"
+    ],
+    "stackNotes": "Browserbase drives the product through its main flows, axe finds rule violations, Gemini 3.8 Flash reviews rendered screens, and Claude Opus 5.5 writes fixes as PRs and drafts the report. A human accessibility reviewer signs it.",
+    "pricing": "Annual subscription per product, with a report fee",
+    "competitors": [
+      "TestParty",
+      "Level Access",
+      "Deque",
+      "Evinced",
+      "GitHub"
+    ],
+    "precedent": {
+      "name": "TestParty",
+      "url": "https://sg.finance.yahoo.com/news/testparty-raises-4-million-help-120000597.html"
+    },
+    "moat": "The signed report and reviewer network, because a buyer trusts the sign-off rather than the scanner.",
+    "risk": "DOJ delays the rule again or litigation changes it, and buyers stop asking. A legal challenge to the extension was reported.",
+    "mvpWeeks": 7,
+    "scores": {
+      "demand": 4,
+      "feasibility": 4,
+      "moat": 3,
+      "fundability": 4
+    },
+    "sources": [
+      "https://www.reedsmith.com/articles/doj-extends-digital-accessibility-compliance-dates-under-title-ii-of-the-ada/",
+      "https://campustechnology.com/articles/2026/04/27/doj-extends-deadline-for-ada-title-ii-compliance.aspx",
+      "https://www.itic.org/policy/accessibility/vpat",
+      "https://sg.finance.yahoo.com/news/testparty-raises-4-million-help-120000597.html",
+      "https://www.deque.com/",
+      "https://www.levelaccess.com/"
+    ]
+  },
+  {
+    "id": "railbump",
+    "name": "Railbump",
+    "category": "Devtools",
+    "pitch": "An agent that carries out major Rails and Django version upgrades in a customer's repo and hands back reviewed, passing pull requests.",
+    "wedge": "A fixed-price upgrade of one app that is two or more major versions behind. Why now: long-running coding models can do this work in a sandbox, while security pressure keeps end-of-life frameworks on the budget.",
+    "customer": "Engineering manager at a company with a large aging monolith",
+    "models": [
+      "Claude Opus 5.5"
+    ],
+    "saas": [
+      "E2B",
+      "GitHub Apps",
+      "Sentry"
+    ],
+    "stackNotes": "Claude Opus 5.5 works through upgrade steps in an E2B sandbox against the test suite, and Sentry error rates after deploy confirm that the change held.",
+    "pricing": "Fixed price per upgrade, then a retainer to stay current",
+    "competitors": [
+      "Infield",
+      "Moderne",
+      "Renovate"
+    ],
+    "precedent": {
+      "name": "Infield",
+      "url": "https://www.infield.ai/"
+    },
+    "moat": "A library of framework-specific breakages and fixes. General coding agents are the real threat to this.",
+    "risk": "Teams run general coding agents themselves for the price of tokens, which removes the reason to buy.",
+    "mvpWeeks": 5,
+    "scores": {
+      "demand": 3,
+      "feasibility": 4,
+      "moat": 2,
+      "fundability": 2
+    },
+    "sources": [
+      "https://www.infield.ai/",
+      "https://moderne.ai/",
+      "https://docs.renovatebot.com/",
+      "https://platform.claude.com/docs/en/about-claude/models/overview"
+    ]
+  },
+  {
+    "id": "mother-tongue-memoirs",
+    "name": "Mother Tongue Memoirs",
+    "category": "Consumer",
+    "pitch": "Phones an immigrant grandparent in their own language for weekly interviews, then prints a bilingual family book the grandchildren can read.",
+    "wedge": "A gift bought by an adult child for a parent who speaks Spanish, Filipino, Vietnamese or Hindi. Why now: ElevenLabs lists 70+ languages for its Eleven v4 models, so a non-English phone interviewer is now practical, though StoriedLife is already marketing this.",
+    "customer": "Adult children in immigrant families, usually buying a gift",
+    "models": [
+      "ElevenLabs Eleven v4 Turbo",
+      "ElevenLabs Scribe v2",
+      "Claude Opus 5.5"
+    ],
+    "saas": [
+      "Twilio",
+      "Vapi",
+      "Lulu Print API",
+      "Stripe"
+    ],
+    "stackNotes": "Vapi runs consented calls over Twilio with an Eleven v4 Turbo voice, Scribe v2 transcribes at $0.22 per hour, Claude Opus 5.5 edits and translates while keeping the speaker's voice, and the Lulu Print API prints the book.",
+    "pricing": "Annual gift price including one printed book, extra copies sold separately",
+    "competitors": [
+      "Storii",
+      "Remento",
+      "Storyworth",
+      "Autograph",
+      "StoriedLife"
+    ],
+    "precedent": {
+      "name": "Storii",
+      "url": "https://www.storii.com/"
+    },
+    "moat": "Brand and word of mouth inside communities, plus translation quality. StoriedLife already markets 58 languages, so the language angle alone is not defensible.",
+    "risk": "Seasonal gift demand gives poor retention, and the price point cannot carry paid acquisition.",
+    "mvpWeeks": 5,
+    "scores": {
+      "demand": 3,
+      "feasibility": 4,
+      "moat": 2,
+      "fundability": 2
+    },
+    "sources": [
+      "https://www.storii.com/",
+      "https://latamlist.com/?p=16595",
+      "https://newswire.ca/news-releases/storiedlife-launches-conversation-first-ai-biographer-that-speaks-in-58-languages-and-creates-lasting-legacies-837859483.html",
+      "https://elevenlabs.io/pricing/api",
+      "https://elevenlabs.io/docs/overview/models",
+      "https://www.lulu.com/sell/sell-on-your-site/print-api",
+      "https://vapi.ai/pricing"
+    ]
+  },
+  {
+    "id": "rider-check",
+    "name": "Rider Check",
+    "category": "Consumer",
+    "pitch": "Forward a brand-deal email and it flags risky usage rights, exclusivity and payment terms in the contract, then chases the late invoice for you.",
+    "wedge": "An inbox add-on for creators with 50,000 to 1 million followers who have no manager. Why now: brand budgets flow through platforms built for the brand side, such as Passionfroot's $15M Series A, and the creator is left to read terms alone.",
+    "customer": "Independent creators, and small talent managers",
+    "models": [
+      "Claude Sonnet 5.5"
+    ],
+    "saas": [
+      "Nylas",
+      "Stripe",
+      "Reducto",
+      "Docusign"
+    ],
+    "stackNotes": "Nylas watches a forwarding inbox, Reducto reads the contract, Claude Sonnet 5.5 compares terms to a playbook, and Stripe issues the invoice and reminders.",
+    "pricing": "Low monthly subscription, or a small percentage of invoices collected",
+    "competitors": [
+      "Passionfroot",
+      "Beacons"
+    ],
+    "precedent": {
+      "name": "Passionfroot",
+      "url": "https://techcrunch.com/2026/07/22/passionfroot-raises-15m-to-expand-its-b2b-creator-marketplace-to-the-us/"
+    },
+    "moat": "An anonymized dataset of what brands actually agree to, if enough creators join.",
+    "risk": "Advice on contract terms can drift into unauthorized practice of law, and creators pay little for software.",
+    "mvpWeeks": 4,
+    "scores": {
+      "demand": 3,
+      "feasibility": 5,
+      "moat": 2,
+      "fundability": 2
+    },
+    "sources": [
+      "https://techcrunch.com/2026/07/22/passionfroot-raises-15m-to-expand-its-b2b-creator-marketplace-to-the-us/",
+      "https://tech.eu/brief/helping-the-creator-economy-keep-on-keepin-on-berlins-passionfroot-raises-e3-million/"
+    ]
+  },
+  {
+    "id": "claim-paw",
+    "name": "Claim Paw",
+    "category": "Consumer",
+    "pitch": "Photograph a vet invoice and it fills out and files the pet insurance claim, then follows up until the money arrives.",
+    "wedge": "An app for owners insured with two or three of the largest US pet insurers. Why now: vision models can read inconsistent vet records, which was the blocker for this workflow.",
+    "customer": "Pet owners with pet insurance",
+    "models": [
+      "Gemini 3.8 Flash",
+      "Claude Haiku 5.5"
+    ],
+    "saas": [
+      "Browserbase",
+      "Stagehand",
+      "Nylas",
+      "Plaid"
+    ],
+    "stackNotes": "Gemini 3.8 Flash reads the invoice and record, Stagehand on Browserbase submits through the insurer portal, and Claude Haiku 5.5 handles follow-up email through Nylas.",
+    "pricing": "Monthly subscription, or a small fee per paid claim",
+    "competitors": [
+      "VitusVet",
+      "Fetch",
+      "Wisentic"
+    ],
+    "precedent": {
+      "name": "VitusVet",
+      "url": "https://technical.ly/startups/vitusvet-gets-investment-from-nationwide-insurance/"
+    },
+    "moat": "Very little. Portal automation is fragile and insurers can block it.",
+    "risk": "Insurers improve their own apps with AI intake, which they are already doing, and the problem disappears.",
+    "mvpWeeks": 4,
+    "scores": {
+      "demand": 2,
+      "feasibility": 4,
+      "moat": 1,
+      "fundability": 1
+    },
+    "sources": [
+      "https://technical.ly/startups/vitusvet-gets-investment-from-nationwide-insurance/",
+      "https://www.vettimes.com/news/business/digital/first-uk-partnership-for-ai-driven-pet-claims-company",
+      "https://www.clickclaims.com/?p=17218",
+      "https://www.browserbase.com/pricing"
+    ]
+  },
+  {
+    "id": "bid-sanity",
+    "name": "Bid Sanity",
+    "category": "Consumer",
+    "pitch": "Upload contractor bids for a home project and get a line-by-line comparison backed by local permit values, with the missing scope items flagged.",
+    "wedge": "One job type where the pain is highest and scope is comparable, such as roof replacement or HVAC. Why now: many small tools have launched but they do not disclose their pricing data, so a cited local data set would stand out.",
+    "customer": "Homeowners with a project above $10,000",
+    "models": [
+      "Gemini 3.8 Flash",
+      "Claude Sonnet 5.5"
+    ],
+    "saas": [
+      "Firecrawl",
+      "Exa",
+      "Reducto",
+      "Stripe"
+    ],
+    "stackNotes": "Reducto and Gemini 3.8 Flash read PDF and photo bids, Firecrawl gathers public permit data, and Claude Sonnet 5.5 writes the comparison and questions to ask.",
+    "pricing": "One-time fee per project",
+    "competitors": [
+      "Ripoff.pro",
+      "Quoterly",
+      "Reno Shield",
+      "RemodelerIQ"
+    ],
+    "precedent": {
+      "name": null,
+      "url": null
+    },
+    "moat": "Only a real local price dataset would count, and collecting one is slow. Usage is one-off.",
+    "risk": "One-time buyers plus many free tools. Customer acquisition cost beats lifetime value unless contractors or lenders pay.",
+    "mvpWeeks": 4,
+    "scores": {
+      "demand": 3,
+      "feasibility": 4,
+      "moat": 1,
+      "fundability": 1
+    },
+    "sources": [
+      "https://peerpush.com/p/ripoffpro",
+      "https://peerpush.com/p/quoterly",
+      "https://betalist.com/startups/remodeleriq",
+      "https://wtop.com/business-finance/2025/08/are-you-doing-a-home-renovation-but-dont-understand-the-bids-let-ai-take-a-look"
+    ]
+  },
+  {
+    "id": "cam-sleuth",
+    "name": "CAM Sleuth",
+    "category": "Finance",
+    "pitch": "Checks each year's common area maintenance bill against the actual lease for multi-site retail and restaurant tenants, then drafts the dispute before the window closes.",
+    "wedge": "A portfolio sweep for a tenant with 20 to 300 locations, focused on caps, exclusions and gross-ups. Why now: a chain's yearly CAM statements were too numerous for manual review, but LLM clause extraction with citations makes it worth doing.",
+    "customer": "CFO or VP real estate at a multi-unit tenant",
+    "models": [
+      "Claude Opus 5.5",
+      "Gemini 3.1 Flash-Lite"
+    ],
+    "saas": [
+      "Reducto",
+      "Nylas",
+      "Docusign"
+    ],
+    "stackNotes": "Reducto parses leases, amendments and statements, Gemini 3.1 Flash-Lite classifies pages in bulk, and Claude Opus 5.5 recomputes charges under each clause with a citation.",
+    "pricing": "Contingency share of recovered overcharges",
+    "competitors": [
+      "Prophia",
+      "LeaseMind",
+      "CAMAudit",
+      "Tenantback"
+    ],
+    "precedent": {
+      "name": "Prophia",
+      "url": "https://www.prophia.com/blog/the-15-billion-blind-spot-why-cam-rec-errors-are-draining-cre-owners-noi"
+    },
+    "moat": "Recovered-dollar outcomes by landlord, which sharpen targeting. Small tools already exist, but no funded leader showed up in my search.",
+    "risk": "Landlords slow-walk disputes, so contingency revenue arrives late and lumpy, and the sales cycle runs long.",
+    "mvpWeeks": 6,
+    "scores": {
+      "demand": 4,
+      "feasibility": 4,
+      "moat": 3,
+      "fundability": 3
+    },
+    "sources": [
+      "https://www.prophia.com/blog/the-15-billion-blind-spot-why-cam-rec-errors-are-draining-cre-owners-noi",
+      "https://mightybot.ai/agents/leasemind/",
+      "https://www.camaudit.io/",
+      "https://mcpservers.org/servers/tenantback-com",
+      "https://www.reducto.ai/pricing"
+    ]
+  },
+  {
+    "id": "notice-triage",
+    "name": "Notice Triage",
+    "category": "Finance",
+    "pitch": "Reads state tax notices that arrive at CPA firms, works out what is actually wrong, and drafts the response with the right form and deadline.",
+    "wedge": "A shared inbox for state income, payroll and sales tax notices at 5 to 50 person firms. Why now: AI tax tools focus on federal returns and IRS notices, and my search found no product focused on state notices.",
+    "customer": "Managing partner at a small or mid-size CPA firm",
+    "models": [
+      "Claude Sonnet 5.5"
+    ],
+    "saas": [
+      "Reducto",
+      "Nylas",
+      "Lob",
+      "QuickBooks Online API"
+    ],
+    "stackNotes": "Reducto reads the scanned notice, Claude Sonnet 5.5 classifies it per state and drafts a reply using the client's books from QuickBooks, and Lob sends certified mail after CPA approval.",
+    "pricing": "Per-notice fee, or a firm subscription by notice volume",
+    "competitors": [
+      "TaxGPT",
+      "IRS Audit Response AI",
+      "AuditKit"
+    ],
+    "precedent": {
+      "name": "TaxGPT",
+      "url": "https://finder.techleap.nl/news/feed/taxgpt-secures-4-6m-for-ai-tax-automation"
+    },
+    "moat": "A hand-built library of notice types by state and agency. Slow to build and valuable, but not exclusive.",
+    "risk": "A broad tax copilot adds a good-enough notice mode, and firms keep one tool.",
+    "mvpWeeks": 5,
+    "scores": {
+      "demand": 4,
+      "feasibility": 5,
+      "moat": 3,
+      "fundability": 3
+    },
+    "sources": [
+      "https://finder.techleap.nl/news/feed/taxgpt-secures-4-6m-for-ai-tax-automation",
+      "https://irsauditresponseai.netlify.app",
+      "https://idea-auditkit-ai-audit-response-generator.pages.dev/features",
+      "https://gamesbeat.com/abacus-raises-6-6m-to-build-agentic-ai-cpa-assistants-for-taxes",
+      "https://www.lob.com/pricing"
+    ]
+  },
+  {
+    "id": "assessed-down",
+    "name": "Assessed Down",
+    "category": "Finance",
+    "pitch": "Builds property tax appeal packets for small commercial owners, in the counties where those appeals are worth doing.",
+    "wedge": "Small multifamily and retail owners in one high-tax appeal market, with a single county as the first launch. Why now: Ownwell raised a $50M Series B on homeowner appeals, and my search found no sign of a commercial product from it.",
+    "customer": "Owner of 1-20 small commercial properties",
+    "models": [
+      "Claude Sonnet 5.5",
+      "Gemini 3.8 Flash"
+    ],
+    "saas": [
+      "Firecrawl",
+      "Reducto",
+      "Lob",
+      "Stripe"
+    ],
+    "stackNotes": "Firecrawl gathers assessor records and comparable sales, Reducto reads rent rolls and income statements, and Claude Sonnet 5.5 writes the evidence packet for each board's format.",
+    "pricing": "Contingency share of first-year tax savings",
+    "competitors": [
+      "Ownwell",
+      "Ryan"
+    ],
+    "precedent": {
+      "name": "Ownwell",
+      "url": "https://www.inman.com/2026/02/25/ownwell-raises-50m-to-grow-its-property-tax-appeal-fintech/"
+    },
+    "moat": "County-by-county filing knowledge and a win-rate record. That took Ownwell years, but it is copyable.",
+    "risk": "Ownwell moves up-market, or county-by-county rules keep margins thin.",
+    "mvpWeeks": 6,
+    "scores": {
+      "demand": 4,
+      "feasibility": 4,
+      "moat": 3,
+      "fundability": 3
+    },
+    "sources": [
+      "https://www.inman.com/2026/02/25/ownwell-raises-50m-to-grow-its-property-tax-appeal-fintech/",
+      "https://www.nationalmortgagenews.com/news/property-tax-relief-fintech-attracts-50m-capital-raise",
+      "https://www.ownwell.com/"
+    ]
+  },
+  {
+    "id": "interchange-sleuth",
+    "name": "Interchange Sleuth",
+    "category": "Finance",
+    "pitch": "Reads a restaurant group's monthly card processing statements, finds markup creep and junk fees, and drafts the letter to the processor.",
+    "wedge": "A one-time audit for groups of 3 to 50 locations, then monthly monitoring. Why now: AI turns a week-long statement review into minutes, which makes small merchants that consultants skip worth serving.",
+    "customer": "Owner or controller at a multi-unit restaurant group",
+    "models": [
+      "GPT-6.1 Terra",
+      "Gemini 3.1 Flash-Lite"
+    ],
+    "saas": [
+      "Reducto",
+      "Nylas",
+      "Plaid"
+    ],
+    "stackNotes": "Reducto extracts statement tables, GPT-6.1 Terra separates interchange from processor markup and tracks changes over time, and Plaid checks settled deposits.",
+    "pricing": "Share of savings for 12 months, then a low monitoring fee",
+    "competitors": [
+      "Swipesum",
+      "Verisave",
+      "Merchant Advocate"
+    ],
+    "precedent": {
+      "name": "Swipesum",
+      "url": "https://www.swipesum.com/merchant-statement-audit"
+    },
+    "moat": "Low. Processor-specific fee dictionaries help, and established auditors can adopt the same tools.",
+    "risk": "Savings mostly require switching or negotiating, which is a human sales task, and Swipesum already offers free audits.",
+    "mvpWeeks": 4,
+    "scores": {
+      "demand": 3,
+      "feasibility": 5,
+      "moat": 1,
+      "fundability": 2
+    },
+    "sources": [
+      "https://www.swipesum.com/merchant-statement-audit",
+      "https://www.swipesum.com/insights/ai-merchant-statement-analysis-audit",
+      "https://developers.openai.com/api/docs/pricing",
+      "https://www.reducto.ai/pricing"
+    ]
+  },
+  {
+    "id": "exempt-clerk",
+    "name": "Exempt Clerk",
+    "category": "Health",
+    "pitch": "Helps federally qualified health centers keep patients on Medicaid by documenting work-requirement exemptions already sitting in the chart.",
+    "wedge": "A batch that flags adult patients with likely exemptions and prepares the state submission for staff to confirm. Why now: states must generally comply by 1 January 2027 under the June 2026 interim final rule.",
+    "customer": "Revenue cycle or enrollment director at an FQHC",
+    "models": [
+      "Claude Sonnet 5.5",
+      "Deepgram Aura-2"
+    ],
+    "saas": [
+      "Stedi",
+      "Twilio",
+      "Reducto"
+    ],
+    "stackNotes": "Stedi eligibility checks find covered patients, Claude Sonnet 5.5 reads exported chart notes for qualifying conditions with citations, and consented calls over Twilio with an Aura-2 voice ask patients to confirm.",
+    "pricing": "Per-patient annual fee, justified against lost Medicaid revenue",
+    "competitors": [
+      "Fortuna Health"
+    ],
+    "precedent": {
+      "name": "Fortuna Health",
+      "url": "https://www.mobihealthnews.com/news/fortuna-health-raises-18m-enhance-ai-medicaid-enrollment"
+    },
+    "moat": "State-by-state exemption rules and EHR connections. Fortuna has a head start and $22M in funding.",
+    "risk": "State vendors or managed care plans solve verification upstream, or rule changes and good-faith delays shift the deadline.",
+    "mvpWeeks": 6,
+    "scores": {
+      "demand": 5,
+      "feasibility": 3,
+      "moat": 3,
+      "fundability": 4
+    },
+    "sources": [
+      "https://www.federalregister.gov/documents/2026/06/03/2026-11094/medicaid-program-community-engagement-requirement-for-certain-individuals",
+      "https://www.cms.gov/newsroom/fact-sheets/medicaid-community-engagement-requirement-certain-individuals-interim-final-rule-comment-period-cms",
+      "https://www.mobihealthnews.com/news/fortuna-health-raises-18m-enhance-ai-medicaid-enrollment",
+      "https://www.stedi.com/pricing"
+    ]
+  },
+  {
+    "id": "desk-audit-kit",
+    "name": "Desk Audit Kit",
+    "category": "Health",
+    "pitch": "Assembles the complete response packet when a PBM audits an independent pharmacy, flags what is missing, and draws up the appeal.",
+    "wedge": "One PBM desk audit handled end to end, starting from the audit letter and the claim list. Why now: law firms report a rise in recoupment demands, and PAAS National reports an average 2025 recoupment of $26,144, while the search found mostly lawyers and membership groups, not software.",
+    "customer": "Owner of an independent pharmacy or a small chain",
+    "models": [
+      "Claude Opus 5.5",
+      "Gemini 3.8 Flash"
+    ],
+    "saas": [
+      "Reducto",
+      "openFDA",
+      "Phaxio"
+    ],
+    "stackNotes": "Reducto reads the audit letter and scanned prescriptions, openFDA confirms drug and NDC details, and Claude Opus 5.5 checks each claim against the PBM's manual. Packets go out by Phaxio fax.",
+    "pricing": "Per-audit fee, with an annual plan that adds an audit-readiness check",
+    "competitors": [
+      "PAAS National",
+      "Frier Levitt",
+      "Buchanan Ingersoll & Rooney"
+    ],
+    "precedent": {
+      "name": "PAAS National",
+      "url": "https://paasnational.com/?p=1014"
+    },
+    "moat": "A labeled history of what each PBM accepts or rejects. This improves with each audit and is hard to obtain elsewhere.",
+    "risk": "Pharmacy closures shrink the customer base, and PBM manuals and appeal rules change without notice.",
+    "mvpWeeks": 6,
+    "scores": {
+      "demand": 5,
+      "feasibility": 4,
+      "moat": 4,
+      "fundability": 4
+    },
+    "sources": [
+      "https://paasnational.com/?p=1014",
+      "https://www.bipc.com/pbm-audits-assessment-of-escalating-trends-and-strategies-for-pharmacies",
+      "https://www.frierlevitt.com/articles/pbm-audits-and-available-tools-for-pharmacies/",
+      "https://eppscoulson.com/pbms-are-auditing-and-collecting-from-pharmacies-in-record-numbers-pharmacies-should-challenge-the-audit/"
+    ]
+  },
+  {
+    "id": "lookback-packet",
+    "name": "Lookback Packet",
+    "category": "Health",
+    "pitch": "Assembles the long-term care Medicaid application for a nursing home resident, including the five-year financial look-back.",
+    "wedge": "Sold to skilled nursing business offices for residents in Medicaid-pending status. Why now: LLMs can read five years of messy bank statements and explain each large transfer, which was the part that took staff days.",
+    "customer": "Business office manager or regional director at a nursing home operator",
+    "models": [
+      "Claude Opus 5.5",
+      "Gemini 3.1 Flash-Lite"
+    ],
+    "saas": [
+      "Reducto",
+      "Plaid",
+      "Docusign",
+      "Documo"
+    ],
+    "stackNotes": "Plaid or scanned statements via Reducto produce the transaction history, Gemini 3.1 Flash-Lite classifies it, and Claude Opus 5.5 flags transfers that need an explanation and fills the state application, sent by Documo fax where the state requires it.",
+    "pricing": "Per-approved-application fee",
+    "competitors": [
+      "NavigAid",
+      "PointClickCare"
+    ],
+    "precedent": {
+      "name": "NavigAid",
+      "url": "https://www.businesswire.com/news/home/20211013005113/en/NavigAid-Supports-Caregivers-Through-the-Medicaid-Application-Process"
+    },
+    "moat": "State-specific rules and a track record with caseworkers. No AI-native rival turned up in my search, which could also mean the market is hard.",
+    "risk": "Long resident-family response times and per-state variation make each new state a new product.",
+    "mvpWeeks": 7,
+    "scores": {
+      "demand": 4,
+      "feasibility": 3,
+      "moat": 3,
+      "fundability": 3
+    },
+    "sources": [
+      "https://personal-finance.extension.org/how-is-the-five-year-look-back-period-for-medicaid-for-long-term-care-calculated/",
+      "https://bdblaw.com/how-does-the-five-year-look-back-period-for-medicaid-work/",
+      "https://www.businesswire.com/news/home/20211013005113/en/NavigAid-Supports-Caregivers-Through-the-Medicaid-Application-Process",
+      "https://pointclickcare.com/"
+    ]
+  },
+  {
+    "id": "affirm-packet",
+    "name": "Affirm Packet",
+    "category": "Health",
+    "pitch": "Prepares Medicare WISeR prior authorization packets for wound care and pain practices in the six model states, from the chart.",
+    "wedge": "Skin substitute requests for podiatry and wound practices in Texas, Ohio or New Jersey. Why now: WISeR runs from 2026 to 2031 in AZ, NJ, OH, OK, TX and WA, and KFF puts skin substitutes at $10.3B, or 83% of WISeR service spending in 2024.",
+    "customer": "Practice administrator at a wound care, pain or podiatry group",
+    "models": [
+      "Claude Sonnet 5.5",
+      "Gemini 3.8 Flash"
+    ],
+    "saas": [
+      "Reducto",
+      "Documo",
+      "Browserbase"
+    ],
+    "stackNotes": "Reducto reads chart exports and wound photos go through Gemini 3.8 Flash, Claude Sonnet 5.5 maps them to local coverage criteria, and the packet goes to the MAC by portal or fax.",
+    "pricing": "Per-submission fee",
+    "competitors": [
+      "Tennr",
+      "Genzeon",
+      "Insight Health"
+    ],
+    "precedent": {
+      "name": null,
+      "url": null
+    },
+    "moat": "Approval data by service and reviewer. That is valuable only while the model survives.",
+    "risk": "Congress ends WISeR. H.R. 6361 proposes this. Skin substitute rules could also shrink the volume sharply.",
+    "mvpWeeks": 5,
+    "scores": {
+      "demand": 4,
+      "feasibility": 4,
+      "moat": 2,
+      "fundability": 2
+    },
+    "sources": [
+      "https://www.kff.org/medicare/examining-the-potential-impact-of-medicares-new-wiser-model/",
+      "https://med.noridianmedicare.com/web/jfb/cert-reviews/pre-claim/wiser-model",
+      "https://www.dlapiper.com/en-ar/insights/publications/2026/01/cms-wiser-model",
+      "https://insighthealth.ai/blog/medicares-wiser-model-prior-authorization",
+      "https://www.genzeon.com/wiser-nj-prior-auth-medicare"
+    ]
+  },
+  {
+    "id": "cola-precheck",
+    "name": "Cola Precheck",
+    "category": "Legal",
+    "pitch": "Checks alcohol labels against TTB rules and approved precedents before a craft producer submits a COLA application.",
+    "wedge": "A label upload that returns likely rejection reasons with the matching rule and approved examples from the public registry. Why now: the January 2025 allergen labeling proposal has no final rule that I could find and the related ingredient proposal was withdrawn, so small producers face moving guidance and need a check they can rerun.",
+    "customer": "Owner or compliance lead at a craft brewery, winery, distillery or RTD brand",
+    "models": [
+      "Gemini 3.8 Flash",
+      "Claude Sonnet 5.5"
+    ],
+    "saas": [
+      "TTB Public COLA Registry",
+      "Firecrawl",
+      "Stripe"
+    ],
+    "stackNotes": "Gemini 3.8 Flash reads label art including small print, Firecrawl gathers public registry precedents, and Claude Sonnet 5.5 checks the label against the rules, citing each one.",
+    "pricing": "Per-label fee, with a plan for agencies and co-packers",
+    "competitors": [
+      "Sovos ShipCompliant",
+      "LabelVision"
+    ],
+    "precedent": {
+      "name": "Sovos ShipCompliant",
+      "url": "https://docs.sovos.com/en/indirect-tax/indirect-tax-products/regulated-shipping/shipcompliant/registrations/labelvision"
+    },
+    "moat": "An approval and rejection dataset gathered from users. Rejections are not public, so that data is the asset.",
+    "risk": "A narrow market with low willingness to pay. Sovos can add a check to its existing filing product.",
+    "mvpWeeks": 4,
+    "scores": {
+      "demand": 3,
+      "feasibility": 5,
+      "moat": 3,
+      "fundability": 2
+    },
+    "sources": [
+      "https://www.ttb.gov/regulated-commodities/labeling/cola-public-registry",
+      "https://docs.sovos.com/en/indirect-tax/indirect-tax-products/regulated-shipping/shipcompliant/registrations/labelvision",
+      "https://www.govinfo.gov/content/pkg/FR-2025-01-17/pdf/2025-00955.pdf",
+      "https://www.brewersassociation.org/government-affairs-updates/propsed-ttb-ingredient-labeling-rulemaking-withdrawn/"
+    ]
+  },
+  {
+    "id": "cert-relay",
+    "name": "Cert Relay",
+    "category": "Legal",
+    "pitch": "Turns lab test reports and supplier documents into the certificate data that importers of consumer products must now eFile with CPSC.",
+    "wedge": "Mid-size importers and Amazon sellers with messy test reports, starting from a folder of PDFs and an entry list. Why now: mandatory eFiling took effect for entries on or after 8 July 2026, and foreign trade zone entries follow on 8 January 2027.",
+    "customer": "Compliance or sourcing lead at a consumer product importer, or their customs broker",
+    "models": [
+      "Claude Sonnet 5.5",
+      "Gemini 3.1 Flash-Lite"
+    ],
+    "saas": [
+      "Reducto",
+      "CPSC Product Registry",
+      "Nylas",
+      "Stripe"
+    ],
+    "stackNotes": "Reducto reads CPCs and lab reports, Claude Sonnet 5.5 matches them to SKUs and the applicable rules, and clean records load into the CPSC Product Registry, with follow-ups to suppliers through Nylas.",
+    "pricing": "Per-SKU annual fee, with a broker plan",
+    "competitors": [
+      "Comply PRO",
+      "QIMA",
+      "Intertek",
+      "SGS",
+      "Eurofins",
+      "Zonos"
+    ],
+    "precedent": {
+      "name": "QIMA",
+      "url": "https://www.qima.com/cpsc-efiling-services"
+    },
+    "moat": "SKU-to-rule mappings and links to brokers' entry systems. Test labs are the natural rivals and they own the reports.",
+    "risk": "Test labs bundle eFiling free with testing, and weak enforcement lets importers keep doing the minimum.",
+    "mvpWeeks": 5,
+    "scores": {
+      "demand": 5,
+      "feasibility": 4,
+      "moat": 3,
+      "fundability": 4
+    },
+    "sources": [
+      "https://www.akingump.com/en/insights/alerts/cpsc-rule-mandates-efiling-of-certificates-of-compliance-for-imported-consumer-products",
+      "https://www.foley.com/?p=120147",
+      "https://www.fedex.com/en-ca/shipping-services/international/regulatory/mandatory-electronic-filing-requirements.html",
+      "https://www.cpsc.gov/eFiling",
+      "https://www.qima.com/cpsc-efiling-services",
+      "https://intertek.com/interlink2/cpsc-efiling",
+      "https://www.babysafetyalliance.org/events/EventDetails.aspx?id=2053577"
+    ]
+  },
+  {
+    "id": "clerk-sieve",
+    "name": "Clerk Sieve",
+    "category": "Legal",
+    "pitch": "Lets a small-town clerk handle a public records request from intake to redacted release, including the wave of AI-written requests.",
+    "wedge": "Redaction and response drafting for towns and school districts with one or two records staff. Why now: clerks from Michigan to New York report AI-driven request surges, and deadlines are set by statute.",
+    "customer": "City or county clerk, or a school district records officer",
+    "models": [
+      "Claude Sonnet 5.5",
+      "Gemini 3.1 Flash-Lite"
+    ],
+    "saas": [
+      "Reducto",
+      "Nylas",
+      "Supabase"
+    ],
+    "stackNotes": "Gemini 3.1 Flash-Lite groups duplicates and sorts documents, Reducto gives page-level positions, and Claude Sonnet 5.5 proposes redactions citing the state exemption for the clerk to approve.",
+    "pricing": "Annual subscription tiered by population",
+    "competitors": [
+      "Polimorphic",
+      "GovQA (Granicus)",
+      "NextRequest (CivicPlus)",
+      "Logikcull",
+      "OPEXUS"
+    ],
+    "precedent": {
+      "name": "Polimorphic",
+      "url": "https://www.polimorphic.com/"
+    },
+    "moat": "State exemption rulebooks plus government procurement references, which spread between neighboring towns.",
+    "risk": "Long public procurement cycles, plus a redaction miss that becomes a news story.",
+    "mvpWeeks": 6,
+    "scores": {
+      "demand": 5,
+      "feasibility": 4,
+      "moat": 3,
+      "fundability": 4
+    },
+    "sources": [
+      "https://govtech.com/artificial-intelligence/governments-adjust-policies-amid-flood-of-ai-record-requests",
+      "https://michiganadvance.com/2026/02/21/process-of-foia-the-unseen-work-of-providing-government-transparency/",
+      "https://www.post-journal.com/news/top-stories/2026/06/county-says-ai-creating-overload-of-foil-requests/",
+      "https://www.abqjournal.com/news/public-records-in-the-age-of-artificial-intelligence/2995367",
+      "https://www.logikcull.com/blog/how-foia-teams-are-fighting-ai-with-ai"
+    ]
+  },
+  {
+    "id": "mark-reply",
+    "name": "Mark Reply",
+    "category": "Legal",
+    "pitch": "Drafts responses to USPTO trademark office actions for solo attorneys, using the prosecution history of the marks cited against them.",
+    "wedge": "Section 2(d) likelihood-of-confusion refusals, which take the most research. Why now: USPTO open data is available by API and AI drafting tools have only recently started appearing.",
+    "customer": "Solo and small-firm trademark attorneys",
+    "models": [
+      "Claude Opus 5.5"
+    ],
+    "saas": [
+      "USPTO Open Data Portal",
+      "Firecrawl",
+      "Stripe"
+    ],
+    "stackNotes": "USPTO data supplies file histories of the cited marks, Firecrawl gathers evidence of real-world use, and Claude Opus 5.5 drafts arguments with each record cited for attorney review.",
+    "pricing": "Per-response fee, or a monthly seat",
+    "competitors": [
+      "GleanMark",
+      "Questel",
+      "Tradespace",
+      "Alt Legal"
+    ],
+    "precedent": {
+      "name": "GleanMark",
+      "url": "https://lawnext.com/2026/08/after-his-own-trademark-fight-revealed-gaps-in-trademark-tools-this-fintech-founder-built-his-own.html"
+    },
+    "moat": "Weak. Data is public and GleanMark launched the same drafter in July 2026.",
+    "risk": "Small market and several drafters already exist, so price falls to near zero.",
+    "mvpWeeks": 4,
+    "scores": {
+      "demand": 3,
+      "feasibility": 5,
+      "moat": 1,
+      "fundability": 2
+    },
+    "sources": [
+      "https://lawnext.com/2026/08/after-his-own-trademark-fight-revealed-gaps-in-trademark-tools-this-fintech-founder-built-his-own.html",
+      "https://gleanmark.com/press/gleanmark-launch",
+      "https://www.questel.com/trademark-office-action-response-management-with-ai",
+      "https://briefglance.com/articles/tradespace-raises-15m-to-replace-the-billable-hour-with-ai",
+      "https://developer.uspto.gov/"
+    ]
+  },
+  {
+    "id": "red-tag-quotes",
+    "name": "Red Tag Quotes",
+    "category": "Field ops",
+    "pitch": "An inspector speaks a fire sprinkler deficiency on site, and the customer has a priced repair quote before the truck leaves.",
+    "wedge": "Voice capture on top of whatever software a small fire protection contractor already uses, with quotes sent the same day. Why now: repair work is lost when quotes go out days later, and DeficiencyDesk has shown this exact deficiency-quoting wedge is real.",
+    "customer": "Service manager at a fire protection contractor",
+    "models": [
+      "Deepgram Nova-3",
+      "Claude Sonnet 5.5"
+    ],
+    "saas": [
+      "ServiceTitan API",
+      "CompanyCam API",
+      "Stripe",
+      "Twilio"
+    ],
+    "stackNotes": "Nova-3 transcribes the walk, Claude Sonnet 5.5 maps findings to parts and labor from the price book, and CompanyCam photos attach to the quote sent by Twilio.",
+    "pricing": "Monthly fee per inspector",
+    "competitors": [
+      "DeficiencyDesk",
+      "Inspect Point",
+      "ServiceTrade",
+      "BuildOps",
+      "Simpro"
+    ],
+    "precedent": {
+      "name": "DeficiencyDesk",
+      "url": "https://deficiencydesk.com/"
+    },
+    "moat": "Weak. DeficiencyDesk has this wedge, and Inspect Point already sells deficiency-to-proposal workflows.",
+    "risk": "Field service platforms treat it as a checkbox. This is a crowded wedge unless voice capture is clearly better.",
+    "mvpWeeks": 5,
+    "scores": {
+      "demand": 4,
+      "feasibility": 4,
+      "moat": 2,
+      "fundability": 2
+    },
+    "sources": [
+      "https://deficiencydesk.com/",
+      "https://www.inspectpoint.com/features/",
+      "https://www.simprogroup.com/blog/ai-operating-platforms-for-fire-protection-businesses",
+      "https://developer.servicetitan.io/",
+      "https://docs.companycam.com/docs/welcome"
+    ]
+  },
+  {
+    "id": "tag-crew",
+    "name": "Tag Crew",
+    "category": "Field ops",
+    "pitch": "A foreman sends a Spanish or English voice note and photos by text, and it becomes a T&M ticket the GC can sign that day.",
+    "wedge": "No app at all: SMS for drywall, electrical and mechanical subcontractors who lose extra work to unsigned tickets. Why now: multilingual speech models make text-based capture workable, while the incumbent assumes people will use a portal.",
+    "customer": "Project manager or owner at a specialty subcontractor",
+    "models": [
+      "Deepgram Nova-3",
+      "Claude Sonnet 5.5"
+    ],
+    "saas": [
+      "Twilio",
+      "Docusign",
+      "Procore API",
+      "CompanyCam API"
+    ],
+    "stackNotes": "Twilio takes voice notes and photos, Nova-3 Multilingual transcribes, Claude Sonnet 5.5 fills labor and material lines, and the GC signs in Docusign. Approved tickets sync to Procore.",
+    "pricing": "Monthly fee per active project",
+    "competitors": [
+      "Clearstory",
+      "Procore"
+    ],
+    "precedent": {
+      "name": "Clearstory",
+      "url": "https://www.constructiondive.com/press-release/20230626-change-order-saas-company-extracker-becomes-clearstory-secures-new-funding"
+    },
+    "moat": "Moderate: subcontractors bring their GCs onto a network, as Clearstory showed.",
+    "risk": "GCs require their own systems and refuse a second channel, or Clearstory adds SMS capture.",
+    "mvpWeeks": 5,
+    "scores": {
+      "demand": 4,
+      "feasibility": 5,
+      "moat": 3,
+      "fundability": 3
+    },
+    "sources": [
+      "https://www.constructiondive.com/press-release/20230626-change-order-saas-company-extracker-becomes-clearstory-secures-new-funding",
+      "https://commercialobserver.com/2024/06/proptech-startup-clearstory-series-b/",
+      "https://deepgram.com/pricing",
+      "https://developers.procore.com/"
+    ]
+  },
+  {
+    "id": "supplement-ledger",
+    "name": "Supplement Ledger",
+    "category": "Field ops",
+    "pitch": "Compares a roofer's measured job to the insurer's estimate and tracks each missed item from discovery to payment.",
+    "wedge": "Auditing closed jobs for storm restoration roofers, then tracking dollars by adjuster and carrier. Why now: one-off AI supplement writers now exist, while tracking outcomes across carriers is still left to spreadsheets.",
+    "customer": "Owner or supplement manager at an insurance restoration roofer",
+    "models": [
+      "Claude Sonnet 5.5",
+      "Gemini 3.8 Flash"
+    ],
+    "saas": [
+      "CompanyCam API",
+      "Reducto",
+      "Nylas"
+    ],
+    "stackNotes": "Reducto reads carrier estimates, CompanyCam photos are reviewed by Gemini 3.8 Flash, and Claude Sonnet 5.5 compares scope and drafts the request with code citations.",
+    "pricing": "Share of supplement dollars won, or a flat fee per job",
+    "competitors": [
+      "RoofGenius",
+      "RafterCore",
+      "AccuLynx",
+      "ClaimStack"
+    ],
+    "precedent": {
+      "name": "RoofGenius",
+      "url": "https://roofgenius.ai/"
+    },
+    "moat": "Outcomes by carrier and adjuster, which raises win rates. RoofGenius is already selling code-cited supplements.",
+    "risk": "State laws may treat contractors negotiating claims as unlicensed public adjusting, and storm seasons make revenue lumpy.",
+    "mvpWeeks": 5,
+    "scores": {
+      "demand": 4,
+      "feasibility": 4,
+      "moat": 2,
+      "fundability": 3
+    },
+    "sources": [
+      "https://roofgenius.ai/",
+      "https://www.capterra.com/p/10049245/RafterCore/",
+      "https://acculynx.com/roofing-insurance-supplements-tips-tools/",
+      "https://www.xactware.com/home/",
+      "https://docs.companycam.com/docs/welcome"
+    ]
+  },
+  {
+    "id": "turnwalk",
+    "name": "Turnwalk",
+    "category": "Field ops",
+    "pitch": "A two-minute phone video of an empty apartment becomes a priced make-ready scope and vendor work orders.",
+    "wedge": "Rental operators with 500 to 5,000 units that run on AppFolio or Buildium. Why now: video-native models can now scope a room from a walkthrough, which is the step that holds up each turn.",
+    "customer": "Regional maintenance director at a multifamily operator",
+    "models": [
+      "Gemini 3.8 Flash",
+      "Claude Haiku 5.5"
+    ],
+    "saas": [
+      "Mux",
+      "Buildium API",
+      "Twilio"
+    ],
+    "stackNotes": "Mux stores the video, Gemini 3.8 Flash lists room-by-room conditions, Claude Haiku 5.5 prices them from the operator's rate card, and work orders go to Buildium with vendor texts through Twilio.",
+    "pricing": "Per-unit-turn fee or per-unit monthly fee",
+    "competitors": [
+      "HappyCo",
+      "APTS Turn Pro",
+      "Lessen"
+    ],
+    "precedent": {
+      "name": "HappyCo",
+      "url": "https://happy.co/resources/2026-summer-product-release"
+    },
+    "moat": "Low. HappyCo shipped inspection video in 2026 and previewed AI-drafted scopes, and it serves over 5.5 million units by its CEO's account.",
+    "risk": "HappyCo finishes this first with distribution, so the startup never gets past small operators.",
+    "mvpWeeks": 5,
+    "scores": {
+      "demand": 4,
+      "feasibility": 4,
+      "moat": 1,
+      "fundability": 2
+    },
+    "sources": [
+      "https://happy.co/resources/2026-summer-product-release",
+      "https://happy.co/resources/naa-apartmentalize-2026-recap",
+      "https://happy.co/press/happyco-ceo-on-proptech-pulse",
+      "https://apts-pro.web.app/",
+      "https://ai.google.dev/gemini-api/docs/pricing",
+      "https://developer.buildium.com/"
+    ]
+  },
+  {
+    "id": "vivaproctor",
+    "name": "VivaProctor",
+    "category": "Education",
+    "pitch": "Gives every student in a large course a short AI-run oral exam on their own submitted work, graded against the instructor's rubric with a transcript to audit.",
+    "wedge": "A 10-minute oral defense attached to one take-home assignment, launched from Canvas. Why now: Cornell, Penn and NYU reportedly launched oral defenses in 2026, and NYU's Viva paper reports grading costs under a dollar per exam.",
+    "customer": "Department chair, teaching center director or instructor of a large course",
+    "models": [
+      "gpt-realtime-2.1-mini",
+      "Claude Sonnet 5.5",
+      "GPT-6.1 Sol"
+    ],
+    "saas": [
+      "Canvas LMS API",
+      "Blackboard API",
+      "LiveKit",
+      "Supabase"
+    ],
+    "stackNotes": "LiveKit carries the session, gpt-realtime-2.1-mini asks about the student's own submission, and two different models grade independently so disagreements go to the instructor. Grades return to Canvas.",
+    "pricing": "Per-student annual license sold to the institution",
+    "competitors": [
+      "Breakout Learning",
+      "FeedbackFruits",
+      "Eklavvya",
+      "Turnitin"
+    ],
+    "precedent": {
+      "name": "Breakout Learning",
+      "url": "https://www.breakoutlearning.com/oral-assessment"
+    },
+    "moat": "Integrity evidence, faculty-validated grading sets and LMS approvals. Breakout Learning and FeedbackFruits are already here.",
+    "risk": "Student backlash over stress and fairness, or a voice-clone cheating scandal.",
+    "mvpWeeks": 6,
+    "scores": {
+      "demand": 5,
+      "feasibility": 4,
+      "moat": 3,
+      "fundability": 4
+    },
+    "sources": [
+      "https://arxiv.org/pdf/2603.18221",
+      "https://www.breakoutlearning.com/oral-assessment",
+      "https://feedbackfruits.com/educause-2026",
+      "https://viva.stern.nyu.edu/",
+      "https://www.pulse.bot/edtech/news/colleges-turn-to-oral-defense-exams-to-thwart-ai-generated-work-7f83ba5a-dd7c-4cdc-b195-6b8f98d721d7",
+      "https://developers.openai.com/api/docs/pricing"
+    ]
+  },
+  {
+    "id": "equivalency-clerk",
+    "name": "Equivalency Clerk",
+    "category": "Education",
+    "pitch": "Compares incoming course descriptions with a college's catalog and writes a recommended equivalency for faculty to approve, building the rule table as it goes.",
+    "wedge": "Clearing the backlog of unarticulated courses at one registrar's office. Why now: enrollment pressure makes slow transfer decisions costly, and EdVisorly's $13.3M raise shows colleges will pay for this kind of back-office work.",
+    "customer": "Registrar or transfer admissions director at a mid-size college",
+    "models": [
+      "Claude Sonnet 5.5",
+      "Gemini Embedding 2"
+    ],
+    "saas": [
+      "Reducto",
+      "Firecrawl",
+      "Supabase"
+    ],
+    "stackNotes": "Firecrawl and Reducto collect catalogs and syllabi, Gemini Embedding 2 finds candidate matches, and Claude Sonnet 5.5 writes a reasoned recommendation for the department to approve.",
+    "pricing": "Annual institutional subscription by enrollment",
+    "competitors": [
+      "EDMO",
+      "EdVisorly",
+      "TransferU",
+      "CollegeSource",
+      "DegreeSight",
+      "Stellic"
+    ],
+    "precedent": {
+      "name": "EdVisorly",
+      "url": "https://runtimewire.com/article/edvisorly-raises-13-3-million-ai-college-admissions"
+    },
+    "moat": "Each approved rule is an asset, but that belongs to the institution and rivals are arriving quickly.",
+    "risk": "EDMO or CollegeSource already has the relationships, and faculty sign-off stays the true bottleneck.",
+    "mvpWeeks": 6,
+    "scores": {
+      "demand": 4,
+      "feasibility": 4,
+      "moat": 2,
+      "fundability": 3
+    },
+    "sources": [
+      "https://runtimewire.com/article/edvisorly-raises-13-3-million-ai-college-admissions",
+      "https://lifestyle.myeaglecountry.com/story/84848/edmo-launches-transfer-credit-evaluator-to-simplify-and-accelerate-credit-transfer-decisions/",
+      "https://crunchbase.com/organization/transferu",
+      "https://collegesource.com/",
+      "https://learn.stellic.com/advisor-docs/transfer-credit-management"
+    ]
+  },
+  {
+    "id": "pell-packet",
+    "name": "Pell Packet",
+    "category": "Education",
+    "pitch": "Tells a community college which short programs can pass Workforce Pell, then assembles the governor's application and tracks the 70/70 metrics.",
+    "wedge": "A program-by-program readiness report for continuing education deans. Why now: the May 2026 final rule requires 70% completion and 70% job placement, plus a value-added earnings test, and each governor runs the approval.",
+    "customer": "Dean of workforce or continuing education at a community college",
+    "models": [
+      "Claude Sonnet 5.5"
+    ],
+    "saas": [
+      "Reducto",
+      "Firecrawl",
+      "Canvas LMS API",
+      "Supabase"
+    ],
+    "stackNotes": "Reducto and Canvas supply program and enrollment data, Firecrawl collects each state's in-demand lists and application rules, and Claude Sonnet 5.5 drafts the application and marks gaps.",
+    "pricing": "Per-program annual fee",
+    "competitors": [
+      "Entrinsik",
+      "K16 Solutions",
+      "Workforce Outcomes",
+      "IntelliBoard"
+    ],
+    "precedent": {
+      "name": "Entrinsik",
+      "url": "https://entrinsik.com/blog/workforce-pell-ready-non-credit-programs/"
+    },
+    "moat": "State-by-state application knowledge. Student information system vendors hold the outcome data, which limits this.",
+    "risk": "SIS vendors cover the reporting, and few programs qualify in practice, which shrinks the market.",
+    "mvpWeeks": 5,
+    "scores": {
+      "demand": 4,
+      "feasibility": 4,
+      "moat": 2,
+      "fundability": 3
+    },
+    "sources": [
+      "https://www.federalregister.gov/documents/2026/05/19/2026-10013/accountability-in-higher-education-and-access-through-demand-driven-workforce-pell-pell-grant",
+      "https://public-inspection.federalregister.gov/2026-10013.pdf",
+      "https://fsapartners.ed.gov/sites/default/files/2026-10/WorkforcePellFAQs.pdf",
+      "https://entrinsik.com/blog/workforce-pell-ready-non-credit-programs/",
+      "https://www.k16solutions.com/workforce-pell-distribution-scaffold-datax.pdf"
+    ]
+  },
+  {
+    "id": "simpatient-line",
+    "name": "SimPatient Line",
+    "category": "Education",
+    "pitch": "Nursing students phone or browser-call an AI patient who has a history, symptoms and moods, and get a scored debrief against the school's skills rubric.",
+    "wedge": "Interview and handoff practice for prelicensure nursing programs short of standardized patients. Why now: a randomized trial in NEJM AI reported better OSCE scores in medical students trained with AI, and voice latency now allows a real conversation.",
+    "customer": "Simulation lab director or nursing program dean",
+    "models": [
+      "gpt-realtime-2.1-mini",
+      "Claude Sonnet 5.5"
+    ],
+    "saas": [
+      "LiveKit",
+      "Canvas LMS API",
+      "Stripe"
+    ],
+    "stackNotes": "LiveKit carries the call, gpt-realtime-2.1-mini plays the scripted patient, and Claude Sonnet 5.5 scores the transcript against the rubric, with results returning to Canvas.",
+    "pricing": "Per-student annual license",
+    "competitors": [
+      "PCS",
+      "Geeky Medics",
+      "Neural Consult"
+    ],
+    "precedent": {
+      "name": "PCS",
+      "url": "https://www.pcs.ai/blog/pcs.ai-joins-inacsls-new-in-kind-vendor-grant-program"
+    },
+    "moat": "A case library reviewed by nursing educators and tied to accreditation evidence.",
+    "risk": "Sim labs buy on a slow hardware budget, and accreditors may not credit voice practice as simulation hours.",
+    "mvpWeeks": 5,
+    "scores": {
+      "demand": 4,
+      "feasibility": 5,
+      "moat": 3,
+      "fundability": 3
+    },
+    "sources": [
+      "https://www.pcs.ai/blog/pcs.ai-joins-inacsls-new-in-kind-vendor-grant-program",
+      "https://www.interniche.org/ru/studies/ai-standardized-clinical-examination-training-osce-performance",
+      "https://www.iatrox.com/blog/best-ai-tools-for-osce-practice-virtual-patients-2026",
+      "https://developers.openai.com/api/docs/pricing"
+    ]
+  },
+  {
+    "id": "parcel-docket",
+    "name": "Parcel Docket",
+    "category": "Media",
+    "pitch": "Watches local government meetings and alerts developers when a rezoning, moratorium or opposition campaign touches their land or pipeline.",
+    "wedge": "Alerts mapped to specific parcels for solar and multifamily developers in one state. Why now: Hamlet showed that meeting transcripts have buyers, and AgendaWire and WallFly sell keyword alerts, while links to actual parcels and sites are still rare.",
+    "customer": "Land acquisition or permitting lead at a developer",
+    "models": [
+      "gpt-transcribe",
+      "Claude Sonnet 5.5",
+      "Gemini Embedding 2"
+    ],
+    "saas": [
+      "Legistar Web API",
+      "Firecrawl",
+      "Nylas"
+    ],
+    "stackNotes": "The Legistar Web API and Firecrawl find agendas and video, gpt-transcribe converts them at $0.0045 per minute, and Claude Sonnet 5.5 extracts addresses and maps them to the customer's sites.",
+    "pricing": "Annual subscription per region",
+    "competitors": [
+      "Hamlet",
+      "AgendaWire",
+      "WallFly",
+      "GovSpend"
+    ],
+    "precedent": {
+      "name": "Hamlet",
+      "url": "https://www.ai-market-watch.com/company/hamlet"
+    },
+    "moat": "Coverage of scattered local sources takes real effort, but the sources are public and several rivals exist.",
+    "risk": "Coverage work grows with each county, and Hamlet or AgendaWire adds parcel matching first.",
+    "mvpWeeks": 5,
+    "scores": {
+      "demand": 4,
+      "feasibility": 4,
+      "moat": 2,
+      "fundability": 3
+    },
+    "sources": [
+      "https://www.publicceo.com/2024/06/hamlet-partners-with-the-city-of-palo-alto-to-provide-ai-powered-city-council-summaries/",
+      "https://www.ai-market-watch.com/company/hamlet",
+      "https://www.agendawire.com/coverage",
+      "https://wallfly-landing.pages.dev/",
+      "https://webapi.legistar.com/",
+      "https://developers.openai.com/api/docs/pricing"
+    ]
+  },
+  {
+    "id": "cueclerk",
+    "name": "CueClerk",
+    "category": "Media",
+    "pitch": "Drafts a broadcast-ready music cue sheet from the final cut for small documentary and factual producers, then chases library metadata.",
+    "wedge": "One delivery requirement for small post houses: a cue sheet accepted by the broadcaster's format. Why now: audio recognition became an API, while enterprise tools are priced for networks.",
+    "customer": "Post supervisor at a small production company",
+    "models": [
+      "Claude Haiku 5.5"
+    ],
+    "saas": [
+      "ACRCloud",
+      "Mux",
+      "Stripe"
+    ],
+    "stackNotes": "ACRCloud identifies music against the final mix, an EDL gives in and out points, and Claude Haiku 5.5 fills out the writer and publisher fields and flags gaps.",
+    "pricing": "Per-episode fee",
+    "competitors": [
+      "Soundmouse",
+      "BMAT CUED",
+      "Cuetrak",
+      "CueDraft",
+      "EditingTools"
+    ],
+    "precedent": {
+      "name": "Soundmouse",
+      "url": "https://web.orfium.com/about-soundmouse"
+    },
+    "moat": "Very little. Established players have recognition and libraries, and Cuetrak added file-based creation in 2026.",
+    "risk": "The market is small and well served, so this is more likely a lifestyle tool than a venture company.",
+    "mvpWeeks": 4,
+    "scores": {
+      "demand": 2,
+      "feasibility": 5,
+      "moat": 1,
+      "fundability": 1
+    },
+    "sources": [
+      "https://web.orfium.com/about-soundmouse",
+      "https://www.bmat.com/cued/",
+      "https://www.musicreports.com/press/2026-09-09-the-next-generation-of-cue-sheet-creation-how-ai-optimized-content-recognition-is-transforming-music-reporting",
+      "https://cuedraft.com/",
+      "https://www.acrcloud.com/pricing/"
+    ]
+  },
+  {
+    "id": "stationvault",
+    "name": "StationVault",
+    "category": "Media",
+    "pitch": "Lets a local TV newsroom search decades of its own footage by what is on screen, and clear a clip in minutes.",
+    "wedge": "A ready-made index and search box for one station group's archive, with a producer-friendly rights note on each clip. Why now: video understanding became an API, so a small team no longer needs to build what Moments Lab built.",
+    "customer": "News director or archive manager at a local station group",
+    "models": [
+      "TwelveLabs Marengo 3.5",
+      "TwelveLabs Pegasus 1.6",
+      "Claude Haiku 5.5"
+    ],
+    "saas": [
+      "TwelveLabs API",
+      "Mux",
+      "Supabase"
+    ],
+    "stackNotes": "Marengo 3.5 indexes the footage for search, Pegasus 1.6 writes shot descriptions, and Claude Haiku 5.5 turns a producer's script line into searches. Mux serves previews.",
+    "pricing": "Annual fee by archive hours",
+    "competitors": [
+      "Moments Lab",
+      "TwelveLabs"
+    ],
+    "precedent": {
+      "name": "Moments Lab",
+      "url": "https://www.momentslab.com/products/search-and-discovery"
+    },
+    "moat": "Low on technology because TwelveLabs sells the core directly. Rights metadata and station workflow fit are the only edge.",
+    "risk": "Local TV budgets are shrinking, and digitizing tape costs more than the software.",
+    "mvpWeeks": 5,
+    "scores": {
+      "demand": 3,
+      "feasibility": 4,
+      "moat": 2,
+      "fundability": 2
+    },
+    "sources": [
+      "https://www.momentslab.com/products/search-and-discovery",
+      "https://docs.twelvelabs.io/docs/concepts/models",
+      "https://www.twelvelabs.io/pricing",
+      "https://twelvelabs.io/solutions/media-and-entertainment"
+    ]
+  },
+  {
+    "id": "describe-backlog",
+    "name": "Describe Backlog",
+    "category": "Media",
+    "pitch": "Finds the videos in a public university's library that need audio description, then produces it at a price that makes the whole backlog possible.",
+    "wedge": "Triage first: rank a campus video library by use and legal risk, then describe the top tier. Why now: WCAG 1.2.5 AA covers prerecorded video, the Title II deadline for larger public entities is 26 April 2027, and one university lists 3Play audio description at $9 to $14 per minute.",
+    "customer": "Digital accessibility lead at a public university",
+    "models": [
+      "Gemini 3.8 Flash",
+      "ElevenLabs Flash v2.5",
+      "Claude Sonnet 5.5"
+    ],
+    "saas": [
+      "Canvas LMS API",
+      "Inngest"
+    ],
+    "stackNotes": "The Canvas API inventories course video, Gemini 3.8 Flash describes scenes, Claude Sonnet 5.5 fits text into natural pauses, and ElevenLabs Flash v2.5 voices it, with Inngest running the batches. Staff review a sample of each.",
+    "pricing": "Per-minute pricing with an annual campus commitment",
+    "competitors": [
+      "3Play Media",
+      "Verbit",
+      "ViddyScribe"
+    ],
+    "precedent": {
+      "name": "3Play Media",
+      "url": "https://www.businesswire.com/news/home/20250121716821/en"
+    },
+    "moat": "Little on tech. 3Play and Verbit already sell AI description, so the triage layer and the price are the angle.",
+    "risk": "Incumbents cut AI prices and bundle it with captions, as Verbit's campus subscription already does.",
+    "mvpWeeks": 5,
+    "scores": {
+      "demand": 4,
+      "feasibility": 5,
+      "moat": 2,
+      "fundability": 3
+    },
+    "sources": [
+      "https://www.w3.org/WAI/WCAG21/Understanding/audio-description-prerecorded.html",
+      "https://wichita.edu/services/mrc/WSUTV/video-audio-description-workshops.php",
+      "https://www.reedsmith.com/articles/doj-extends-digital-accessibility-compliance-dates-under-title-ii-of-the-ada/",
+      "https://campustechnology.com/articles/2026/04/27/doj-extends-deadline-for-ada-title-ii-compliance.aspx",
+      "https://www.businesswire.com/news/home/20250121716821/en",
+      "https://verbit.ai/webinar-registration/webinar-ai-audio-description-for-title-ii",
+      "https://elevenlabs.io/pricing/api"
+    ]
+  }
+]

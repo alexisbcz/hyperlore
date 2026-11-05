@@ -1,0 +1,90 @@
+/* Benchmarks: the headline numbers strip and the card view (grouped by kind). */
+
+.tw-bench-kpis {
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--t-border-color-light);
+}
+.tw-bench-kpi {
+  display: flex;
+  align-items: center;
+  gap: var(--t-spacing-2);
+  padding: var(--t-spacing-2) var(--t-spacing-4);
+  border-right: 1px solid var(--t-border-color-light);
+}
+.tw-bench-kpi-label {
+  color: var(--t-font-color-tertiary);
+  font-size: var(--t-font-size-sm);
+}
+.tw-bench-kpi-value {
+  font-weight: var(--t-font-weight-semi-bold);
+  font-variant-numeric: tabular-nums;
+}
+.tw-bench-intro {
+  flex: 1;
+  min-width: 260px;
+  padding: var(--t-spacing-2) var(--t-spacing-4);
+  color: var(--t-font-color-tertiary);
+  font-size: var(--t-font-size-sm);
+  align-self: center;
+}
+.tw-bench-groups {
+  padding: var(--t-spacing-4) var(--t-spacing-4) var(--t-spacing-8);
+}
+.tw-bench-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--t-spacing-2);
+  margin: 0 0 var(--t-spacing-6);
+  padding: 0;
+  list-style: none;
+}
+.tw-bench-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--t-spacing-1);
+  padding: var(--t-spacing-3);
+  border: 1px solid var(--t-border-color-medium);
+  border-radius: var(--t-border-radius-sm);
+  background: var(--t-background-primary);
+}
+.tw-bench-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--t-spacing-2);
+}
+.tw-bench-name {
+  font-weight: var(--t-font-weight-semi-bold);
+}
+.tw-bench-meta {
+  color: var(--t-font-color-tertiary);
+  font-size: var(--t-font-size-sm);
+}
+.tw-bench-text {
+  margin: var(--t-spacing-1) 0 0;
+  color: var(--t-font-color-secondary);
+  line-height: 1.5;
+}
+.tw-bench-how {
+  margin: 0;
+  color: var(--t-font-color-tertiary);
+  font-size: var(--t-font-size-sm);
+  line-height: 1.5;
+}
+.tw-bench-weak {
+  margin: var(--t-spacing-1) 0 0;
+  padding-left: var(--t-spacing-2);
+  border-left: 2px solid var(--t-border-color-strong);
+  color: var(--t-font-color-secondary);
+  font-size: var(--t-font-size-sm);
+  line-height: 1.5;
+}
+.tw-bench-sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--t-spacing-2);
+  margin-top: auto;
+  padding-top: var(--t-spacing-2);
+  font-size: var(--t-font-size-sm);
+}
