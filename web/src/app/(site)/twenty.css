@@ -1186,3 +1186,73 @@ a.tw-list-row:hover {
   height: 24px;
   border: 0;
 }
+
+/* Ask AI popover on record pages (ask-ai.tsx). */
+.tw-ask {
+  width: min(380px, calc(100vw - 32px));
+  display: flex;
+  flex-direction: column;
+  gap: var(--t-spacing-2);
+  padding: var(--t-spacing-3);
+}
+.tw-ask-title {
+  font-size: var(--t-font-size-md);
+  font-weight: var(--t-font-weight-semi-bold);
+  color: var(--t-font-color-primary);
+  margin: 0;
+}
+.tw-ask-desc {
+  font-size: var(--t-font-size-sm);
+  color: var(--t-font-color-tertiary);
+  margin: 0;
+}
+.tw-ask-label {
+  font-size: var(--t-font-size-xs);
+  font-weight: var(--t-font-weight-medium);
+  color: var(--t-font-color-secondary);
+  margin-top: var(--t-spacing-1);
+}
+.tw-ask-input {
+  font: inherit;
+  /* 16px stops iOS from zooming into the field */
+  font-size: max(16px, var(--t-font-size-md));
+  line-height: 1.4;
+  color: var(--t-font-color-primary);
+  background: var(--t-background-primary);
+  border: 1px solid var(--t-border-color-medium);
+  border-radius: var(--t-border-radius-sm);
+  padding: var(--t-spacing-2);
+  resize: vertical;
+}
+.tw-ask-input:focus-visible {
+  outline: 2px solid var(--t-color-blue);
+  outline-offset: -1px;
+}
+.tw-ask-suggest {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--t-spacing-1);
+}
+.tw-ask-chip {
+  font: inherit;
+  font-size: var(--t-font-size-sm);
+  color: var(--t-font-color-secondary);
+  background: transparent;
+  border: 1px solid var(--t-border-color-light);
+  border-radius: var(--t-border-radius-sm);
+  padding: 2px var(--t-spacing-2);
+  cursor: pointer;
+}
+.tw-ask-chip:hover {
+  background: var(--t-background-transparent-light);
+}
+.tw-ask-chip[data-active] {
+  color: var(--t-font-color-primary);
+  border-color: var(--t-border-color-strong);
+}
+.tw-ask-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--t-spacing-1);
+  margin-top: var(--t-spacing-1);
+}

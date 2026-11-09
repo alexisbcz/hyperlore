@@ -40,6 +40,7 @@ import { RecordTabs } from "../record-tabs";
 import { Chip, DetailsRow, LightButton, Tag, Text, Tooltip } from "../tw";
 import { Flag } from "../companies/view";
 import { withBase } from "@/lib/base";
+import { AskAI } from "../ask-ai";
 export { companyParams as generateStaticParams } from "../params";
 
 export async function generateMetadata({ params }: PageProps<"/[company]">): Promise<Metadata> {
@@ -88,6 +89,7 @@ async function Record({ params }: { params: PageProps<"/[company]">["params"] })
         title={c.name}
         actions={
           <>
+            <AskAI name={c.name} slug={c.slug} base={SITE_URL.replace(/\/$/, "")} />
             {c.website && (
               <LightButton startIcon={<IconWorldWww />} href={c.website} target="_blank" rel="noreferrer">
                 Website
