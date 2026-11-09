@@ -116,7 +116,7 @@ def push(d: Path, message: str):
         print("archive: nothing changed")
         return
     git(d, "commit", "-m", message)
-    git(d, "push")
+    git(d, "push", "-u", "origin", "HEAD")
     print(f"archive: pushed to {ARCHIVE_REPO}")
     if shutil.which("gh"):
         r = subprocess.run(["gh", "workflow", "run", "deploy.yml", "-R", CODE_REPO], capture_output=True, text=True)
