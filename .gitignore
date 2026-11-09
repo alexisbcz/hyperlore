@@ -29,7 +29,7 @@ node_modules/
 data/runs/
 
 # Content lives in the public archive repo (github.com/alexisbcz/hyperlore-archive), published with
-# `python3 scripts/archive.py push`; the site build pulls it back (scripts/archive.py pull).
+# `bun scripts/archive.ts push`; the site build pulls it back (scripts/archive.ts pull).
 /web/data/archive.json
 /web/public/assets/
 /web/public/people/

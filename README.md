@@ -145,7 +145,7 @@ Either way the `research-company` method runs: identify the company, collect fro
 - `.claude/skills/`: the agents’ methods, one skill per job (see [above](#an-agent-is-four-layers)).
 - `logos.py`: logo-history pipeline (Context.dev, simple-icons and other GitHub logo sets, Wikimedia Commons, Wayback).
 - `compose.yaml`: local DocumentDB (`docker compose up -d`).
-- Content (the archive snapshot, logos, photos, interview transcripts) lives in its own public repo, [hyperlore-archive](https://github.com/alexisbcz/hyperlore-archive). `scripts/archive.py` publishes it there and restores it here. Raw API caches stay local (`data/raw/`, gitignored).
+- Content (the archive snapshot, logos, photos, interview transcripts) lives in its own public repo, [hyperlore-archive](https://github.com/alexisbcz/hyperlore-archive). `scripts/archive.ts` publishes it there and restores it here. Raw API caches stay local (`data/raw/`, gitignored).
 - `agent/` / `./research`: the research agent as a standalone TypeScript program on the AI SDK (see [Run one](#run-one)).
 - `web/`: the Next.js site (company wikis, people, investors, ⌘K search, static JSON API, `llms.txt`), exported as static files and deployed to Netlify. It is built with [Twenty UI](https://docs.twenty.com/twenty-ui/introduction) in `web/src/app/(site)/`.
 - `docs/figures/`, `tools/teardown/`: the figures in this README and the drawing tools that make them.
@@ -156,11 +156,11 @@ The site is static: `next build` prerenders every page, feed, PDF and API respon
 
 ```bash
 ./hl export                                          # snapshot the archive + copy logos and photos into web/public
-python3 scripts/archive.py push -m "Add Coframe"     # publish the content to hyperlore-archive, then rebuild the site
+bun scripts/archive.ts push -m "Add Coframe"     # publish the content to hyperlore-archive, then rebuild the site
 git push                                             # code changes: pushing main rebuilds the site too
 ```
 
-`archive.py push` expects a clone of the archive next to this repo (`gh repo clone alexisbcz/hyperlore-archive ../hyperlore-archive`). It scrubs transcripts of signed YouTube URLs (they carry the downloader's IP) and SVGs of scripts before anything leaves the machine. The [deploy workflow](.github/workflows/deploy.yml) checks out both repos, builds and deploys. On a fresh clone, `python3 scripts/archive.py pull` puts the content back.
+`archive.ts push` expects a clone of the archive next to this repo (`gh repo clone alexisbcz/hyperlore-archive ../hyperlore-archive`). It scrubs transcripts of signed YouTube URLs (they carry the downloader's IP) and SVGs of scripts before anything leaves the machine. The [deploy workflow](.github/workflows/deploy.yml) checks out both repos, builds and deploys. On a fresh clone, `bun scripts/archive.ts pull` puts the content back.
 
 Requests and corrections are GitHub issues on the archive repo (the forms on the site pre-fill them).
 

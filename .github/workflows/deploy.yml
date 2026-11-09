@@ -1,6 +1,6 @@
 # Builds the static site from this repo's code and the public archive's content
 # (github.com/alexisbcz/hyperlore-archive), then deploys it to Netlify.
-# Runs on every push to main, and on demand: `python3 scripts/archive.py push` starts it after
+# Runs on every push to main, and on demand: `bun scripts/archive.ts push` starts it after
 # publishing new content (gh workflow run deploy.yml).
 #
 # Repository secrets: NETLIFY_AUTH_TOKEN (a Netlify personal access token) and NETLIFY_SITE_ID.
@@ -43,12 +43,12 @@ jobs:
             places
           sparse-checkout-cone-mode: false
 
-      - name: Put the archive in place
-        run: python3 scripts/archive.py pull --dir archive --site-only
-
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version-file: web/package.json
+
+      - name: Put the archive in place
+        run: bun scripts/archive.ts pull --dir archive --site-only
 
       - name: Install
         working-directory: web

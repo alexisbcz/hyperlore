@@ -9,7 +9,7 @@ Two public repos:
 - **github.com/alexisbcz/hyperlore**: the code (this repo). Pushing `main` rebuilds the site.
 - **github.com/alexisbcz/hyperlore-archive**: the content: `archive.json`, `assets/`, `people/`, `places/`, `transcripts/`. Locally a clone sits at `../hyperlore-archive` (`gh repo clone alexisbcz/hyperlore-archive ../hyperlore-archive`).
 
-The site is a static export deployed to Netlify (URL: the repo variable `SITE_URL`, `gh variable get SITE_URL -R alexisbcz/hyperlore`). The [deploy workflow](../../../.github/workflows/deploy.yml) checks out both repos, runs `scripts/archive.py pull --site-only`, `next build`, `scripts/pdfs.tsx` (PDFs, cached per company) and `netlify deploy`, which uploads only changed files.
+The site is a static export deployed to Netlify (URL: the repo variable `SITE_URL`, `gh variable get SITE_URL -R alexisbcz/hyperlore`). The [deploy workflow](../../../.github/workflows/deploy.yml) checks out both repos, runs `scripts/archive.ts pull --site-only`, `next build`, `scripts/pdfs.tsx` (PDFs, cached per company) and `netlify deploy`, which uploads only changed files.
 
 ```bash
 ./hl export                                   # snapshot + copy logos and photos into web/public
@@ -17,7 +17,7 @@ git diff --stat HEAD -- web/data 2>/dev/null; python3 - <<'EOF'   # compare with
 import json; a=json.load(open("web/data/archive.json")); b=json.load(open("../hyperlore-archive/archive.json"))
 print(len({e["company"] for e in a["events"]}), "companies now;", len({e["company"] for e in b["events"]}), "published")
 EOF
-python3 scripts/archive.py push -m "Add <company>: <what changed>"   # scrub, commit, push, start the site rebuild
+bun scripts/archive.ts push -m "Add <company>: <what changed>"   # scrub, commit, push, start the site rebuild
 ```
 
 - Code changes: commit and `git push` (main). That also rebuilds.
@@ -28,7 +28,7 @@ python3 scripts/archive.py push -m "Add <company>: <what changed>"   # scrub, co
 
 ## Rules
 
-- `archive.py push` refuses to publish while any file still holds an IP-bearing URL (signed YouTube links in yt-dlp `.info.json` and ScrapeCreators output). Never bypass it: the repos are public.
+- `archive.ts push` refuses to publish while any file still holds an IP-bearing URL (signed YouTube links in yt-dlp `.info.json` and ScrapeCreators output). Never bypass it: the repos are public.
 - Never commit `.env*`, `data/raw/` or cookies. Both repos are public: scan new files for API keys before pushing.
 - Compare the export against the published `archive.json` before pushing: a stale local DB once dropped 201 companies.
 
