@@ -515,6 +515,8 @@ body:has(.tw-app) .read-progress {
 }
 .tw-record-side {
   border-right: 1px solid var(--t-border-color-light);
+  min-width: 0;
+  overflow-x: hidden;
   overflow-y: auto;
   overscroll-behavior: contain;
 }
@@ -617,8 +619,15 @@ a.tw-rel-row:hover {
   color: var(--t-font-color-tertiary);
   font-size: var(--t-font-size-sm);
   white-space: nowrap;
+  /* Long roles ("Co-founder, co-chair, CEO 2019–…") truncate instead of widening the side panel. */
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .tw-rel-text {
+  /* The name keeps its width first; the meta gives way. */
+  flex: 0 0 auto;
+  max-width: 65%;
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;

@@ -283,7 +283,7 @@ function Side({ c }: { c: CompanyRecord }) {
                 <>
                   <PersonAvatar name={f.name} photo={f.photo} size="lg" />
                   <span className="tw-rel-text">{f.name}</span>
-                  {role && <span className="tw-rel-meta">{role}</span>}
+                  {role && <span className="tw-rel-meta" title={role}>{role}</span>}
                 </>
               );
               return f.slug ? (
