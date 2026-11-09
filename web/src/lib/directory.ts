@@ -77,17 +77,27 @@ let codesByName: Map<string, string> | undefined;
 /** The ISO code for a country stored by name (places), or undefined. */
 export function countryCode(name?: string) {
   if (!name) return undefined;
-  if (/^[A-Za-z]{2}$/.test(name)) return name.toUpperCase();
+  if (/^[A-Za-z]{2}$/.test(name)) return canonicalRegion(name.toUpperCase());
   if (!codesByName) {
     codesByName = new Map();
     for (let a = 65; a <= 90; a++)
       for (let b = 65; b <= 90; b++) {
         const code = String.fromCharCode(a, b);
         const n = countryName(code);
-        if (n !== code) codesByName.set(n.toLowerCase(), code);
+        // ICU names retired codes too (FX "France", VD "Vietnam", SU "Russia"): keep the current one.
+        if (n !== code) codesByName.set(n.toLowerCase(), canonicalRegion(code));
       }
   }
   return codesByName.get(name.toLowerCase());
+}
+
+/** The current ISO code for a retired one (FX → FR, UK → GB, BU → MM); others unchanged. */
+function canonicalRegion(code: string) {
+  try {
+    return new Intl.Locale(`und-${code}`).region ?? code;
+  } catch {
+    return code;
+  }
 }
 
 export function countryName(code?: string) {

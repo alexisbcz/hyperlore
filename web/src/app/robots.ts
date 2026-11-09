@@ -7,3 +7,6 @@ export default function robots(): MetadataRoute.Robots {
     sitemap: `${SITE_URL}/sitemap.xml`,
   };
 }
+
+// No params: lets static export (output: "export") prerender this file.
+export const generateStaticParams = () => [{}];

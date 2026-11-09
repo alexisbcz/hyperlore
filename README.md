@@ -11,7 +11,7 @@ As of the last snapshot (3 Nov 2026), the archive holds 456 companies, 8,762 dat
   - [Many agents, one archive](#many-agents-one-archive)
   - [Judgment rules](#judgment-rules)
   - [Run one](#run-one)
-- [Layout](#layout) · [Data](#data) · [Publishing](#publishing) · [Secrets](#secrets) · [About the figures](#about-the-figures) · [License](#license)
+- [Layout](#layout) · [Publishing](#publishing) · [Secrets](#secrets) · [About the figures](#about-the-figures)
 
 ## How the agents work
 
@@ -145,41 +145,33 @@ Either way the `research-company` method runs: identify the company, collect fro
 - `.claude/skills/`: the agents’ methods, one skill per job (see [above](#an-agent-is-four-layers)).
 - `logos.py`: logo-history pipeline (Context.dev, simple-icons and other GitHub logo sets, Wikimedia Commons, Wayback).
 - `compose.yaml`: local DocumentDB (`docker compose up -d`).
-- `data/` (not included, see [Data](#data)): archived logos, people photos, interview transcripts and the raw API caches.
+- Content (the archive snapshot, logos, photos, interview transcripts) lives in its own public repo, [hyperlore-archive](https://github.com/alexisbcz/hyperlore-archive). `scripts/archive.py` publishes it there and restores it here. Raw API caches stay local (`data/raw/`, gitignored).
 - `agent/` / `./research`: the research agent as a standalone TypeScript program on the AI SDK (see [Run one](#run-one)).
-- `web/`: the Next.js site (company wikis, people, investors, ⌘K search, Ask, open API, `llms.txt`). The default design is built with [Twenty UI](https://docs.twenty.com/twenty-ui/introduction) in `web/src/app/lab/twenty/`, served at the public URLs by `web/src/proxy.ts`; the classic design lives in `web/src/app/(classic)/` and stays one click away (`?style=classic`).
-- `docs/figures/`: the figures in this README and the models they're drawn from.
-
-## Data
-
-This repository holds the code only. The archive it builds is not included: company logos, photos of people, interview and podcast transcripts, and the facts and quotes collected from them come from third parties, so they aren't ours to license. `data/`, `web/data/archive.json` and the images under `web/public/` (`assets`, `people`, `places`, `portfolios`, `flags`, `og`) are left out.
-
-To build your own archive, start the database (`docker compose up -d`), add the API keys from [Secrets](#secrets), and run the research agent on a company (see [Run one](#run-one)). Facts go through `./hl`, which refuses anything without a source. The site then reads that archive directly (`MONGO_URL`) or from a snapshot made with `./hl export`.
+- `web/`: the Next.js site (company wikis, people, investors, ⌘K search, static JSON API, `llms.txt`), exported as static files and deployed to Netlify. It is built with [Twenty UI](https://docs.twenty.com/twenty-ui/introduction) in `web/src/app/(site)/`.
+- `docs/figures/`, `tools/teardown/`: the figures in this README and the drawing tools that make them.
 
 ## Publishing
 
-The site reads the live DocumentDB when `MONGO_URL` is set (local dev) and otherwise the snapshot in `web/data/archive.json`.
+The site is static: `next build` prerenders every page, feed, PDF and API response from the snapshot `web/data/archive.json` into `web/out/` (PDFs: `web/scripts/pdfs.tsx`, cached per company), and GitHub Actions deploys it to Netlify. Locally, `bun run dev` reads the live DocumentDB when `web/.env.local` sets `MONGO_URL`.
 
 ```bash
-./hl export          # snapshot the archive + copy logos into web/public/assets
-git commit -am "Publish archive" && git push   # Vercel deploys from main
+./hl export                                          # snapshot the archive + copy logos and photos into web/public
+python3 scripts/archive.py push -m "Add Coframe"     # publish the content to hyperlore-archive, then rebuild the site
+git push                                             # code changes: pushing main rebuilds the site too
 ```
+
+`archive.py push` expects a clone of the archive next to this repo (`gh repo clone alexisbcz/hyperlore-archive ../hyperlore-archive`). It scrubs transcripts of signed YouTube URLs (they carry the downloader's IP) and SVGs of scripts before anything leaves the machine. The [deploy workflow](.github/workflows/deploy.yml) checks out both repos, builds and deploys. On a fresh clone, `python3 scripts/archive.py pull` puts the content back.
+
+Requests and corrections are GitHub issues on the archive repo (the forms on the site pre-fill them).
 
 ## Secrets
 
-`.env` (repo root) holds `MONGO_URL`, `SCRAPECREATORS_API_KEY`, `CONTEXT_DEV_API_KEY`; `web/.env.local` holds `MONGO_URL` for dev. Neither is committed.
+`.env` (repo root) holds `MONGO_URL`, `SCRAPECREATORS_API_KEY`, `CONTEXT_DEV_API_KEY` and `LINKUP_API_KEY`; `web/.env.local` holds `MONGO_URL` for dev. Neither is committed, and the deployed site needs none of them.
 
 ## About the figures
 
-The drawings are concept illustrations made with [teardown](https://jakub.kr/skills#teardown), a skill by [Jakub Krehel](https://jakub.kr/skills) for technical illustrations of objects and of how things work. Each idea is one part built from thin plates, with the layers exploded along one axis. Sizes are invented; only the order of the layers and what each one is called mean anything. The models live in [`docs/figures/model.js`](docs/figures/model.js), with an [evidence record](docs/figures/evidence.md) tying every layer to the code it depicts. To rebuild them, install the teardown skill (not included in this repository) and run:
+The drawings are concept illustrations made with [teardown](https://jakub.kr/skills#teardown), a skill by [Jakub Krehel](https://jakub.kr/skills) for technical illustrations of objects and of how things work. Each idea is one part built from thin plates, with the layers exploded along one axis. Sizes are invented; only the order of the layers and what each one is called mean anything. The models live in [`docs/figures/model.js`](docs/figures/model.js), with an [evidence record](docs/figures/evidence.md) tying every layer to the code it depicts. To rebuild them:
 
 ```sh
 node docs/figures/render.cjs
 ```
-
-## License
-
-The code is licensed under the [GNU Affero General Public License v3.0](LICENSE). If you run a modified version as a network service, the AGPL requires you to offer its source to that service's users.
-
-The license covers this repository's code and documentation. It does not cover third-party material the code collects (logos, photos, transcripts, quotes and other sourced content), which belongs to its respective owners. Bundled fonts keep their own licenses (Noto Sans: SIL Open Font License).
-

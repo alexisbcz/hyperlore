@@ -1,12 +1,13 @@
 {
   "name": "web",
-  "license": "AGPL-3.0-only",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "pdfs": "bun scripts/pdfs.tsx",
+    "build:site": "next build && bun scripts/pdfs.tsx"
   },
   "dependencies": {
     "@huggingface/transformers": "4.3.1",

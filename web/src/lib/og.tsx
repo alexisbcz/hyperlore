@@ -29,7 +29,20 @@ type Card = {
   imageShape?: "square" | "circle" | "wide";
 };
 
-export async function ogCard({ eyebrow, title, subtitle, stats = [], image, imageShape = "square" }: Card) {
+/** The card as a PNG. Rendered eagerly: if the picture can't be parsed, the card is drawn without it
+ * (cards are prerendered at build time, where one bad logo must not fail the build). */
+export async function ogCard(card: Card) {
+  const png = async (c: Card) => (await ogCardRaw(c)).arrayBuffer();
+  let body: ArrayBuffer;
+  try {
+    body = await png(card);
+  } catch {
+    body = await png({ ...card, image: undefined });
+  }
+  return new Response(body, { headers: { "Content-Type": "image/png" } });
+}
+
+async function ogCardRaw({ eyebrow, title, subtitle, stats = [], image, imageShape = "square" }: Card) {
   const data = await inline(image);
   // Cut on a word boundary: "valued at $15…" reads as a wrong number.
   const text = subtitle && subtitle.length > 150 ? `${subtitle.slice(0, 148).replace(/[\s,;:–—-]+\S*$/, "")}…` : subtitle;
@@ -40,12 +53,7 @@ export async function ogCard({ eyebrow, title, subtitle, stats = [], image, imag
         <div style={{ display: "flex", flexDirection: "column", flex: 1, minWidth: 0 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 14, fontSize: 28, color: "#b9bbc2" }}>
             <svg viewBox="0 0 32 32" width="40" height="40">
-              <rect width="32" height="32" rx="8" fill="#ccff2a" />
-              <rect x="7" y="7" width="4" height="18" rx="2" fill="#0b0c0e" />
-              <rect x="21" y="7" width="4" height="18" rx="2" fill="#0b0c0e" />
-              <rect x="11" y="15" width="10" height="2" fill="#0b0c0e" />
-              <circle cx="16" cy="16" r="4" fill="#0b0c0e" />
-              <circle cx="16" cy="16" r="1.75" fill="#ccff2a" />
+              <path fill="#ccff2a" d="M8 0H24A8 8 0 0 1 32 8V24A8 8 0 0 1 24 32H8A8 8 0 0 1 0 24V8A8 8 0 0 1 8 0Z" />
             </svg>
             Hyperlore
           </div>

@@ -48,6 +48,9 @@ function spriteSvg() {
   return `<svg xmlns="http://www.w3.org/2000/svg">${[...brands, ...glyphs].join("")}</svg>`;
 }
 
+// No params: this tells static export (output: "export") to prerender the handler.
+export const generateStaticParams = () => [{}];
+
 export function GET() {
   return new Response(spriteSvg(), {
     headers: { "Content-Type": "image/svg+xml", "Cache-Control": "public, max-age=31536000, immutable" },

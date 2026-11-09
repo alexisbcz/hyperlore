@@ -27,3 +27,18 @@ node_modules/
 
 # Research agent run logs (transcripts, reports)
 data/runs/
+
+# Content lives in the public archive repo (github.com/alexisbcz/hyperlore-archive), published with
+# `python3 scripts/archive.py push`; the site build pulls it back (scripts/archive.py pull).
+/web/data/archive.json
+/web/public/assets/
+/web/public/people/
+/web/public/places/
+/data/assets/
+/data/people/
+/data/places/
+/data/transcripts/
+/archive/
+
+# Static build output
+/web/out/

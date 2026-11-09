@@ -25,6 +25,15 @@ Loose names are common ("Corgi", "the compliance one", "boat.dev"). Before spend
 | Funding press, coverage | Context.dev `news/search`, the company blog, TechCrunch, Sifted, Les Echos… | — |
 | Repos, first commits, org renames | GitHub API (`api.github.com/repos/<o>/<r>`, `/commits?per_page=1&...`) | — |
 | French/Swedish/… companies | local press and local-language captions (`--sub-langs fr,en`) | — |
+| Coverage nothing else finds, "is it still active?", competitors | Linkup `search` / `research`, `./hl peers <slug>` | `linkup` |
+
+### Search by the people, not just the company
+
+When the company name finds little, and always for interviews, search every founder by name, with and without diacritics ("Küntzel", "Kuntzel", "Kuentzel"), and by their X/HN/Bluesky handles. Run the same queries on YouTube (`yt-dlp "ytsearch10:<name>"`), podcast directories (Apple's free episode search: `https://itunes.apple.com/search?media=podcast&entity=podcastEpisode&country=<cc>&term=<name>`, with the founders' home country as `cc`), HN and the web. Also search the founders' earlier companies (Quartr co-founder Oliver Hamrin's earlier firm Kalqyl led to two more podcasts). Quartr: the company name found only a one-minute product clip on YouTube; the founders' names found a one-hour founder interview, an investor's podcast and three more episodes.
+
+**Keep only hits that are provably the same person.** Common names collide: "Sami Osman" on YouTube is a US soccer creator, not the Quartr founder. A hit counts only if its title, description or show notes name the company, a co-founder, or a detail you already sourced (city, earlier company, investor). Otherwise drop it, however plausible. Check again once it's transcribed: the speaker must introduce themselves or be introduced as that founder.
+
+**Handles need the same proof.** Company author pages and team pages list several people's links side by side. Attach a handle to a person only when it sits next to that person's own name or LinkedIn on the page, or the account's bio names them. A handle seen *near* a founder is not theirs: `Matematikern3`, listed on Quartr's pages, belongs to Peter Westberg, not to co-founder David Dag.
 
 Budgets: ScrapeCreators credits are paid and finite (check `./hl stats` → `calls_by_agent`; balance: `curl -H "x-api-key: $KEY" https://api.scrapecreators.com/v1/credit-balance`). Context.dev has a large balance but costs per call. Everything else is free. Always `export HL_AGENT=<name>` so spend is attributed.
 

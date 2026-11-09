@@ -1,3 +1,5 @@
+import { withBase } from "@/lib/base";
+
 // Source marks are drawn once in the /source-icons.svg sprite (src/app/source-icons.svg/route.ts) and
 // referenced with <use>: pages show hundreds of them, and inlining each path weighed ~190 KB of HTML
 // (twice, counting the RSC payload) on a company page. Brand marks (Simple Icons) for these types:
@@ -14,7 +16,7 @@ const GLYPH_OF: Record<string, string> = {
 };
 
 /** Bump when a symbol changes, so browsers drop the cached sprite. */
-export const SPRITE_URL = "/source-icons.svg?v=3";
+export const SPRITE_URL = withBase("/source-icons.svg?v=3");
 
 // Own keys only: a type can be any string, including "constructor".
 const symbolOf = (type: string) =>

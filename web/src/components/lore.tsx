@@ -7,6 +7,7 @@ import { isSecondaryStage, slugifyName, stageLabel, stageOf } from "@/lib/direct
 import { SOURCE_LABELS, formatDate } from "@/lib/format";
 import type { FundingRound, Logo, LoreEvent, Mark, Photo, Quote, SourceInfo, SourceRef } from "@/lib/types";
 import { type CardPlacement, type CiteCardData, CiteHover, CiteMark } from "./cite-card";
+import { withBase } from "@/lib/base";
 
 export { SOURCE_LABELS, formatDate };
 
@@ -110,7 +111,7 @@ export function Avatar({ photo, name, size = "md" }: { photo?: Photo; name: stri
     .join("");
   return photo ? (
     // eslint-disable-next-line @next/next/no-img-element
-    <img src={photo.src} alt="" className={`${box} shrink-0 rounded-full border border-border object-cover`} />
+    <img src={withBase(photo.src)} alt="" className={`${box} shrink-0 rounded-full border border-border object-cover`} />
   ) : (
     <span aria-hidden="true" className={`${box} flex shrink-0 items-center justify-center rounded-full border border-border bg-bg-subtle font-medium text-fg-muted`}>
       {initials}
@@ -244,7 +245,7 @@ export function EventItem({ event, showCompany, headingLevel = 4 }: { event: Lor
         {chips.map((s) => (
           <SourceChip key={s.url} source={s} />
         ))}
-        <Link href={`/correct?event=${event.id}`} className="ev-fix">
+        <Link href={`/correct?${new URLSearchParams({ event: event.id, about: `${event.title} (${event.date})`, page: `/${event.company}` })}`} className="ev-fix">
           Suggest a correction
         </Link>
       </div>
@@ -637,7 +638,7 @@ export function LogoStrip({ logos }: { logos: Logo[] }) {
         >
           <span className={`flex h-24 items-center justify-center p-4 ${l.variant === "dark" ? "bg-neutral-900" : "bg-white"}`}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={l.src} alt={l.description ?? `${l.company} logo`} className="max-h-14 max-w-full object-contain" />
+            <img src={withBase(l.src)} alt={l.description ?? `${l.company} logo`} className="max-h-14 max-w-full object-contain" />
           </span>
           <span className="border-t border-border px-3 py-2 text-xs text-fg-subtle">
             <span className="tabular-nums">{formatDate(l.date)}</span> · {l.kind}

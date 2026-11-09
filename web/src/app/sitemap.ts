@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
+import { ASSET_BASE, isArchivedImage } from "@/lib/base";
 import { cacheLife } from "next/cache";
-import { connection } from "next/server";
 import { listCategories, listCompanies, listInvestors, listPeople, listPlaces, listStories } from "@/lib/lore";
 import { SITE_URL } from "@/lib/og";
 import { isLive } from "@/lib/store";
@@ -9,7 +9,6 @@ import { isLive } from "@/lib/store";
 // uncached I/O, and whether the build could prerender the sitemap depended on a worker having it loaded.
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   if (!isLive()) return cachedEntries();
-  await connection();
   return entries();
 }
 
@@ -29,6 +28,8 @@ async function entries(): Promise<MetadataRoute.Sitemap> {
     listCategories(),
   ]);
   const url = (path: string) => `${SITE_URL}${path}`;
+  // Photos are served by the archive's own site when NEXT_PUBLIC_ASSET_BASE is set.
+  const img = (path: string) => (ASSET_BASE && isArchivedImage(path) ? ASSET_BASE + path : url(path));
   return [
     { url: url("/"), changeFrequency: "daily", priority: 1 },
     ...["/companies", "/rounds", "/portfolios/yc", "/portfolios/a16z", "/portfolios/kima", "/portfolios/frst", "/benchmarks", "/ideas", "/compare", "/stats", "/categories", "/people", "/investors", "/places", "/stories", "/developers"].map((p) => ({ url: url(p), changeFrequency: "weekly" as const, priority: 0.6 })),
@@ -38,12 +39,15 @@ async function entries(): Promise<MetadataRoute.Sitemap> {
       ...(c.lastEvent && /^\d{4}-\d{2}-\d{2}$/.test(c.lastEvent) && { lastModified: c.lastEvent }),
       changeFrequency: "weekly" as const,
       priority: c.summary ? 0.9 : 0.4,
-      ...(c.logo && { images: [url(c.logo.src)] }),
+      ...(c.logo && { images: [img(c.logo.src)] }),
     })),
     ...categories.map((c) => ({ url: url(`/categories/${c.slug}`), changeFrequency: "weekly" as const, priority: 0.5 })),
     ...stories.map((s) => ({ url: url(`/stories/${s.slug}`), lastModified: s.updatedAt, priority: 0.8 })),
-    ...people.map((p) => ({ url: url(`/people/${p.slug}`), priority: 0.5, ...(p.photo && { images: [url(p.photo.src)] }) })),
-    ...places.map((p) => ({ url: url(`/places/${p.slug}`), priority: 0.5, ...(p.photo && { images: [url(p.photo.src)] }) })),
+    ...people.map((p) => ({ url: url(`/people/${p.slug}`), priority: 0.5, ...(p.photo && { images: [img(p.photo.src)] }) })),
+    ...places.map((p) => ({ url: url(`/places/${p.slug}`), priority: 0.5, ...(p.photo && { images: [img(p.photo.src)] }) })),
     ...investors.map((i) => ({ url: url(`/investors/${i.slug}`), priority: 0.3 })),
   ];
 }
+
+// No params: lets static export (output: "export") prerender this file.
+export const generateStaticParams = () => [{}];

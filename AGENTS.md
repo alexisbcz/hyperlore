@@ -85,6 +85,12 @@ Wayback Machine one request at a time and back off when it refuses connections.
     use it when yt-dlp gets HTTP 429). **Never `web/scrape` a LinkedIn page** — one cost ~170
     credits; use `./hl sc v1/linkedin/company` / `v1/linkedin/profile` instead.
   - `POST company/search`, `POST people/search` — company and founder lookups.
+- **Linkup** (`./hl linkup search|fetch|research|balance '<json>'`, key in `.env`, cached in
+  `data/raw/linkup/`, spend logged in USD). Agentic web search ($0.005 standard, $0.05 deep), page fetch
+  ($0.001, works on JS sites and PDFs), and an async research agent ($0.25–2.50, 3–20 min).
+  `./hl peers <slug|domain> [...] [--where France]` finds comparable companies and flags which are
+  already in the archive. Its answers are leads: cite the pages it found, never Linkup itself.
+  See the `linkup` skill.
 - **YouTube transcripts**: free first: `yt-dlp --skip-download --write-subs --write-auto-subs
   --sub-langs en --sub-format vtt -o 'data/transcripts/%(id)s' URL` (works again since the
   user's VPN was turned off; if YouTube's "confirm you're not a bot" comes back, retry with

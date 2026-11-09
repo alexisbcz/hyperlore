@@ -5,6 +5,10 @@ description: Get timestamped transcripts of YouTube interviews, talks and podcas
 
 # Transcripts with timestamps
 
+## Finding the interviews
+
+Search by each founder's name (and handles, and earlier companies), not only the company name: on YouTube (`yt-dlp --flat-playlist --print "%(id)s | %(duration_string)s | %(channel)s | %(title)s" "ytsearch10:<name>"`) and on podcasts (`https://itunes.apple.com/search?media=podcast&entity=podcastEpisode&country=<cc>&term=<name>`, which returns `episodeUrl`, a direct audio link for whisper). Non-US founders often speak on local-language shows; use the home country's `cc`. Keep a hit only if its title or notes tie it to the company or a co-founder; namesakes are common (see `research-company`, "Search by the people").
+
 Order of attempts, cheapest first:
 
 1. **yt-dlp captions (free).**

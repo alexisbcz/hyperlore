@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { withBase } from "@/lib/base";
 
 /**
  * A logo <img> inside a CompanyMark that swaps to the company's `initial` (or to nothing) when the
@@ -22,5 +23,5 @@ export function LogoImg({ src, className, initial }: { src: string; className?: 
       </span>
     ) : null;
   // eslint-disable-next-line @next/next/no-img-element
-  return <img ref={ref} src={src} alt="" className={className} onError={() => setFailed(true)} />;
+  return <img ref={ref} src={withBase(src)} alt="" className={className} onError={() => setFailed(true)} />;
 }

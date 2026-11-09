@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { withBase } from "@/lib/base";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
@@ -11,9 +12,12 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: "#0b0c0e",
     icons: [
       { src: "/icon.svg", type: "image/svg+xml", sizes: "any" },
-      { src: "/icon-192.png", type: "image/png", sizes: "192x192" },
-      { src: "/icon-512.png", type: "image/png", sizes: "512x512" },
+      { src: withBase("/icon-192.png"), type: "image/png", sizes: "192x192" },
+      { src: withBase("/icon-512.png"), type: "image/png", sizes: "512x512" },
       { src: "/icon-maskable-512.png", type: "image/png", sizes: "512x512", purpose: "maskable" },
     ],
   };
 }
+
+// No params: lets static export (output: "export") prerender this file.
+export const generateStaticParams = () => [{}];

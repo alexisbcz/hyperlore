@@ -485,7 +485,7 @@ def c_github_sets(co, cfg, out):
 def wiki_api(host, **params):
     params.update(format="json", action="query", formatversion="2")
     q = "&".join(f"{k}={quote(str(v))}" for k, v in sorted(params.items()))
-    return fetch_json(f"https://{host}/w/api.php?{q}", headers={"User-Agent": UA + " bouchezalexis1@gmail.com"})
+    return fetch_json(f"https://{host}/w/api.php?{q}", headers={"User-Agent": UA + " (https://github.com/alexisbcz/hyperlore)"})
 
 
 def c_commons(co, cfg, out):
@@ -512,7 +512,7 @@ def c_commons(co, cfg, out):
                 if not rv.get("url") or rv.get("sha1") in seen:
                     continue
                 seen.add(rv.get("sha1"))
-                r = fetch(rv["url"], headers={"User-Agent": UA + " bouchezalexis1@gmail.com"})
+                r = fetch(rv["url"], headers={"User-Agent": UA + " (https://github.com/alexisbcz/hyperlore)"})
                 if not r or r[0] != 200:
                     continue
                 lic = (rv.get("extmetadata", {}).get("LicenseShortName") or {}).get("value", "")

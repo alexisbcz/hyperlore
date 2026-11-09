@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Suspense, useSyncExternalStore } from "react";
 import { Gloss, type GlossItem } from "./gloss";
+import { withBase } from "@/lib/base";
 
 type Item = GlossItem & { href: string; label: string };
 
@@ -151,7 +152,7 @@ export function RecentCompanies() {
             <Link href={`/${r.slug}`} className="flex h-8 items-center gap-2.5 rounded-lg px-1.5 text-sm text-fg-muted transition-colors hover:bg-bg-hover hover:text-fg">
               <span className="flex size-5 shrink-0 items-center justify-center overflow-hidden rounded-md bg-white text-[10px] font-semibold text-neutral-700">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                {r.icon ? <img src={r.icon} alt="" className="size-4 object-contain" /> : r.name[0]}
+                {r.icon ? <img src={withBase(r.icon)} alt="" className="size-4 object-contain" /> : r.name[0]}
               </span>
               <span className="truncate">{r.name}</span>
             </Link>

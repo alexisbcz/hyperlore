@@ -1,0 +1,82 @@
+# Builds the static site from this repo's code and the public archive's content
+# (github.com/alexisbcz/hyperlore-archive), then deploys it to Netlify.
+# Runs on every push to main, and on demand: `python3 scripts/archive.py push` starts it after
+# publishing new content (gh workflow run deploy.yml).
+#
+# Repository secrets: NETLIFY_AUTH_TOKEN (a Netlify personal access token) and NETLIFY_SITE_ID.
+# Repository variable: SITE_URL (the site's public URL, e.g. https://hyperlore.netlify.app).
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# One deployment at a time; a newer run waits for the current one instead of cancelling it.
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+env:
+  ARCHIVE_REPO: alexisbcz/hyperlore-archive
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch the archive
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.ARCHIVE_REPO }}
+          path: archive
+          # Only the site's files: transcripts aren't needed to build.
+          sparse-checkout: |
+            archive.json
+            assets
+            people
+            places
+          sparse-checkout-cone-mode: false
+
+      - name: Put the archive in place
+        run: python3 scripts/archive.py pull --dir archive --site-only
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: web/package.json
+
+      - name: Install
+        working-directory: web
+        run: bun install --frozen-lockfile
+
+      # PDFs are typeset once per content change and reused across runs (keyed by a hash of each
+      # company's lore; the key below only changes when the typesetting code or fonts do).
+      - name: Restore the PDF cache
+        uses: actions/cache@v4
+        with:
+          path: web/.cache/pdf
+          key: pdf-${{ hashFiles('web/src/lib/export*.ts*', 'web/src/assets/fonts/**', 'web/bun.lock') }}-${{ github.run_id }}
+          restore-keys: pdf-${{ hashFiles('web/src/lib/export*.ts*', 'web/src/assets/fonts/**', 'web/bun.lock') }}-
+
+      - name: Build
+        working-directory: web
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
+          NEXT_TELEMETRY_DISABLED: "1"
+        run: |
+          bun run build
+          bun scripts/pdfs.tsx --out out --cache .cache/pdf
+          du -sh out
+
+      # Netlify uploads only the files whose content changed since the last deploy.
+      - name: Deploy to Netlify
+        working-directory: web
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: bunx netlify-cli@27.16.3 deploy --prod --no-build --dir out --message "${{ github.sha }}"

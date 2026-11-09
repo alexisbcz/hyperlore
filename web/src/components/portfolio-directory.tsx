@@ -3,6 +3,7 @@
 import { ArrowUpRight, Search } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import { withBase } from "@/lib/base";
 
 // One row of public/portfolios/*.json (see portfolios.py). Short keys: these files hold thousands of rows.
 type Row = {
@@ -58,7 +59,7 @@ function Item({ r }: { r: Row }) {
       <span className="flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white text-xs font-semibold text-neutral-700">
         {r.l ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={r.l} alt="" loading="lazy" className="size-7 object-contain" />
+          <img src={withBase(r.l)} alt="" loading="lazy" className="size-7 object-contain" />
         ) : (
           r.n[0]
         )}
@@ -91,7 +92,7 @@ export function PortfolioDirectory({ fund, periodLabel }: { fund: string; period
   const [limit, setLimit] = useState(PAGE);
 
   useEffect(() => {
-    fetch(`/portfolios/${fund}.json`)
+    fetch(withBase(`/portfolios/${fund}.json`))
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
       .then(setRows)
       .catch(() => setFailed(true));

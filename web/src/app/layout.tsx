@@ -38,7 +38,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
         <script dangerouslySetInnerHTML={{ __html: SIDEBAR_SCRIPT }} />
       </head>
-      {/* The design's chrome lives in each design's layout: (classic)/layout.tsx and lab/twenty/layout.tsx. */}
+      {/* The design's chrome lives in each design's layout: (site)/layout.tsx. */}
       <body className="min-h-full font-sans">{children}</body>
     </html>
   );
