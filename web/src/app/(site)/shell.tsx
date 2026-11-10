@@ -16,7 +16,6 @@ import {
   IconBook2,
   IconBuildingSkyscraper,
   IconCoins,
-  IconFlask,
   IconHome,
   IconLayoutGrid,
   IconLayoutSidebarLeftCollapse,
@@ -185,15 +184,6 @@ function Drawer({ counts, onSearch, onNavigate, onCollapse }: { counts: Promise<
       <Suspense fallback={<NavList />}>
         <ActiveNav counts={counts} onNavigate={onNavigate} />
       </Suspense>
-      <div className="tw-drawer-group">
-        <div className="tw-drawer-label">Other views</div>
-        <ListItem startIcon={<IconTimelineEvent />} render={<a href="/?style=classic" />}>
-          Classic design
-        </ListItem>
-        <ListItem startIcon={<IconFlask />} render={<a href="/lab" />}>
-          Style lab
-        </ListItem>
-      </div>
       <div className="tw-drawer-foot">
         <MainButton size="sm" fullWidth startIcon={<IconPlus />} render={<Link href="/request" onClick={onNavigate} />} nativeButton={false} style={{ marginBottom: 8 }}>
           Request a company
