@@ -663,8 +663,14 @@ a.tw-rel-row:hover {
   font-weight: var(--t-font-weight-semi-bold);
   color: var(--t-font-color-primary);
 }
-.tw-timeline > section:first-child > .tw-tl-year {
+.tw-timeline > section:first-child > .tw-tl-year,
+.tw-tl-bar + section > .tw-tl-year {
   margin-top: 0;
+}
+.tw-tl-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: var(--t-spacing-3);
 }
 .tw-tl-year .tw-col-count {
   font-weight: var(--t-font-weight-regular);

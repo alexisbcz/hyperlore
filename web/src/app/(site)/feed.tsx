@@ -4,9 +4,10 @@
 // receive compact rows instead of server-rendered element trees, which kept a big company's page
 // several times larger than its data.
 
-import type { CSSProperties } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import Link from "next/link";
-import { IconExternalLink } from "twenty-ui/icon";
+import { IconExternalLink, IconSortAscending, IconSortDescending } from "twenty-ui/icon";
+import { SegmentedControl } from "twenty-ui/components/input";
 import { Tooltip } from "twenty-ui/primitives/surfaces";
 import { Text } from "twenty-ui/primitives/typography";
 import { SOURCE_LABELS, formatDate } from "@/lib/format";
@@ -50,16 +51,52 @@ export type TimelineEvent = {
   companyName?: string;
 };
 
-/** Twenty's activity feed: grouped by year, newest first, one icon tile per event kind. */
+type Order = "newest" | "oldest";
+
+/** The timeline's order, kept in ?order= (newest is the default and stays out of the URL). */
+function useOrder(): [Order, (o: Order) => void] {
+  const [order, setOrder] = useState<Order>("newest");
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    if (new URLSearchParams(window.location.search).get("order") === "oldest") setOrder("oldest");
+  }, []);
+  const change = (o: Order) => {
+    setOrder(o);
+    const p = new URLSearchParams(window.location.search);
+    if (o === "oldest") p.set("order", "oldest");
+    else p.delete("order");
+    const q = p.toString();
+    window.history.replaceState(window.history.state, "", `${window.location.pathname}${q ? `?${q}` : ""}${window.location.hash}`);
+  };
+  return [order, change];
+}
+
+/** Twenty's activity feed: grouped by year, newest or oldest first, one icon tile per event kind. */
 export function Timeline({ events, showCompany }: { events: TimelineEvent[]; showCompany?: boolean }) {
+  const [order, setOrder] = useOrder();
   const byYear = new Map<string, TimelineEvent[]>();
-  for (const e of events.toSorted((a, b) => b.date.localeCompare(a.date))) {
+  const sorted = events.toSorted((a, b) => (order === "newest" ? b.date.localeCompare(a.date) : a.date.localeCompare(b.date)));
+  for (const e of sorted) {
     const y = e.date.slice(0, 4);
     byYear.set(y, [...(byYear.get(y) ?? []), e]);
   }
   if (!events.length) return <div className="tw-empty">No events recorded yet.</div>;
   return (
     <div className="tw-timeline">
+      {events.length > 1 && (
+        <div className="tw-tl-bar">
+          <SegmentedControl<Order>
+            aria-label="Order of events"
+            size="sm"
+            value={order}
+            onValueChange={(v) => setOrder(v)}
+            options={[
+              { value: "newest", label: "Newest first", startIcon: <IconSortDescending size={14} /> },
+              { value: "oldest", label: "Oldest first", startIcon: <IconSortAscending size={14} /> },
+            ]}
+          />
+        </div>
+      )}
       {[...byYear].map(([y, list]) => (
         <section key={y}>
           <h3 className="tw-tl-year">
